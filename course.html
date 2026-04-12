@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Курс Турагента VIK TOURS - Обучение с нуля</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="course.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== Pricing h3 highlight ===== */
+        .pricing-header h3 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--primary-dark-blue);
+            letter-spacing: -0.01em;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.4rem;
+        }
+
+        .pricing-header h3::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-red), var(--primary-green));
+            border-radius: 2px;
+            margin: 0.35rem auto 0;
+        }
+
+        /* ===== Pink price note — reduced line-height ===== */
+        .price-note-red {
+            font-size: 0.88rem;
+            color: var(--primary-red);
+            line-height: 1.3;
+            display: block;
+            margin-top: 0.25rem;
+        }
+
+        /* ===== FOR-YOU CARDS ===== */
+        .for-you-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 1.6rem 1.75rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--primary-red);
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+        }
+
+        .for-you-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+        }
+
+        .for-you-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary-dark-blue);
+            line-height: 1.3;
+        }
+
+        .for-you-text {
+            font-size: 0.9rem;
+            color: #5a6a80;
+            line-height: 1.6;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 20, 40, 0.72);
+            backdrop-filter: blur(4px);
+            z-index: 8000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .modal-box {
+            background: #fff;
+            border-radius: 20px;
+            padding: 2.25rem 2rem;
+            max-width: 520px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+            position: relative;
+            animation: modalIn 0.3s ease;
+        }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: scale(0.94) translateY(16px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.25rem;
+            background: none;
+            border: none;
+            font-size: 1.6rem;
+            line-height: 1;
+            cursor: pointer;
+            color: #888;
+            transition: color 0.2s;
+        }
+
+        .modal-close:hover {
+            color: #333;
+        }
+
+        .modal-box h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0f3460;
+            margin-bottom: 1.25rem;
+        }
+
+        .modal-form .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .modal-form label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: #444;
+        }
+
+        .modal-form input[type="text"],
+        .modal-form input[type="tel"],
+        .modal-form input[type="email"] {
+            width: 100%;
+            padding: 0.65rem 0.9rem;
+            border: 1.5px solid #dde3ef;
+            border-radius: 8px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .modal-form input:focus {
+            border-color: #0f3460;
+        }
+
+        /* ===== CHECKBOXES ===== */
+        .consent-block {
+            margin-top: 1.1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .consent-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: #444;
+        }
+
+        .consent-item input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            min-width: 18px;
+            border: 2px solid #aab5cc;
+            border-radius: 4px;
+            background: #fff;
+            cursor: pointer;
+            position: relative;
+            transition: border-color 0.2s, background 0.2s;
+            margin-top: 2px;
+        }
+
+        .consent-item input[type="checkbox"]:checked {
+            background: #0f3460;
+            border-color: #0f3460;
+        }
+
+        .consent-item input[type="checkbox"]:checked::after {
+            content: '';
+            position: absolute;
+            left: 4px;
+            top: 1px;
+            width: 6px;
+            height: 10px;
+            border: 2px solid #fff;
+            border-top: none;
+            border-left: none;
+            transform: rotate(45deg);
+        }
+
+        .consent-item a {
+            color: #0f3460;
+            text-decoration: underline;
+        }
+
+        .consent-item a:hover {
+            color: #e63946;
+        }
+
+        .modal-submit {
+            width: 100%;
+            margin-top: 1.25rem;
+            padding: 0.8rem;
+            background: linear-gradient(135deg, #0f3460, #1a4a8a);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.15s;
+        }
+
+        .modal-submit:hover {
+            opacity: 0.9;
+            transform: scale(1.01);
+        }
+
+        .modal-submit:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* ===== REVIEWS NOTICE ===== */
+        .reviews-notice {
+            background: #f0f4ff;
+            border: 1px solid #c5d3f0;
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            font-size: 0.82rem;
+            color: #3a4a6b;
+            line-height: 1.6;
+            margin-top: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .reviews-notice strong {
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        /* ===== FOOTER LEGAL ===== */
+        .footer-legal {
+            margin-top: 1.25rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            font-size: 0.82rem;
+            line-height: 1.7;
+            opacity: 0.75;
+        }
+
+        .footer-legal a {
+            color: #a8c5ff;
+            text-decoration: underline;
+        }
+
+        .footer-legal a:hover {
+            color: #fff;
+        }
+
+        .footer-requisites {
+            margin-bottom: 0.6rem;
+        }
+    </style>
+</head>
+
+<body>
+
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">Турагентство<br><em>Виктории Новиковой</em></a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html#about">Обо мне</a>
+      <a href="index.html#dest">Направления</a>
+      <div class="nav-dropdown" id="navDropdown">
+        <div class="nav-dropdown-trigger" id="dropTrigger">Гайды <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="nav-dropdown-menu">
+          <a href="maldives.html"><span class="dd-icon">💍</span> Мальдивы для свадьбы</a>
+          <a href="transit_guide.html"><span class="dd-icon">✈️</span> Гайд по стыковкам</a>
+          <a href="pets.html"><span class="dd-icon">🐾</span> Перелёт с питомцем</a>
+        </div>
+      </div>
+      <a href="course.html">Курс</a>
+      <a href="index.html#contact" class="nav-btn">Написать</a>
+    </div>
+    <button class="nav-burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+    <!-- Block 1: Hero -->
+    <header class="hero hero-bg">
+        <!-- Gradient overlay -->
+        <div class="hero-overlay"></div>
+
+
+
+        <!-- Animated particles -->
+        <div class="hero-particles" aria-hidden="true">
+            <span class="particle"></span><span class="particle"></span><span class="particle"></span>
+            <span class="particle"></span><span class="particle"></span><span class="particle"></span>
+            <span class="particle"></span><span class="particle"></span><span class="particle"></span>
+        </div>
+
+        <!-- Main content -->
+        <div class="hero-inner" style="position: relative; z-index: 2;">
+
+            <!-- Destinations ticker -->
+            <div class="hero-ticker">
+                <div class="ticker-track">
+                    <span>🇹🇷 Турция</span><span>🇦🇪 ОАЭ</span><span>🇪🇬 Египет</span>
+                    <span>🇹🇭 Таиланд</span><span>🇲🇻 Мальдивы</span><span>🇮🇩 Бали</span>
+                    <span>🇻🇳 Вьетнам</span><span>🇮🇳 Индия</span><span>🇪🇸 Испания</span>
+                    <!-- duplicate for seamless loop -->
+                    <span>🇹🇷 Турция</span><span>🇦🇪 ОАЭ</span><span>🇪🇬 Египет</span>
+                    <span>🇹🇭 Таиланд</span><span>🇲🇻 Мальдивы</span><span>🇮🇩 Бали</span>
+                    <span>🇻🇳 Вьетнам</span><span>🇮🇳 Индия</span><span>🇪🇸 Испания</span>
+                </div>
+            </div>
+
+            <div class="hero-badge">🎓 Курс онлайн-турагента </div>
+
+            <h1 class="hero-title">
+                Получите профессию<br>
+                <span class="hero-highlight">онлайн-турагента</span><br>
+
+            </h1>
+
+            <p class="hero-sub">Зарабатывайте от 70 000 до нескольких миллионов рублей<br>из любой точки мира — прямо с
+                ноутбука или телефона</p>
+
+            <!-- Stats row -->
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-numrow"><span class="hstat-num" data-target="5000">0</span><span
+                            class="hstat-suffix">+</span></div>
+                    <span class="hstat-label">туристов</span>
+                </div>
+
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="hstat-num" data-target="25">0</span>
+                    <span class="hstat-label">стран</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="hstat-num" data-target="15">0</span>
+                    <span class="hstat-label">лет опыта</span>
+                </div>
+            </div>
+
+            <div class="hero-cta">
+                <a href="#pricing" class="btn btn-primary btn-hero" id="heroCta">Хочу на курс ✈️</a>
+                <p class="hero-cta-note">🔥 Старт продаж — специальные цены для первых</p>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="hero-scroll" aria-hidden="true">
+            <div class="scroll-dot"></div>
+        </div>
+    </header>
+
+    <!-- Block 2: About Course & Founder -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Обучение с нуля от основателя и директора онлайн-турагентства Виктории Новиковой
+            </h2>
+            <p class="section-subtitle">Уникальный курс, который содержит в себе актуальную и объемную информацию в
+                сфере туризма, после получения которой, Вы сможете стать настоящими профессионалами и увеличить свой
+                доход занимаясь любимым делом.</p>
+
+            <div class="founder-section">
+                <div class="founder-image fade-in-up">
+                    <img src="images/about.JPEG" alt="Виктория Новикова"
+                        style="width: 100%; max-width: 400px; border-radius: 20px; box-shadow: var(--shadow-lg);">
+                </div>
+                <div class="founder-content fade-in-up delay-100">
+                    <h3>Виктория Новикова</h3>
+                    <ul style="list-style: none; margin-top: 1rem;">
+                        <li style="margin-bottom: 1rem;">✅ Эксперт в области туризма с опытом работы более 15 лет</li>
+                        <li style="margin-bottom: 1rem;">✅ Предприниматель в сфере туризма с миллионными оборотами</li>
+                        <li style="margin-bottom: 1rem;">✅ С агентством Виктории Новиковой отдохнуло уже более 5 000
+                            туристов
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Block 3: Why Dream Job -->
+    <section class="section bg-image-2" style="position: relative;">
+        <div class="overlay"></div>
+        <div class="container" style="position: relative; z-index: 1;">
+            <h2 class="section-title" style="color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Почему
+                онлайн-турагент — это профессия мечты?</h2>
+            <div class="grid-2">
+                <div class="card fade-in-up">
+                    <h4>🌍 Работа из любой точки мира</h4>
+                    <p>Вам нужен только интернет и ноутбук. Ваш офис может быть на берегу океана или в уютной кофейне.
+                    </p>
+                </div>
+                <div class="card fade-in-up delay-100">
+                    <h4>🚀 Минимальный старт</h4>
+                    <p>Не нужно закупать товар или снимать помещение. Вложения минимальны по сравнению с другим
+                        бизнесом.</p>
+                </div>
+                <div class="card fade-in-up delay-200">
+                    <h4>✈️ Путешествия со скидками</h4>
+                    <p>Агенты первыми узнают о лучших ценах и летают в рекламные туры по себестоимости.</p>
+                </div>
+                <div class="card fade-in-up delay-300">
+                    <h4>💰 Нет потолка в доходах</h4>
+                    <p>Вы сами решаете, сколько зарабатывать — от приятной подработки до построения крупной сети
+                        агентств.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Block 4: Why Choose Us -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Авторская программа от практикующего эксперта с 15-летним опытом</h2>
+            <div class="grid-2">
+                <div class="fade-in-up">
+                    <p style="margin-bottom: 1rem;"><strong>Обучение ведет практикующий турагент с огромным опытом
+                            работы</strong>, прошедшая не раз через все кризисы в туристическом бизнесе и успешно
+                        преодолевшая их.</p>
+                    <p style="margin-bottom: 1rem;">"Вся информация на моем курсе отвечает современным реалиям в мире
+                        турбизнеса, я постоянно путешествую, повышаю свою квалификацию и получаю новые, передовые
+                        знания, посетила уже 25 стран.</p>
+                </div>
+                <div class="fade-in-up delay-100">
+                    <p style="margin-bottom: 1rem;">Я собрала весь свой опыт, ошибки, подводные камни, наработки, в свою
+                        авторскую программу, чтобы Вы могли стартовать быстрее и увереннее.</p>
+                    <div
+                        style="background-color: var(--header-bg-light-blue); padding: 1.5rem; border-radius: 1rem; margin-top: 1rem;">
+                        <strong>Моя миссия</strong> - помогать осваивать новую востребованную профессию всем желающим и
+                        достойно зарабатывать на любимом деле "
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#pricing" class="btn btn-primary">Записаться на курс</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Block 5: Is this for you? -->
+    <section class="section bg-image-3" style="position: relative;">
+        <div class="overlay"></div>
+        <div class="container" style="position: relative; z-index: 1;">
+            <h2 class="section-title" style="color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Именно Вам подходит
+                этот курс, если:</h2>
+            <div class="grid-3">
+                <div class="card fade-in-up">Вы обожаете путешествовать<br>и хотели бы превратить это в стабильный
+                    заработок</div>
+                <div class="card fade-in-up delay-100">Вы выгорели на старой работе<br>и хотели бы сменить деятельность
+                </div>
+                <div class="card fade-in-up delay-200">У вас амбициозные цели<br>и Вы хотите открыть свое
+                    турагентство<br>и зарабатывать от 500 000 руб. в месяц и больше</div>
+                <div class="card fade-in-up">Хотите иметь дополнительный доход от 70 000 руб.<br>используя только
+                    интернет и ноутбук</div>
+                <div class="card fade-in-up delay-100">Часто путешествуете<br>и хотели бы делать это со скидками</div>
+                <div class="card fade-in-up delay-200">Не знаете с чего начать<br>туристический бизнес</div>
+                <div class="card fade-in-up">Хотите работать удалённо<br>из любой точки мира</div>
+                <div class="card fade-in-up delay-100">Хотите узнать нюансы работы турагентом,<br>посмотреть работу
+                    изнутри,<br>получить практику</div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <button class="btn btn-primary" onclick="openModal('Оставить заявку')">Оставить заявку</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Block 6: Why Profitable -->
+    <section class="section bg-image-4" style="position: relative;">
+        <div class="overlay"></div>
+        <div class="container" style="position: relative; z-index: 1;">
+            <h2 class="section-title" style="color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Почему выгодно
+                обучаться именно у меня:</h2>
+            <div class="grid-2">
+                <div class="card fade-in-up">
+                    <h4>Без воды</h4>
+                    <p>Актуальная и честная информация без воды.<br>Я не обещаю миллионных заработков в первый месяц, но
+                        дам все рабочие инструменты для достижения этих целей</p>
+                </div>
+                <div class="card fade-in-up delay-100">
+                    <h4>Много практики</h4>
+                    <p>На моём курсе много практики, а не только сухая теория.<br>После окончания курса, вы без страха
+                        сможете работать с реальными туристами</p>
+                </div>
+                <div class="card fade-in-up delay-200">
+                    <h4>Карьерный рост</h4>
+                    <p>Моё агентство постоянно растёт и лучшие ученики смогут пойти ко мне в команду<br>и стать
+                        менеджерами, старшими менеджерами или руководителем продаж</p>
+                </div>
+                <div class="card fade-in-up delay-300">
+                    <h4>Бонусы</h4>
+                    <p>Бонусные уроки и подарки, которые Вас приятно порадуют</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#pricing" class="btn btn-primary">Записаться на курс</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Block 7, 8, 9: Pricing -->
+    <section id="pricing" class="section" style="background-color: var(--white);">
+        <div class="container">
+            <h2 class="section-title">Тарифы обучения</h2>
+            <div class="grid-3">
+                <!-- Tariff 1 -->
+                <div class="card pricing-card fade-in-up">
+                    <div class="pricing-header">
+                        <h3>Тариф 1. Для себя</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.5rem;">для тех, кто
+                            не планирует открывать ИП или ООО, есть возможность бронировать туры через наше агентство и
+                            хорошо зарабатывать, все юридические моменты, заключение договоров с туристами и
+                            туроператорами мы берем на себя</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><strong>Блок 1:</strong><br>Понятие, что такое туризм.<br>Пакетный или самостоятельный
+                            тур.<br>Различия между турагентом и туроператором.<br>Что сейчас происходит в
+                            туризме.<br>Тревел-терминология.</li>
+                        <li><strong>Блок 2:</strong><br>Инструменты для поиска тура, сайты туроператоров.<br>Регулярные
+                            и чартерные рейсы, трансферы.<br>Визы, страховки, перелет с инфантом.<br>Сроки действия
+                            загранпаспортов.</li>
+                        <li><strong>Блок 3:</strong><br>Понятие сезонности в пляжном отдыхе.<br>Основные курорты Турции,
+                            ОАЭ, Египта.<br>Отельная база.<br>Летний и зимний отдых.<br>Морские и речные круизы.</li>
+                        <li><strong>Блок 4:</strong><br>Погружение в Азию (Таиланд, Вьетнам, Индия, Китай,
+                            Индонезия).<br>Как правильно продавать Мальдивы и Сейшелы.<br>Как сейчас попасть в Европу.
+                        </li>
+                        <li><strong>Блок 5:</strong><br>Практическая часть.<br>Учимся делать подборки для
+                            туристов.<br>Этапы подбора тура, работа в программах по подбору.<br>Подтверждение тура и
+                            выдача документов.<br>Аннуляция тура, страховка от невылета.</li>
+                        <li style="margin-top: 1rem; font-style: italic;">В результате Вы уже сможете подбирать и
+                            бронировать туры для себя и близких,<br>с вознаграждением от туроператора, зарабатывая на
+                            комиссии.</li>
+                    </ul>
+                    <div style="text-align: center; margin-top: auto; margin-bottom: 1rem;">
+                        <p class="old-price">55 000 ₽</p>
+                        <p class="price" style="font-size: 1.8rem;">39 000 ₽
+                            <span class="price-note-red">(эксклюзивные условия на старте продаж для тех кто в списке
+                                предзаписи)</span>
+                        </p>
+                    </div>
+                    <button class="btn btn-primary" onclick="openModal('Тариф 1 — Для себя')">Хочу этот тариф</button>
+                </div>
+
+                <!-- Tariff 2 -->
+                <div class="card pricing-card fade-in-up delay-100" style="border: 2px solid var(--primary-green);">
+                    <div class="pricing-header">
+                        <h3>Тариф 2. Профессиональный</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.5rem;">( для тех кто
+                            планирует открывать ИП или ООО )</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><strong>Полная программа предыдущего тарифа 1 + дополнительно:</strong></li>
+                        <li><strong>Блок 6:</strong> Договор с туристом, порядок заключения. Договор с туроператором,
+                            порядок заключения. СРМ- системы.</li>
+                        <li><strong>Блок 7:</strong> Агентское вознаграждение, как открыть агентство, пошаговая
+                            инструкция</li>
+                        <li><strong>Блок 8:</strong> Бухгалтерия, юридическая грамотность, способы приема оплаты от
+                            туристов.</li>
+                        <li style="margin-top: 1rem; font-style: italic;">В результате Вы сможете открыть свое
+                            собственное агентство или сеть агентств и зарабатывать от 500 000 рублей до миллионных
+                            оборотов</li>
+                    </ul>
+                    <div style="text-align: center; margin-top: auto; margin-bottom: 1rem;">
+                        <p class="old-price">75 000 ₽</p>
+                        <p class="price">49 000 ₽</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="openModal('Тариф 2 — Профессиональный')">Хочу этот
+                        тариф</button>
+                </div>
+
+                <!-- Tariff 3 -->
+                <div class="card pricing-card fade-in-up delay-200">
+                    <div class="pricing-header">
+                        <h3>Тариф 3. ИНДИВИДУАЛЬНЫЙ</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.5rem;">У Вас вся
+                            программа 1-го и 2-го тарифов +</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Мое личное сопровождение по всем вопросам, включая помощь в открытие ООО или ИП.</li>
+                        <li>Постоянная личная обратная связь на протяжении всего обучения + 1 месяц после обучения</li>
+                    </ul>
+                    <div style="text-align: center; margin-top: auto; margin-bottom: 1rem;">
+                        <p class="old-price">300 000 ₽</p>
+                        <p class="price">199 000 ₽
+                            <span class="price-note-red">(только эксклюзивные условия для Вас)</span>
+                        </p>
+                    </div>
+                    <button class="btn btn-primary" onclick="openModal('Тариф 3 — Индивидуальный')">Хочу этот
+                        тариф</button>
+                </div>
+            </div>
+    </section>
+
+    <!-- Block 10: Bonuses -->
+    <section class="section bonuses-parallax" style="position: relative;">
+        <div class="bonuses-overlay"></div>
+        <div class="container" style="position: relative; z-index: 1;">
+            <h2 class="section-title" style="color: white; text-shadow: 0 2px 8px rgba(0,0,0,0.6);">🎁 Бонусы</h2>
+            <div class="bonus-card-dark fade-in-up" style="margin-bottom: 2rem;">
+                <h3>🎁 БОНУСНЫЙ УРОК ПРИ 100% оплате сразу на старте продаж:</h3>
+                <p><strong>Урок "Техника продаж":</strong></p>
+                <p>Этапы продаж</p>
+                <p>Выявление потребностей туриста</p>
+                <p>Работа с возражениями и негативом</p>
+                <p>Как закрывать туристов на сделку</p>
+            </div>
+            <div class="bonus-card-dark fade-in-up delay-100">
+                <h3>🎁 ПОДАРОЧНЫЕ ТЕМЫ ВСЕМ УЧАСТНИКАМ, СДЕЛАВШИМ ПРЕДОПЛАТУ:</h3>
+                <p>Как продавать, если не был в этой стране</p>
+                <p>Где брать контент для соц.сетей, как правильно отправлять предложения туристам</p>
+                <p>Всё о рекламных турах, онлайн-рекламниках, бонусах для агентов, семинарах, бизнес-завтраках,
+                    презентациях — что это такое и как туда попасть</p>
+                <p>Как продавать на большие чеки и не бояться — бонусный эфир по психологии продаж</p>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <button class="btn btn-primary" onclick="openPrepayModal()">Оставить предоплату — 3 000 рублей</button>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: rgba(255,255,255,0.75);">НА СТАРТЕ ПРОДАЖ ВЫ
+                    СМОЖЕТЕ ДОПЛАТИТЬ ЛЮБОЙ ТАРИФ И ГАРАНТИРОВАННО ЗАНЯТЬ МЕСТО ПО САМОЙ ВЫГОДНОЙ ЦЕНЕ</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section class="section" style="background-color: var(--white);">
+        <div class="container">
+            <h2 class="section-title">Какой результат вы получите:</h2>
+            <div class="grid-3">
+                <div class="card fade-in-up">Научитесь подбирать туры на профессиональном уровне и освоите все тонкости
+                    бронирования</div>
+                <div class="card fade-in-up">Сделаете бронирования и получите свой первый доход</div>
+                <div class="card fade-in-up">Начнете путешествовать чаще и дешевле</div>
+                <div class="card fade-in-up">Превратите своих коллег, близких, друзей в своих постоянных клиентов</div>
+                <div class="card fade-in-up">Узнаете самые популярные направления для отдыха и научитесь их бронировать
+                </div>
+                <div class="card fade-in-up">Получите интересную, любимую профессию и сможете хорошо зарабатывать,
+                    находясь в любой точке мира</div>
+                <div class="card fade-in-up">Откроете свое онлайн или офлайн турагентство (для тарифа профессиональный
+                    или индивидуальный)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Block 11: How it works -->
+    <section class="section how-works-section" style="position: relative;">
+        <div class="how-works-overlay"></div>
+        <div class="container" style="position: relative; z-index: 1;">
+            <h2 class="section-title" style="color: white; text-shadow: 0 2px 8px rgba(0,0,0,0.5);">КАК ПРОХОДИТ
+                ОБУЧЕНИЕ</h2>
+            <div class="grid-2">
+                <div class="how-card fade-in-up">
+                    <div class="how-num">01</div>
+                    <p>Доступ к видеоурокам
+                        в удобном мобильном приложении
+                        на базе Telegram</p>
+                </div>
+                <div class="how-card fade-in-up delay-100">
+                    <div class="how-num">02</div>
+                    <p>Общая встреча онлайн с Викторией
+                        с ответами на вопросы</p>
+                </div>
+                <div class="how-card fade-in-up delay-200">
+                    <div class="how-num">03</div>
+                    <p>Общий чат с сокурсниками
+                        и Викторией</p>
+                </div>
+                <div class="how-card fade-in-up delay-300">
+                    <div class="how-num">04</div>
+                    <p>Практические домашние задания
+                        и тесты по пройденному материалу
+                        (выполняются по желанию)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Block 13: FAQ -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Частые вопросы</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="accordion-item fade-in-up">
+                    <button class="accordion-header">Как долго длится обучение? <span>+</span></button>
+                    <div class="accordion-content">
+                        1 тариф - полтора месяца (6 недель), 2 тариф - два месяца (8 недель), индивидуальный тариф - два
+                        месяца (8 недель) + 1 дополнительный месяц индивидуального сопровождения.
+                    </div>
+                </div>
+                <div class="accordion-item fade-in-up">
+                    <button class="accordion-header">Как проходит обучение? <span>+</span></button>
+                    <div class="accordion-content">
+                        Обучение проходит в онлайн-формате. Вы можете учиться из любой точки мира в удобное для вас
+                        время. На базе удобного мобильного приложения.
+                    </div>
+                </div>
+                <div class="accordion-item fade-in-up">
+                    <button class="accordion-header">Есть ли рассрочка на оплату обучения? <span>+</span></button>
+                    <div class="accordion-content">
+                        Да, конечно. Есть рассрочка от банков и есть внутренняя рассрочка без участия банков.
+                    </div>
+                </div>
+                <div class="accordion-item fade-in-up">
+                    <button class="accordion-header">Будет ли обратная связь? <span>+</span></button>
+                    <div class="accordion-content">
+                        Да, у нас будет общий чат с обратной связью для всех тарифов. Также запланирован эфир с ответами
+                        на вопросы.
+                    </div>
+                </div>
+                <div class="accordion-item fade-in-up">
+                    <button class="accordion-header">Будет ли практика? <span>+</span></button>
+                    <div class="accordion-content">
+                        Да, несомненно. У Вас будут практические домашние задания, с их проверкой и тесты по пройденному
+                        обучению.
+                    </div>
+                </div>
+                <div class="accordion-item fade-in-up">
+                    <button class="accordion-header">Сколько будет доступ к материалам? <span>+</span></button>
+                    <div class="accordion-content">
+                        Еще 6 месяцев после окончания обучения, чтобы вы могли вернуться к урокам, если что-то забыли.
+                        Далее можно будет продлить доступ по специальным условиям.
+                    </div>
+                </div>
+                <div class="accordion-item fade-in-up">
+                    <button class="accordion-header">Смогу ли я работать после прохождения обучения?
+                        <span>+</span></button>
+                    <div class="accordion-content">
+                        Да, Вы получите всю основную базу для работы турагентом и начнете работать с первыми клиентами.
+                    </div>
+                </div>
+                <div class="accordion-item fade-in-up">
+                    <button class="accordion-header">Что мне нужно для обучения на курсе? Надо ли иметь профильное
+                        образование? <span>+</span></button>
+                    <div class="accordion-content">
+                        Вам не нужно высшее образование или образование в сфере продаж. Вы можете начать обучение с
+                        любым уровнем знаний, мы обо всем расскажем: что за профессия, принципы работы туроператора и
+                        турагента, обучим продажам с нуля и другим аспектам работы менеджера по туризму.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Overlay — Заявка -->
+    <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal()" aria-label="Закрыть">&times;</button>
+            <h3 id="modalTitle">Оставить заявку</h3>
+            <form class="modal-form" id="modalForm" novalidate>
+                <input type="hidden" name="tariff" id="modalTariffField" value="">
+                <div class="form-group">
+                    <label for="modalName">Ваше имя *</label>
+                    <input type="text" id="modalName" name="name" placeholder="Иван Иванов" required>
+                </div>
+                <div class="form-group">
+                    <label for="modalPhone">Телефон *</label>
+                    <input type="tel" id="modalPhone" name="phone" placeholder="+7 900 000-00-00" required>
+                </div>
+                <div class="form-group">
+                    <label for="modalEmail">Email</label>
+                    <input type="email" id="modalEmail" name="email" placeholder="example@mail.ru">
+                </div>
+                <div class="consent-block">
+                    <label class="consent-item">
+                        <input type="checkbox" id="consentProcessing" required>
+                        <span>Я согласен (<a href="consent-processing.html" target="_blank">текст согласия</a>) с
+                            обработкой моих персональных данных в соответствии с политикой (<a
+                                href="privacy-policy.html" target="_blank">текст политики</a>) обработки персональных
+                            данных</span>
+                    </label>
+                    <label class="consent-item">
+                        <input type="checkbox" id="consentMailing">
+                        <span>Даю согласие (<a href="consent-mailing.html" target="_blank">текст согласия</a>) на
+                            получение информационных и маркетинговых материалов (вы в любой момент можете отказаться от
+                            получения писем путём направления отказа на эл. почту компании)</span>
+                    </label>
+                </div>
+                <button type="submit" class="modal-submit" id="modalSubmitBtn">Отправить заявку</button>
+                <div id="modalMsg" style="margin-top:1rem; text-align:center; font-size:0.9rem; display:none;"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Overlay — Предоплата -->
+    <div class="modal-overlay" id="prepayModalOverlay" role="dialog" aria-modal="true"
+        aria-labelledby="prepayModalTitle">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closePrepayModal()" aria-label="Закрыть">&times;</button>
+            <h3 id="prepayModalTitle">Предоплата — 3 000 рублей</h3>
+            <p style="font-size:0.88rem; color:#555; margin-bottom:1rem; line-height:1.5;">Перед переходом к оплате,
+                пожалуйста, подтвердите своё согласие.</p>
+            <div class="consent-block">
+                <label class="consent-item">
+                    <input type="checkbox" id="prepayConsentProcessing">
+                    <span>Я согласен (<a href="consent-processing.html" target="_blank">текст согласия</a>) с обработкой
+                        моих персональных данных в соответствии с политикой (<a href="privacy-policy.html"
+                            target="_blank">текст политики</a>) обработки персональных данных</span>
+                </label>
+                <label class="consent-item">
+                    <input type="checkbox" id="prepayConsentMailing">
+                    <span>Даю согласие (<a href="consent-mailing.html" target="_blank">текст согласия</a>) на получение
+                        информационных и маркетинговых материалов (вы в любой момент можете отказаться от получения
+                        писем путём направления отказа на эл. почту компании)</span>
+                </label>
+            </div>
+            <button class="modal-submit" id="prepaySubmitBtn" onclick="proceedToPrepay()"
+                style="margin-top:1.25rem;">Перейти к оплате</button>
+            <div id="prepayMsg"
+                style="margin-top:0.75rem; text-align:center; font-size:0.88rem; color:#c0392b; display:none;">
+                Необходимо подтвердить согласие на обработку персональных данных.</div>
+        </div>
+    </div>
+
+    <!-- CONTACT BLOCK -->
+    <div style="background:linear-gradient(135deg,#0a1628,#112240);padding:60px 20px;text-align:center;">
+      <div style="max-width:600px;margin:0 auto;">
+        <p style="font-size:.76rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#4AACDB;margin-bottom:12px;">Турагентство Виктории Новиковой</p>
+        <h2 style="font-family:'Outfit',sans-serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:#fff;margin-bottom:14px;line-height:1.25;">Получить консультацию и забронировать тур</h2>
+        <p style="font-size:1rem;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:32px;">Хотите стать турагентом или забронировать тур? Напишите нам и мы ответим в течение часа.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-bottom:24px;">
+          <a href="https://wa.me/79046095875?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BA%D1%83%D1%80%D1%81" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:50px;font-weight:700;font-size:.94rem;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;text-decoration:none;box-shadow:0 5px 20px rgba(37,211,102,.3);transition:.3s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.561 4.14 1.533 5.874L0 24l6.291-1.65A11.937 11.937 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.817 9.817 0 01-5.003-1.372l-.36-.213-3.733.978.995-3.638-.234-.374A9.815 9.815 0 012.182 12C2.182 6.578 6.578 2.182 12 2.182c5.421 0 9.818 4.396 9.818 9.818 0 5.421-4.397 9.818-9.818 9.818z"/></svg>
+            WhatsApp
+          </a>
+          <a href="https://t.me/" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:50px;font-weight:700;font-size:.94rem;background:linear-gradient(135deg,#229ed9,#1a7db8);color:#fff;text-decoration:none;box-shadow:0 5px 20px rgba(34,158,217,.28);transition:.3s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            Telegram
+          </a>
+          <a href="https://wa.me/79046095875" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:50px;font-weight:700;font-size:.94rem;background:linear-gradient(135deg,#7c5cbf,#5e3fa0);color:#fff;text-decoration:none;box-shadow:0 5px 20px rgba(124,92,191,.32);transition:.3s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+            📲 Макс
+          </a>
+        </div>
+        <a href="index.html" style="display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:50px;font-weight:600;font-size:.9rem;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.2);color:rgba(255,255,255,.8);text-decoration:none;transition:.3s;" onmouseover="this.style.background='rgba(255,255,255,.15)'" onmouseout="this.style.background='rgba(255,255,255,.08)'">
+          ← На главную турагентства Виктории Новиковой
+        </a>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div>
+                    <div class="footer-logo">Турагентство<br>Виктории Новиковой</div>
+                    <p class="footer-tagline">15&nbsp;лет&nbsp;на&nbsp;рынке туризма</p>
+
+                </div>
+                <div>
+                    <p
+                        style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:14px;">
+                        Навигация</p>
+                    <div class="footer-links">
+                        <a href="index.html#about">Обо мне</a>
+                        <a href="index.html#dest">Направления</a>
+                        <a href="maldives.html">Гид по Мальдивам 💍</a>
+                        <a href="transit_guide.html">Гайд по стыковкам ✈️</a>
+                        <a href="pets.html">Перелёт с питомцем 🐾</a>
+                        <a href="course.html">Курс для турагентов</a>
+                    </div>
+                </div>
+                <div>
+                    <p
+                        style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:14px;">
+                        Документы</p>
+                    <div class="footer-links">
+                        <a href="privacy-policy.html">Политика обработки персональных данных</a>
+                        <a href="consent-processing.html">Согласие на обработку персональных данных</a>
+                        <a href="consent-mailing.html">Согласие на рассылку</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copy">© 2026 Турагентство Виктории Новиковой · Все права защищены</p>
+                <div style="display:flex;gap:16px;">
+                    <a href="tel:+79046095875" style="font-size:.78rem;color:rgba(255,255,255,.3);">+7 904 609-58-75</a>
+                    <a href="mailto:Nov.travel@gmail.com"
+                        style="font-size:.78rem;color:rgba(255,255,255,.3);">Nov.travel@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== ACCORDION =====
+        const accordions = document.querySelectorAll('.accordion-header');
+        accordions.forEach(acc => {
+            acc.addEventListener('click', function () {
+                this.parentElement.classList.toggle('active');
+                const span = this.querySelector('span');
+                span.textContent = this.parentElement.classList.contains('active') ? '-' : '+';
+            });
+        });
+
+        // ===== SCROLL ANIMATION =====
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+
+        // ===== MODAL (заявка) =====
+        const overlay = document.getElementById('modalOverlay');
+        const modalForm = document.getElementById('modalForm');
+        const modalMsg = document.getElementById('modalMsg');
+        const submitBtn = document.getElementById('modalSubmitBtn');
+
+        function openModal(tariffName) {
+            document.getElementById('modalTitle').textContent = tariffName || 'Оставить заявку';
+            document.getElementById('modalTariffField').value = tariffName || '';
+            modalForm.reset();
+            modalMsg.style.display = 'none';
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Отправить заявку';
+            overlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            overlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        overlay.addEventListener('click', function (e) {
+            if (e.target === overlay) closeModal();
+        });
+
+        // ===== MODAL (предоплата) =====
+        const prepayOverlay = document.getElementById('prepayModalOverlay');
+
+        function openPrepayModal() {
+            document.getElementById('prepayConsentProcessing').checked = false;
+            document.getElementById('prepayConsentMailing').checked = false;
+            document.getElementById('prepayMsg').style.display = 'none';
+            prepayOverlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePrepayModal() {
+            prepayOverlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        prepayOverlay.addEventListener('click', function (e) {
+            if (e.target === prepayOverlay) closePrepayModal();
+        });
+
+        function proceedToPrepay() {
+            const consent = document.getElementById('prepayConsentProcessing').checked;
+            if (!consent) {
+                document.getElementById('prepayMsg').style.display = 'block';
+                return;
+            }
+            closePrepayModal();
+            window.open('https://checkout.tochka.com/a1b0c8a6-1786-4913-8e76-108668b2412d', '_blank');
+        }
+
+        // Close on Escape
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') { closeModal(); closePrepayModal(); }
+        });
+
+        // ===== FORMSPREE SUBMIT =====
+        modalForm.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('modalName').value.trim();
+            const phone = document.getElementById('modalPhone').value.trim();
+            const consent = document.getElementById('consentProcessing').checked;
+
+            if (!name) { showMsg('Пожалуйста, введите ваше имя.', 'error'); return; }
+            if (!phone) { showMsg('Пожалуйста, введите телефон.', 'error'); return; }
+            if (!consent) { showMsg('Необходимо дать согласие на обработку персональных данных.', 'error'); return; }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Отправка...';
+            modalMsg.style.display = 'none';
+
+            const formData = new FormData(modalForm);
+
+            try {
+                const response = await fetch('https://formspree.io/f/mjgpywpe', {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    showMsg('✅ Заявка отправлена! Мы свяжемся с вами в ближайшее время.', 'success');
+                    modalForm.reset();
+                    submitBtn.textContent = 'Заявка отправлена';
+                } else {
+                    const data = await response.json();
+                    const errText = data.errors ? data.errors.map(e => e.message).join(', ') : 'Ошибка отправки.';
+                    showMsg('❌ ' + errText, 'error');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Отправить заявку';
+                }
+            } catch (err) {
+                showMsg('❌ Не удалось отправить заявку. Проверьте интернет-соединение.', 'error');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Отправить заявку';
+            }
+        });
+
+        function showMsg(text, type) {
+            modalMsg.textContent = text;
+            modalMsg.style.color = type === 'success' ? '#1a7a4a' : '#c0392b';
+            modalMsg.style.display = 'block';
+        }
+
+        // ===== HERO STATS COUNTER =====
+        function animateCounter(el, target, duration) {
+            let start = 0;
+            const step = Math.ceil(target / (duration / 16));
+            const timer = setInterval(() => {
+                start += step;
+                if (start >= target) { start = target; clearInterval(timer); }
+                el.textContent = start.toLocaleString('ru-RU');
+            }, 16);
+        }
+        (function initCounters() {
+            const nums = document.querySelectorAll('.hstat-num');
+            nums.forEach(el => {
+                const target = parseInt(el.dataset.target, 10);
+                setTimeout(() => animateCounter(el, target, 1800), 400);
+            });
+        })();
+    </script>
+<script>
+  const nav=document.getElementById('nav');
+  window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60);},{passive:true});
+  const dd=document.getElementById('navDropdown');
+  document.getElementById('dropTrigger').addEventListener('click',e=>{e.stopPropagation();dd.classList.toggle('open');});
+  document.addEventListener('click',()=>dd.classList.remove('open'));
+  const burger=document.getElementById('burger');
+  const navLinks=document.getElementById('navLinks');
+  let menuOpen=false;
+  function openMenu(){menuOpen=true;Object.assign(navLinks.style,{display:'flex',flexDirection:'column',position:'fixed',top:'64px',left:'0',right:'0',background:'rgba(10,22,40,.97)',padding:'24px 28px',gap:'18px',zIndex:'199'});}
+  function closeMenu(){menuOpen=false;navLinks.style.display='';}
+  burger.addEventListener('click',()=>menuOpen?closeMenu():openMenu());
+  document.addEventListener('click',e=>{if(menuOpen&&!navLinks.contains(e.target)&&e.target!==burger)closeMenu();});
+</script>
+</body>
+
+</html>
