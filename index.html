@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>VIK TOURS — Виктория Новикова · Турагент</title>
+<meta name="description" content="Виктория Новикова — турагент с 15-летним опытом. Мальдивы, Азия, ОАЭ, свадебные туры. Подбор и бронирование туров онлайн.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & TOKENS ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;}
+:root{
+  --navy:#0a1628;
+  --navy2:#112240;
+  --blue:#1a6faa;
+  --sky:#4AACDB;
+  --teal:#14b8a6;
+  --gold:#d4974a;
+  --cream:#faf8f5;
+  --off:#f2efe9;
+  --white:#ffffff;
+  --text:#1a2233;
+  --mid:#4a5568;
+  --muted:#8896aa;
+  --purple:#7c5cbf;
+  --ease:cubic-bezier(.25,.46,.45,.94);
+  --r:20px;
+}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;line-height:1.6;}
+img{display:block;max-width:100%;}
+a{text-decoration:none;color:inherit;}
+ul{list-style:none;}
+.container{max-width:1160px;margin:0 auto;padding:0 28px;}
+
+/* ===== NAVBAR ===== */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:18px 0;transition:.35s var(--ease);}
+nav.scrolled{background:rgba(10,22,40,.92);backdrop-filter:blur(14px);box-shadow:0 2px 24px rgba(0,0,0,.2);padding:12px 0;}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{font-family:'Great Vibes',cursive;font-size:1.5rem;color:#fff;letter-spacing:.03em;line-height:1.2;max-width:220px;}
+.nav-logo em{color:var(--sky);font-style:normal;}
+.nav-links{display:flex;align-items:center;gap:22px;}
+.nav-links > a{font-size:.84rem;font-weight:500;color:rgba(255,255,255,.72);letter-spacing:.02em;transition:.25s;white-space:nowrap;}
+.nav-links > a:hover{color:#fff;}
+/* Dropdown - JS-based */
+.nav-dropdown{position:relative;}
+.nav-dropdown-trigger{font-size:.84rem;font-weight:500;color:rgba(255,255,255,.72);letter-spacing:.02em;transition:.25s;cursor:pointer;display:flex;align-items:center;gap:4px;white-space:nowrap;padding:6px 0;user-select:none;}
+.nav-dropdown-trigger:hover,.nav-dropdown.open .nav-dropdown-trigger{color:#fff;}
+.nav-dropdown-trigger svg{width:12px;height:12px;transition:.25s;}
+.nav-dropdown.open .nav-dropdown-trigger svg{transform:rotate(180deg);}
+.nav-dropdown-menu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(-6px);min-width:200px;background:rgba(10,22,40,.96);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:8px;opacity:0;pointer-events:none;transition:.25s var(--ease);box-shadow:0 16px 48px rgba(0,0,0,.4);}
+.nav-dropdown.open .nav-dropdown-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0);}
+.nav-dropdown-menu a{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;font-size:.84rem;color:rgba(255,255,255,.72);transition:.2s;white-space:nowrap;}
+.nav-dropdown-menu a:hover{background:rgba(255,255,255,.08);color:#fff;}
+.nav-dropdown-menu a .dd-icon{font-size:1rem;width:26px;text-align:center;}
+.nav-btn{padding:9px 22px;border-radius:50px;background:linear-gradient(135deg,var(--purple),#5e3fa0);color:#fff!important;font-weight:700;font-size:.82rem;box-shadow:0 4px 18px rgba(124,92,191,.4);transition:.3s var(--ease)!important;white-space:nowrap;}
+.nav-btn:hover{box-shadow:0 8px 28px rgba(124,92,191,.55);transform:translateY(-1px);}
+.nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.nav-burger span{width:22px;height:2px;background:#fff;border-radius:2px;transition:.3s;}
+
+/* ===== HERO ===== */
+/* ===== HERO — Bali poster style ===== */
+.hero{position:relative;height:100vh;min-height:700px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%;}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,22,40,.55) 0%,rgba(10,22,40,.2) 40%,rgba(10,22,40,.65) 75%,rgba(10,22,40,.92) 100%);}
+
+/* Top label */
+.hero-eyebrow{position:absolute;top:100px;left:50%;transform:translateX(-50%);z-index:3;display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.65);white-space:nowrap;}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:28px;height:1px;background:rgba(255,255,255,.35);}
+
+/* Giant name */
+.hero-name-wrap{position:absolute;top:50%;left:50%;transform:translate(-50%,-55%);z-index:3;text-align:center;width:100%;padding:0 20px;}
+.hero-name-giant{font-family:'DM Serif Display',serif;font-size:clamp(5rem,14vw,11rem);font-weight:700;color:#fff;line-height:.9;letter-spacing:-.01em;text-transform:uppercase;text-shadow:0 4px 40px rgba(10,22,40,.5);display:block;}
+.hero-name-cursive{font-family:'Great Vibes',cursive;font-size:clamp(2.5rem,7vw,5rem);color:var(--sky);line-height:1.1;display:block;margin-top:-4px;text-shadow:0 2px 20px rgba(74,172,219,.4);}
+.hero-role-poster{font-size:clamp(.85rem,1.6vw,1.1rem);font-weight:300;color:rgba(255,255,255,.7);letter-spacing:.08em;margin-top:14px;text-transform:uppercase;}
+
+/* CTA buttons */
+.hero-btns-poster{position:absolute;bottom:160px;left:50%;transform:translateX(-50%);z-index:3;display:flex;gap:14px;flex-wrap:wrap;justify-content:center;}
+.btn-hero-primary{display:inline-flex;align-items:center;gap:8px;padding:15px 40px;border-radius:50px;font-weight:700;font-size:1rem;background:linear-gradient(135deg,var(--purple),#5e3fa0);color:#fff;box-shadow:0 6px 26px rgba(124,92,191,.42);transition:.3s var(--ease);border:none;cursor:pointer;text-decoration:none;}
+.btn-hero-primary:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(124,92,191,.56);}
+.btn-hero-outline{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:50px;font-weight:600;font-size:.96rem;color:#fff;border:1.5px solid rgba(255,255,255,.35);transition:.3s var(--ease);text-decoration:none;}
+.btn-hero-outline:hover{border-color:#fff;background:rgba(255,255,255,.08);}
+
+/* Feature strip — bottom */
+.hero-feat-strip{position:absolute;bottom:0;left:0;right:0;z-index:4;background:rgba(10,22,40,.9);backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,.08);padding:12px 16px;}
+.hero-feat-inner{max-width:1160px;margin:0 auto;display:flex;align-items:center;gap:6px;justify-content:space-between;}
+.hero-feat-card{display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;padding:8px 8px;border:1px solid rgba(255,255,255,.12);border-radius:10px;transition:.25s;min-width:0;}
+.hero-feat-card:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.22);}
+.hero-feat-icon{font-size:1.2rem;line-height:1;}
+.hero-feat-val{font-family:'DM Serif Display',serif;font-size:1rem;font-weight:700;color:#fff;line-height:1;white-space:nowrap;}
+.hero-feat-label{font-size:.58rem;color:rgba(255,255,255,.45);letter-spacing:.06em;text-transform:uppercase;text-align:center;line-height:1.3;}
+
+/* Scroll hint */
+.hero-scroll{position:absolute;bottom:130px;right:36px;z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.3);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,rgba(255,255,255,.35),transparent);animation:scrollAnim 2s ease-in-out infinite;}
+@keyframes scrollAnim{0%,100%{opacity:.4;transform:scaleY(1)}50%{opacity:1;transform:scaleY(0.6)}}
+
+/* ===== TICKER ===== */
+.ticker-wrap{background:var(--navy);padding:14px 0;overflow:hidden;position:relative;z-index:1;}
+.ticker-inner{display:flex;gap:0;white-space:nowrap;animation:ticker 28s linear infinite;}
+.ticker-inner span{font-size:.82rem;font-weight:500;color:rgba(255,255,255,.55);padding:0 28px;letter-spacing:.06em;}
+.ticker-inner span b{color:var(--sky);}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ===== SECTION COMMONS ===== */
+section{position:relative;z-index:1;}
+.s-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:12px;}
+.s-title{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);color:var(--text);line-height:1.2;margin-bottom:14px;}
+.s-sub{font-size:1.02rem;color:var(--muted);max-width:540px;line-height:1.75;}
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease;}
+.fade-up.in{opacity:1;transform:translateY(0);}
+
+/* ===== ABOUT ===== */
+.about-sec{padding:100px 0;background:var(--white);}
+.about-grid{display:grid;grid-template-columns:420px 1fr;gap:72px;align-items:center;}
+.about-img-wrap{position:relative;}
+.about-img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:var(--r) var(--r) 180px var(--r);box-shadow:0 24px 64px rgba(10,22,40,.15);}
+.about-badge{position:absolute;bottom:28px;right:-26px;background:var(--navy);border-radius:16px;padding:18px 22px;display:flex;flex-direction:column;align-items:center;box-shadow:0 8px 32px rgba(10,22,40,.3);}
+.about-badge-num{font-family:'DM Serif Display',serif;font-size:2.2rem;color:#fff;line-height:1;}
+.about-badge-txt{font-size:.72rem;color:rgba(255,255,255,.55);letter-spacing:.08em;margin-top:2px;}
+.about-text blockquote{font-family:'DM Serif Display',serif;font-style:italic;font-size:1.3rem;color:var(--blue);border-left:3px solid var(--sky);padding-left:18px;margin:22px 0;line-height:1.6;}
+.about-text p{font-size:1.02rem;color:var(--mid);line-height:1.82;margin-bottom:14px;}
+.creds{display:flex;flex-direction:column;gap:10px;margin-top:22px;}
+.cred{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--cream);border:1px solid rgba(26,111,170,.1);border-radius:12px;font-size:.93rem;color:var(--mid);}
+.cred svg{flex-shrink:0;color:var(--sky);}
+.cred strong{color:var(--text);}
+
+/* ===== DESTINATIONS ===== */
+.dest-sec{padding:100px 0;background:var(--cream);}
+.dest-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:52px;flex-wrap:wrap;gap:16px;}
+.dest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.dest-card{position:relative;border-radius:var(--r);overflow:hidden;cursor:pointer;}
+.dest-card img{width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform .55s var(--ease);}
+.dest-card:hover img{transform:scale(1.07);}
+.dest-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.82) 0%,transparent 55%);}
+.dest-card-body{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:20px 18px 18px;}
+.dest-name{font-family:'DM Serif Display',serif;font-size:1.2rem;color:#fff;margin-bottom:3px;}
+.dest-tag{font-size:.72rem;color:rgba(255,255,255,.65);letter-spacing:.05em;margin-bottom:10px;}
+.dest-card.large{grid-column:span 2;grid-row:span 2;}
+.dest-card.large img{aspect-ratio:auto;height:100%;}
+.dest-card:hover .dest-cta{opacity:1;transform:translateY(0);}
+.dest-cta{position:absolute;top:14px;right:14px;z-index:3;background:rgba(255,255,255,.15);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:50px;opacity:0;transform:translateY(-6px);transition:.3s var(--ease);}
+.dest-btn{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:.76rem;font-weight:600;padding:6px 14px;border-radius:50px;cursor:pointer;transition:.25s var(--ease);z-index:3;position:relative;}
+.dest-btn:hover{background:rgba(255,255,255,.28);border-color:rgba(255,255,255,.6);}
+/* ===== DESTINATION MODAL ===== */
+.dest-modal-overlay{position:fixed;inset:0;background:rgba(10,22,40,.75);backdrop-filter:blur(8px);z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:.3s var(--ease);}
+.dest-modal-overlay.open{opacity:1;pointer-events:auto;}
+.dest-modal{background:#fff;border-radius:28px;max-width:620px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 32px 80px rgba(10,22,40,.3);transform:translateY(24px) scale(.97);transition:.35s var(--ease);}
+.dest-modal-overlay.open .dest-modal{transform:translateY(0) scale(1);}
+.dest-modal-hero{position:relative;height:220px;overflow:hidden;border-radius:28px 28px 0 0;}
+.dest-modal-hero img{width:100%;height:100%;object-fit:cover;}
+.dest-modal-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.7) 0%,transparent 60%);}
+.dest-modal-hero-text{position:absolute;bottom:20px;left:24px;z-index:1;}
+.dest-modal-hero-text h3{font-family:'DM Serif Display',serif;font-size:1.8rem;color:#fff;margin-bottom:3px;}
+.dest-modal-hero-text span{font-size:.76rem;color:rgba(255,255,255,.7);}
+.dest-modal-close{position:absolute;top:14px;right:14px;z-index:2;width:36px;height:36px;background:rgba(255,255,255,.2);backdrop-filter:blur(6px);border:none;border-radius:50%;color:#fff;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;}
+.dest-modal-close:hover{background:rgba(255,255,255,.35);}
+.dest-modal-body{padding:28px 28px 32px;}
+.dest-modal-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
+.dest-modal-tags span{background:var(--cream);border:1px solid rgba(26,111,170,.15);border-radius:50px;padding:4px 12px;font-size:.78rem;color:var(--mid);}
+.dest-modal-body p{font-size:.975rem;color:var(--mid);line-height:1.78;margin-bottom:14px;}
+.dest-modal-body ul{margin:0 0 18px 0;padding-left:20px;display:flex;flex-direction:column;gap:6px;}
+.dest-modal-body ul li{font-size:.93rem;color:var(--mid);line-height:1.6;}
+.dest-modal-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;}
+.btn-dm-wa{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:50px;font-weight:700;font-size:.9rem;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;box-shadow:0 4px 18px rgba(37,211,102,.28);transition:.3s;}
+.btn-dm-tg{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:50px;font-weight:700;font-size:.9rem;background:linear-gradient(135deg,#229ed9,#1a7db8);color:#fff;box-shadow:0 4px 18px rgba(34,158,217,.26);transition:.3s;}
+.btn-dm-wa:hover,.btn-dm-tg:hover{transform:translateY(-2px);opacity:.92;}
+
+/* ===== GUIDES SECTION ===== */
+.guides-sec{padding:80px 0 100px;background:var(--white);}
+.guides-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px;}
+.guide-card{position:relative;border-radius:24px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;transition:.35s var(--ease);box-shadow:0 4px 24px rgba(10,22,40,.08);}
+.guide-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(10,22,40,.15);}
+.guide-card-img{position:relative;overflow:hidden;flex-shrink:0;}
+.guide-card-img img{width:100%;aspect-ratio:16/10;object-fit:cover;transition:transform .55s var(--ease);}
+.guide-card:hover .guide-card-img img{transform:scale(1.06);}
+.guide-card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(10,22,40,.5) 100%);}
+.guide-badge{position:absolute;top:14px;left:14px;z-index:2;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:.7rem;font-weight:700;padding:5px 12px;border-radius:50px;letter-spacing:.06em;text-transform:uppercase;}
+.guide-card-body{padding:22px 24px 24px;background:#fff;flex:1;display:flex;flex-direction:column;gap:6px;}
+.guide-tag{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);}
+.guide-title{font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--text);line-height:1.3;}
+.guide-desc{font-size:.88rem;color:var(--muted);line-height:1.65;margin-top:2px;flex:1;}
+.guide-link{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:.85rem;font-weight:600;color:var(--blue);transition:.2s;}
+.guide-card:hover .guide-link{gap:10px;}
+
+/* ===== SERVICES ===== */
+.services-sec{padding:100px 0;background:var(--white);}
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:52px;}
+.svc-card{background:var(--cream);border:1px solid rgba(26,111,170,.1);border-radius:var(--r);padding:32px 28px;transition:.35s var(--ease);}
+.svc-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(26,111,170,.1);border-color:rgba(74,172,219,.35);}
+.svc-icon{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,rgba(74,172,219,.12),rgba(26,111,170,.08));display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:18px;}
+.svc-title{font-family:'DM Serif Display',serif;font-size:1.25rem;color:var(--text);margin-bottom:8px;}
+.svc-text{font-size:.93rem;color:var(--muted);line-height:1.7;}
+
+/* ===== MALDIVES BANNER ===== */
+.maldives-ban{margin:0 0 0;padding:100px 0;background:var(--cream);}
+.maldives-inner{background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:28px;padding:60px 56px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;position:relative;overflow:hidden;}
+.maldives-inner::before{content:'';position:absolute;right:0;top:0;bottom:0;width:50%;background:url('img/hero.png') center/cover;opacity:.22;border-radius:0 28px 28px 0;}
+.maldives-inner::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--navy) 40%,transparent 100%);}
+.maldives-text{position:relative;z-index:1;}
+.maldives-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--sky);margin-bottom:12px;}
+.maldives-title{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);color:#fff;line-height:1.2;margin-bottom:14px;}
+.maldives-desc{font-size:.98rem;color:rgba(255,255,255,.6);line-height:1.75;margin-bottom:28px;max-width:400px;}
+.btn-mald{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:50px;font-weight:700;font-size:.96rem;background:linear-gradient(135deg,var(--sky),var(--blue));color:#fff;box-shadow:0 6px 24px rgba(74,172,219,.3);transition:.3s var(--ease);}
+.btn-mald:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(74,172,219,.48);}
+.maldives-cards{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.m-card{background:rgba(255,255,255,.07);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:18px 16px;}
+.m-card-icon{font-size:1.5rem;margin-bottom:8px;}
+.m-card-title{font-size:.92rem;font-weight:600;color:#fff;margin-bottom:4px;}
+.m-card-sub{font-size:.79rem;color:rgba(255,255,255,.5);}
+
+/* ===== COURSE BANNER ===== */
+.course-ban{padding:0 0 100px;}
+.course-inner{background:linear-gradient(135deg,rgba(124,92,191,.08),rgba(26,111,170,.06));border:1.5px solid rgba(124,92,191,.2);border-radius:28px;padding:60px 56px;display:flex;align-items:center;gap:48px;position:relative;overflow:hidden;}
+.course-inner::before{content:'🎓';position:absolute;right:56px;bottom:-16px;font-size:8rem;opacity:.07;pointer-events:none;}
+.course-text{flex:1;}
+.course-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--purple);margin-bottom:12px;}
+.course-title{font-family:'DM Serif Display',serif;font-size:clamp(1.6rem,2.8vw,2.3rem);color:var(--text);line-height:1.25;margin-bottom:12px;}
+.course-desc{font-size:.98rem;color:var(--muted);line-height:1.72;max-width:500px;}
+.btn-course-cta{display:inline-flex;align-items:center;gap:8px;padding:15px 36px;border-radius:50px;font-weight:700;font-size:.98rem;background:linear-gradient(135deg,var(--purple),#5e3fa0);color:#fff;box-shadow:0 6px 26px rgba(124,92,191,.32);transition:.3s var(--ease);white-space:nowrap;border:none;cursor:pointer;flex-shrink:0;}
+.btn-course-cta:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(124,92,191,.5);}
+
+/* ===== HOT DEAL BANNER ===== */
+.hotdeal-ban{position:relative;max-width:520px;margin:0 auto 80px;font-family:'Inter',sans-serif;border-radius:32px;overflow:hidden;box-shadow:0 24px 80px rgba(10,22,40,.22);background:#fff;}
+.hotdeal-photo{position:relative;width:100%;height:220px;overflow:hidden;flex-shrink:0;}
+.hotdeal-photo img{width:100%;height:100%;object-fit:cover;object-position:center;}
+.hotdeal-photo-fog{position:absolute;left:0;right:0;height:80px;pointer-events:none;}
+.hotdeal-photo-fog-bottom{bottom:0;background:linear-gradient(to bottom,transparent,#fff);}
+.hotdeal-photo-fog-top{top:0;background:linear-gradient(to top,transparent,#fff);}
+.hotdeal-card{background:#fff;padding:10px 32px 28px;text-align:center;position:relative;}
+.hotdeal-label{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--sky);margin-bottom:4px;}
+.hotdeal-dest{font-family:'DM Serif Display',serif;font-size:clamp(2.8rem,8vw,4.8rem);font-weight:700;color:#1a8a7a;letter-spacing:.04em;line-height:1;text-transform:uppercase;margin-bottom:0;}
+.hotdeal-cursive{font-family:'Great Vibes',cursive;font-size:clamp(2rem,6vw,2.8rem);color:#1a2233;line-height:1.1;margin-bottom:16px;opacity:.85;}
+.hotdeal-price-row{display:flex;justify-content:center;margin-bottom:20px;}
+.hotdeal-price-pill{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#1a8a7a,#2ab5a5);border-radius:50px;padding:10px 28px;box-shadow:0 4px 20px rgba(26,138,122,.3);}
+.hotdeal-price-new{font-size:1.5rem;font-weight:800;color:#fff;letter-spacing:-.01em;}
+.hotdeal-price-old{font-size:1rem;color:rgba(255,255,255,.65);text-decoration:line-through;}
+.hotdeal-info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px;}
+.hotdeal-info-card{background:#f7fafa;border:1.5px solid rgba(26,138,122,.15);border-radius:16px;padding:12px 10px;text-align:center;}
+.hotdeal-info-label{font-size:.72rem;font-weight:700;color:#1a8a7a;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;}
+.hotdeal-info-val{font-size:.85rem;font-weight:600;color:var(--text);line-height:1.4;}
+.hotdeal-cta-btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 44px;border-radius:50px;border:2px solid #1a8a7a;color:#1a8a7a;font-size:.95rem;font-weight:700;text-decoration:none;letter-spacing:.04em;transition:.3s var(--ease);}
+.hotdeal-cta-btn:hover{background:#1a8a7a;color:#fff;box-shadow:0 6px 24px rgba(26,138,122,.3);}
+
+/* ===== CTA CONTACT ===== */
+.contact-sec{padding:100px 0;background:var(--white);}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.contact-title{font-family:'DM Serif Display',serif;font-size:clamp(2rem,4vw,3rem);color:var(--text);margin-bottom:14px;}
+.contact-desc{font-size:1.02rem;color:var(--muted);line-height:1.75;margin-bottom:30px;}
+.contact-info{display:flex;flex-direction:column;gap:12px;margin-bottom:32px;}
+.contact-row{display:flex;align-items:center;gap:12px;font-size:.95rem;color:var(--mid);}
+.contact-row a{color:var(--blue);font-weight:600;}
+.contact-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-wa{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:50px;font-weight:700;font-size:.96rem;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;box-shadow:0 5px 22px rgba(37,211,102,.28);transition:.3s var(--ease);}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(37,211,102,.42);}
+.btn-tg{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:50px;font-weight:700;font-size:.96rem;background:linear-gradient(135deg,#229ed9,#1a7db8);color:#fff;box-shadow:0 5px 22px rgba(34,158,217,.26);transition:.3s var(--ease);}
+.btn-tg:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(34,158,217,.4);}
+.contact-visual{position:relative;}
+.contact-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:24px;box-shadow:0 20px 60px rgba(10,22,40,.12);}
+.contact-float{position:absolute;bottom:28px;left:-28px;background:#fff;border-radius:16px;padding:16px 20px;box-shadow:0 8px 32px rgba(10,22,40,.12);display:flex;align-items:center;gap:12px;}
+.cf-icon{width:44px;height:44px;background:linear-gradient(135deg,var(--sky),var(--blue));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.cf-num{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--text);line-height:1;}
+.cf-label{font-size:.72rem;color:var(--muted);margin-top:1px;}
+
+/* ===== FOOTER ===== */
+footer{background:var(--navy);padding:42px 0 28px;}
+.footer-inner{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:32px;margin-bottom:28px;}
+.footer-logo{font-family:'Great Vibes',cursive;font-size:1.8rem;color:rgba(255,255,255,.8);margin-bottom:8px;}
+.footer-tagline{font-size:.82rem;color:rgba(255,255,255,.35);max-width:200px;line-height:1.6;}
+.footer-links{display:flex;flex-direction:column;gap:8px;}
+.footer-links a{font-size:.84rem;color:rgba(255,255,255,.4);transition:.25s;}
+.footer-links a:hover{color:rgba(255,255,255,.8);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.footer-copy{font-size:.76rem;color:rgba(255,255,255,.25);}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .about-grid{grid-template-columns:1fr;gap:40px;}
+  .about-img-wrap{max-width:380px;}
+  .dest-grid{grid-template-columns:repeat(2,1fr);}
+  .dest-card.large{grid-column:span 2;}
+  .maldives-inner,.contact-inner{grid-template-columns:1fr;gap:36px;}
+  .maldives-inner::before{display:none;}
+  .services-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .nav-burger{display:flex;}
+  .about-badge{right:10px;}
+  .dest-grid{grid-template-columns:1fr 1fr;}
+  .services-grid{grid-template-columns:1fr;}
+  .maldives-cards{grid-template-columns:1fr 1fr;}
+  .course-inner{flex-direction:column;padding:36px 28px;}
+  .maldives-inner{padding:36px 28px;}
+  .hero-stats{gap:20px;}
+  .guides-grid{grid-template-columns:1fr;}
+}
+@media(max-width:480px){
+  .dest-grid{grid-template-columns:1fr;}
+  .dest-card.large{grid-column:span 1;}
+  .hero-btns,.contact-btns{flex-direction:column;}
+  .maldives-cards{grid-template-columns:1fr;}
+  .contact-float{display:none;}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">Турагентство<br><em>Виктории Новиковой</em></a>
+    <div class="nav-links">
+      <a href="#about">Обо мне</a>
+      <a href="#dest">Направления</a>
+      <a href="#services">Услуги</a>
+      <!-- Dropdown: Гайды -->
+      <div class="nav-dropdown">
+        <div class="nav-dropdown-trigger">
+          Гайды
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="nav-dropdown-menu">
+          <a href="maldives.html"><span class="dd-icon">🏔️</span> Мальдивы для свадьбы</a>
+          <a href="transit_guide.html"><span class="dd-icon">✈️</span> Гайд по стыковкам</a>
+          <a href="pets.html"><span class="dd-icon">🐾</span> Перелёт с питомцем</a>
+        </div>
+      </div>
+      <a href="course.html">Курс</a>
+      <a href="#contact" class="nav-btn">Написать</a>
+    </div>
+    <div class="nav-burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO — Bali poster style -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="img/hero.png" alt="Турагент Виктория Новикова — путешествия мечты">
+  </div>
+
+  <!-- Top eyebrow -->
+  <div class="hero-eyebrow">Турагент · 15 лет опыта · 55 стран</div>
+
+  <!-- Giant name centered over photo -->
+  <div class="hero-name-wrap">
+    <h1>
+      <span class="hero-name-giant">Виктория</span>
+      <span class="hero-name-cursive">Новикова</span>
+    </h1>
+    <p class="hero-role-poster">Ваш проводник в путешествия мечты</p>
+  </div>
+
+  <!-- CTA buttons -->
+  <div class="hero-btns-poster">
+    <a href="#contact" class="btn-hero-primary">Подобрать тур →</a>
+    <a href="#about" class="btn-hero-outline">Обо мне</a>
+  </div>
+
+  <!-- Scroll -->
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+
+  <!-- Feature strip -->
+  <div class="hero-feat-strip">
+    <div class="hero-feat-inner">
+      <div class="hero-feat-card">
+        <div class="hero-feat-icon">⏱️</div>
+        <div class="hero-feat-val">15+</div>
+        <div class="hero-feat-label">лет опыта</div>
+      </div>
+      <div class="hero-feat-card">
+        <div class="hero-feat-icon">🌍</div>
+        <div class="hero-feat-val">55</div>
+        <div class="hero-feat-label">стран</div>
+      </div>
+      <div class="hero-feat-card">
+        <div class="hero-feat-icon">👥</div>
+        <div class="hero-feat-val">5 000+</div>
+        <div class="hero-feat-label">туристов</div>
+      </div>
+      
+      <div class="hero-feat-card">
+        <div class="hero-feat-icon">🛂</div>
+        <div class="hero-feat-val">Визы</div>
+        <div class="hero-feat-label">помощь в оформлении</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-inner">
+    <span>🇲🇻 <b>Мальдивы</b></span><span>🇹🇷 <b>Турция</b></span><span>🇦🇪 <b>ОАЭ</b></span>
+    <span>🇹🇭 <b>Таиланд</b></span><span>🇮🇩 <b>Бали</b></span><span>🇻🇳 <b>Вьетнам</b></span>
+    <span>🇮🇳 <b>Индия</b></span><span>🇪🇬 <b>Египет</b></span><span>🇸🇨 <b>Сейшелы</b></span>
+    <span>🇲🇻 <b>Мальдивы</b></span><span>🇹🇷 <b>Турция</b></span><span>🇦🇪 <b>ОАЭ</b></span>
+    <span>🇹🇭 <b>Таиланд</b></span><span>🇮🇩 <b>Бали</b></span><span>🇻🇳 <b>Вьетнам</b></span>
+    <span>🇮🇳 <b>Индия</b></span><span>🇪🇬 <b>Египет</b></span><span>🇸🇨 <b>Сейшелы</b></span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about-sec" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap fade-up">
+        <img src="img/h2_taj_exotica.png" alt="Виктория Новикова" class="about-img">
+        <div class="about-badge">
+          <span class="about-badge-num">15+</span>
+          <span class="about-badge-txt">лет в туризме</span>
+        </div>
+      </div>
+      <div class="about-text fade-up">
+        <div class="s-eyebrow">Обо мне</div>
+        <h2 class="s-title">Турагент, которому можно доверять</h2>
+        <blockquote>«Я лично инспектирую отели, прежде чем рекомендовать их вам, чтобы вы могли на 100% доверять моему выбору.»</blockquote>
+        <p>Более 15 лет в туристическом бизнесе. Прошла через все кризисы индустрии — и каждый раз выходила сильнее. Мои клиенты — постоянные, потому что знают: я подберу лучшее под их запрос и бюджет.</p>
+        <p>Специализируюсь на Мальдивах, Сейшелах, Азии, ОАЭ и свадебных путешествиях. Организую медовые месяцы и свадебные церемонии под ключ.</p>
+        <div class="creds">
+          <div class="cred">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>5 000+</strong> туристов успешно отправлено в путешествие</span>
+          </div>
+          <div class="cred">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong style="font-size:1.1rem;">55 стран</strong> — личный опыт, рекомендую только проверенное</span>
+          </div>
+          <div class="cred">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Предприниматель</strong> с миллионными оборотами в туризме</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- DESTINATIONS -->
+<section class="dest-sec" id="dest">
+  <div class="container">
+    <div class="dest-head">
+      <div>
+        <div class="s-eyebrow">Направления</div>
+        <h2 class="s-title">Куда отправлю вас</h2>
+      </div>
+      <a href="#contact" style="font-size:.9rem;font-weight:600;color:var(--blue);display:flex;align-items:center;gap:6px;">Узнать стоимость →</a>
+    </div>
+    <div class="dest-grid">
+      <div class="dest-card large fade-up" onclick="openDestModal('maldives')">
+        <img src="img/dest_maldives_seychelles.png" alt="Мальдивы, Сейшелы, Маврикий">
+        <div class="dest-cta">Узнать цены</div>
+        <div class="dest-card-body">
+          <div class="dest-name">Мальдивы / Сейшелы / Маврикий</div>
+          <div class="dest-tag">Свадьбы · Медовый месяц · Виллы на воде</div>
+          <button class="dest-btn">Подробнее →</button>
+        </div>
+      </div>
+      <div class="dest-card fade-up" onclick="openDestModal('turkey')">
+        <img src="img/dest_turkey_egypt.png" alt="Турция и Египет">
+        <div class="dest-cta">Узнать цены</div>
+        <div class="dest-card-body">
+          <div class="dest-name">Турция / Египет</div>
+          <div class="dest-tag">Стамбул · Пирамиды · Пляжный отдых</div>
+          <button class="dest-btn">Подробнее →</button>
+        </div>
+      </div>
+      <div class="dest-card fade-up" onclick="openDestModal('china')">
+        <img src="img/dest_china.png" alt="Китай">
+        <div class="dest-cta">Узнать цены</div>
+        <div class="dest-card-body">
+          <div class="dest-name">Китай</div>
+          <div class="dest-tag">Шанхай · Пекин · Великая стена · Шопинг</div>
+          <button class="dest-btn">Подробнее →</button>
+        </div>
+      </div>
+      <div class="dest-card fade-up" onclick="openDestModal('asia')">
+        <img src="img/dest_asia.png" alt="Азия">
+        <div class="dest-cta">Узнать цены</div>
+        <div class="dest-card-body">
+          <div class="dest-name">Азия</div>
+          <div class="dest-tag">Таиланд · Бали · Вьетнам · Индия</div>
+          <button class="dest-btn">Подробнее →</button>
+        </div>
+      </div>
+      <div class="dest-card fade-up" onclick="openDestModal('europe')">
+        <img src="img/dest_europe.png" alt="Европа">
+        <div class="dest-cta">Узнать цены</div>
+        <div class="dest-card-body">
+          <div class="dest-name">Европа</div>
+          <div class="dest-tag">Париж · Рим · Барселона · Прага</div>
+          <button class="dest-btn">Подробнее →</button>
+        </div>
+      </div>
+      <div class="dest-card fade-up" onclick="openDestModal('uae')">
+        <img src="img/dest_uae.png" alt="ОАЭ и страны Востока">
+        <div class="dest-cta">Узнать цены</div>
+        <div class="dest-card-body">
+          <div class="dest-name">ОАЭ и страны Востока</div>
+          <div class="dest-tag">Дубай · Абу-Даби · Оман · Бахрейн</div>
+          <button class="dest-btn">Подробнее →</button>
+        </div>
+      </div>
+      <div class="dest-card fade-up" onclick="openDestModal('africa')">
+        <img src="img/dest_africa.png" alt="Африка">
+        <div class="dest-cta">Узнать цены</div>
+        <div class="dest-card-body">
+          <div class="dest-name">Африка</div>
+          <div class="dest-tag">Сафари · Кения · Занзибар · Килиманджаро</div>
+          <button class="dest-btn">Подробнее →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESTINATION MODALS -->
+<div class="dest-modal-overlay" id="destModalOverlay" onclick="closeDestModal(event)">
+  <div class="dest-modal" id="destModal">
+    <div class="dest-modal-hero">
+      <img id="destModalImg" src="" alt="">
+      <button class="dest-modal-close" onclick="closeDestModalBtn()">✕</button>
+      <div class="dest-modal-hero-text">
+        <h3 id="destModalTitle"></h3>
+        <span id="destModalSub"></span>
+      </div>
+    </div>
+    <div class="dest-modal-body">
+      <div class="dest-modal-tags" id="destModalTags"></div>
+      <p id="destModalDesc"></p>
+      <ul id="destModalList"></ul>
+      <div class="dest-modal-btns">
+        <a href="https://wa.me/79046095875?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5" target="_blank" class="btn-dm-wa">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.561 4.14 1.533 5.874L0 24l6.291-1.65A11.937 11.937 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.817 9.817 0 01-5.003-1.372l-.36-.213-3.733.978.995-3.638-.234-.374A9.815 9.815 0 012.182 12C2.182 6.578 6.578 2.182 12 2.182c5.421 0 9.818 4.396 9.818 9.818 0 5.421-4.397 9.818-9.818 9.818z"/></svg>
+          WhatsApp
+        </a>
+        <a href="https://t.me/" target="_blank" class="btn-dm-tg">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          Telegram
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GUIDES -->
+<section class="guides-sec" id="guides">
+  <div class="container">
+    <div class="dest-head">
+      <div>
+        <div class="s-eyebrow">Полезное для путешественников</div>
+        <h2 class="s-title">Бесплатные гайды</h2>
+      </div>
+      <span style="font-size:.88rem;color:var(--muted);max-width:280px;text-align:right;line-height:1.5;">Готовые инструкции, маршруты и чек-листы</span>
+    </div>
+    <div class="guides-grid">
+      <!-- Гайд 1: Мальдивы -->
+      <a href="maldives.html" class="guide-card fade-up">
+        <div class="guide-card-img">
+          <img src="img/wedding_couple.png" alt="Мальдивы для свадьбы">
+          <span class="guide-badge">💍 Свадьба</span>
+        </div>
+        <div class="guide-card-body">
+          <div class="guide-tag">Топ-10 отелей</div>
+          <div class="guide-title">Мальдивы для свадебной церемонии</div>
+          <div class="guide-desc">Подробные карточки каждого отеля: цены, церемония в подарок и особенности южных островов</div>
+          <span class="guide-link">Читать гайд →</span>
+        </div>
+      </a>
+      <!-- Гайд 2: Стыковки -->
+      <a href="transit_guide.html" class="guide-card fade-up">
+        <div class="guide-card-img">
+          <img src="transit_assets/shanghai.png" alt="Гайд по стыковкам">
+          <span class="guide-badge">✈️ Стыковки</span>
+        </div>
+        <div class="guide-card-body">
+          <div class="guide-tag">Ультимативный гайд</div>
+          <div class="guide-title">Превращаем стыковку в мини-отпуск</div>
+          <div class="guide-desc">Маршруты по 7 городам: Шанхай, Стамбул, Тбилиси, Ереван, Ташкент, Пекин — GPS, цены, визы</div>
+          <span class="guide-link">Читать гайд →</span>
+        </div>
+      </a>
+      <!-- Гайд 3: Перелёт с питомцем -->
+      <a href="pets.html" class="guide-card fade-up">
+        <div class="guide-card-img">
+          <img src="img/pet_travel.png" alt="Перелёт с питомцем">
+          <span class="guide-badge">🐾 Питомцы</span>
+        </div>
+        <div class="guide-card-body">
+          <div class="guide-tag">Чек-лист 2026</div>
+          <div class="guide-title">Перелёт с питомцем без стресса</div>
+          <div class="guide-desc">5 фатальных ошибок и пошаговый план подготовки документов для перевозки кошки или собаки самолётом</div>
+          <span class="guide-link">Читать гайд →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-sec" id="services">
+  <div class="container">
+    <div style="text-align:center;max-width:560px;margin:0 auto;">
+      <div class="s-eyebrow">Услуги</div>
+      <h2 class="s-title">Что я делаю для вас</h2>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card fade-up">
+        <div class="svc-icon">✈️</div>
+        <div class="svc-title">Подбор и бронирование туров в 55 стран</div>
+        <p class="svc-text">Нахожу лучший вариант по вашим датам, бюджету и пожеланиям. Сравниваю сотни предложений — экономлю ваше время и деньги.</p>
+      </div>
+      <div class="svc-card fade-up">
+        <div class="svc-icon">🛂</div>
+        <div class="svc-title">Помощь в оформлении виз</div>
+        <p class="svc-text">Подготовка документов, заполнение анкет, подача заявлений — сопровожу весь процесс от начала до получения визы.</p>
+      </div>
+      <div class="svc-card fade-up">
+        <div class="svc-icon">💍</div>
+        <div class="svc-title">Свадебные путешествия и церемонии</div>
+        <p class="svc-text">Организую свадебную церемонию, медовый месяц и всё сопутствующее — от выбора острова до трансфера на гидроплане.</p>
+      </div>
+      <div class="svc-card fade-up">
+        <div class="svc-icon">🏢</div>
+        <div class="svc-title">Корпоративные поездки и путешествия</div>
+        <p class="svc-text">Организация командировок и корпоративных туров под ключ: от логистики до размещения и развлекательной программы.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- COURSE BANNER — styled as hot deal card -->
+<div class="hotdeal-ban" id="course-card">
+  <div class="hotdeal-photo hotdeal-photo-top">
+    <img src="img/hot_deal_bg.png" alt="Курс для турагентов">
+    <div class="hotdeal-photo-fog hotdeal-photo-fog-bottom"></div>
+  </div>
+
+  <div class="hotdeal-card">
+    <div class="hotdeal-label">🎓 Обучение</div>
+    <div class="hotdeal-dest">КУРС</div>
+    <div class="hotdeal-cursive">Авторский курс</div>
+    <div class="hotdeal-price-row">
+      <div class="hotdeal-price-pill">
+        <span class="hotdeal-price-new">70 000 — 1 000 000 ₽</span>
+        <span class="hotdeal-price-old" style="font-size:.78rem;white-space:nowrap;">/мес</span>
+      </div>
+    </div>
+    <div class="hotdeal-info-grid">
+      <div class="hotdeal-info-card">
+        <div class="hotdeal-info-label">Опыт:</div>
+        <div class="hotdeal-info-val">15 лет практики</div>
+      </div>
+      <div class="hotdeal-info-card">
+        <div class="hotdeal-info-label">Формат:</div>
+        <div class="hotdeal-info-val">Онлайн, из любой точки</div>
+      </div>
+      <div class="hotdeal-info-card">
+        <div class="hotdeal-info-label">Кому:</div>
+        <div class="hotdeal-info-val">Начинающим и агентам</div>
+      </div>
+    </div>
+    <a href="course.html" class="hotdeal-cta-btn">Узнать о курсе →</a>
+  </div>
+
+  <div class="hotdeal-photo hotdeal-photo-bottom">
+    <img src="img/hot_deal_bg.png" alt="">
+    <div class="hotdeal-photo-fog hotdeal-photo-fog-top"></div>
+  </div>
+</div>
+
+
+
+<!-- CONTACT -->
+<section class="contact-sec" id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="fade-up">
+        <div class="s-eyebrow">Связаться</div>
+        <h2 class="contact-title">Давайте подберём ваш тур</h2>
+        <p class="contact-desc">Расскажите, куда хотите поехать и когда — я найду лучший вариант и отвечу быстро.</p>
+        <div class="contact-info">
+          <div class="contact-row">✉️ <a href="mailto:Nov.travel@gmail.com">Nov.travel@gmail.com</a></div>
+        </div>
+        <div class="contact-btns">
+          <a href="https://wa.me/79046095875?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D1%8C%20%D1%82%D1%83%D1%80" target="_blank" class="btn-wa">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.561 4.14 1.533 5.874L0 24l6.291-1.65A11.937 11.937 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.817 9.817 0 01-5.003-1.372l-.36-.213-3.733.978.995-3.638-.234-.374A9.815 9.815 0 012.182 12C2.182 6.578 6.578 2.182 12 2.182c5.421 0 9.818 4.396 9.818 9.818 0 5.421-4.397 9.818-9.818 9.818z"/></svg>
+            WhatsApp
+          </a>
+          <a href="https://t.me/" target="_blank" class="btn-tg">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            Telegram
+          </a>
+          <a href="https://max.ru/" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:50px;font-weight:700;font-size:.88rem;background:linear-gradient(135deg,#7c5cbf,#5e3fa0);color:#fff;box-shadow:0 4px 18px rgba(124,92,191,.3);transition:.3s var(--ease);text-decoration:none;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+            📲 Макс
+          </a>
+        </div>
+        
+      </div>
+      <div class="fade-up" style="transition-delay:.12s">
+        <div class="contact-visual">
+          <img src="img/h1_taj_coral.png" alt="Туры мечты" class="contact-img">
+          <div class="contact-float">
+            <div class="cf-icon">🌴</div>
+            <div><div class="cf-num">5 000+</div><div class="cf-label">довольных туристов</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo" style="font-size:1.4rem;">Турагентство<br>Виктории Новиковой</div>
+        
+      </div>
+      <div>
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:14px;">Навигация</p>
+        <div class="footer-links">
+          <a href="#about">Обо мне</a>
+          <a href="#dest">Направления</a>
+          <a href="maldives.html">Гид по Мальдивам 💍</a>
+          <a href="transit_guide.html">Гайд по стыковкам ✈️</a>
+          <a href="pets.html">Перелёт с питомцем 🐾</a>
+          <a href="course.html">Курс для турагентов</a>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:14px;">Документы</p>
+        <div class="footer-links">
+          <a href="privacy-policy.html">Политика обработки персональных данных</a>
+          <a href="consent-processing.html">Согласие на обработку персональных данных</a>
+          <a href="consent-mailing.html">Согласие на рассылку</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Турагентство Виктории Новиковой · Все права защищены</p>
+      <div style="display:flex;gap:16px;">
+        <a href="tel:+79046095875" style="font-size:.78rem;color:rgba(255,255,255,.3);">+7 904 609-58-75</a>
+        <a href="mailto:Nov.travel@gmail.com" style="font-size:.78rem;color:rgba(255,255,255,.3);">Nov.travel@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ===== DESTINATION DATA =====
+const DEST_DATA={
+  maldives:{img:'img/dest_maldives_seychelles.png',title:'Мальдивы / Сейшелы / Маврикий',sub:'Индийский океан · Экзотические острова',tags:['Свадьбы и церемонии','Медовый месяц','Виллы на воде','5★ отели','Круглый год'],desc:'Настоящий рай в Индийском океане — острова с белоснежными пляжами, прозрачнейшей бирюзовой водой и вышколенным сервисом мирового уровня. Я лично посетила лучшие курорты и знаю каждый отель изнутри.',list:['Мальдивы: лучшие виллы на воде, церемонии под открытым небом, подводные рестораны','Сейшелы: уединённые острова с гранитными скалами, нетронутая природа','Маврикий: роскошные spa-резорты, сёрфинг, дайвинг, шопинг']},
+  turkey:{img:'img/dest_turkey_egypt.png',title:'Турция / Египет',sub:'Культура, история, пляжный отдых',tags:['Пляжный отдых','All Inclusive','Экскурсии','Шопинг','Круглый год'],desc:'Два топовых пляжных направления с насыщенной историей. Турция — от мегаполиса Стамбула с его мечетями и базарами до белоснежных скал Памуккале и пляжей Анталии. Египет — пирамиды Гизы, Красное море и Луксор.',list:['Турция: Стамбул, Анталия, Каппадокия, Эфес','Египет: Шарм-эль-Шейх, Хургада, Каир, круизы по Нилу','Туры от 7 до 14 ночей, All Inclusive',"Безвизовый въезд в Египет, e-виза в Турцию"]},
+  china:{img:'img/dest_china.png',title:'Китай',sub:'Контрасты, мегаполисы, культура',tags:['Культурные туры','Шопинг','Гастрономия','Архитектура'],desc:'Китай ошеломляет контрастами: ультрасовременные небоскрёбы Шанхая и Пекина соседствуют с тысячелетними храмами и Великой стеной. Богатейшая кухня, шопинг и незабываемые впечатления.',list:['Шанхай: набережная Бунд, Пудун, шопинг','Пекин: Запретный город, Великая стена, театр','Сиань: Терракотовая армия','Туры от 7 дней, групповые и индивидуальные']},
+  asia:{img:'img/dest_asia.png',title:'Азия',sub:'Таиланд · Бали · Вьетнам · Индия',tags:['Пляжный отдых','Экзотика','Спа','Культура','Дайвинг'],desc:'Азия — это бесконечное разнообразие: от буддийских храмов Таиланда до рисовых террас Бали, от пляжей Фукуока до чайных плантаций Шри-Ланки. Подберу тур под любой бюджет и стиль путешествия.',list:['Таиланд: Бангкок, Пхукет, Самуй, Краби','Бали: Убуд, Семиньяк, Нуса-Дуа','Вьетнам: Ханой, Халонг, Хойан, Дананг','Индия: Гоа, Раджастан, Керала']},
+  europe:{img:'img/dest_europe.png',title:'Европа',sub:'Культура, гастрономия, архитектура',tags:['Культурный туризм','Шопинг','Романтика','История'],desc:'Европа — это бесценное культурное наследие, великолепная кухня и роскошные виды. Организую индивидуальные туры и группы по классическим маршрутам — с визовой поддержкой и полным сопровождением.',list:['Франция: Париж, Лазурный берег, замки Луары','Италия: Рим, Флоренция, Венеция, Амальфи','Испания: Барселона, Мадрид, Андалусия','Чехия, Австрия, Хорватия и весь ЕС — с шенгенской визой']},
+  uae:{img:'img/dest_uae.png',title:'ОАЭ и страны Востока',sub:'Дубай · Абу-Даби · Оман · Бахрейн',tags:['Люкс','Шопинг','Пляжный отдых','Архитектура','Зима'],desc:'ОАЭ — синоним роскоши и амбиций. Бурдж-Халифа, бесконечные торговые моллы, пляжи Персидского залива и гастрономия мирового уровня. Идеальное направление для зимних путешествий.',list:['Дубай: Бурдж-Халифа, Desert Safari, шопинг','Абу-Даби: мечеть шейха Зайда, Ferrari World','Оман: уникальная природа, форты, горы и море','Туры круглый год, безвизовый въезд']},
+  africa:{img:'img/dest_africa.png',title:'Африка',sub:'Сафари · Кения · Занзибар · Килиманджаро',tags:['Сафари','Экзотика','Природа','Приключения'],desc:'Африка — это не просто путешествие, это опыт, который меняет мировоззрение. Саванны с мигрирующими стадами, Килиманджаро, пляжи Занзибара и радушие местных народов.',list:['Кения: Масаи-Мара, Найроби, озеро Найваша','Занзибар: белоснежные пляжи, специи, коралловые рифы','Килиманджаро: трекинг на высшую точку Африки','Танзания, ЮАР, Намибия — по запросу']}
+};
+function openDestModal(key){
+  const d=DEST_DATA[key];if(!d)return;
+  document.getElementById('destModalImg').src=d.img;
+  document.getElementById('destModalTitle').textContent=d.title;
+  document.getElementById('destModalSub').textContent=d.sub;
+  document.getElementById('destModalDesc').textContent=d.desc;
+  const tags=document.getElementById('destModalTags');
+  tags.innerHTML=d.tags.map(t=>`<span>${t}</span>`).join('');
+  const list=document.getElementById('destModalList');
+  list.innerHTML=d.list.map(l=>`<li>${l}</li>`).join('');
+  document.getElementById('destModalOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeDestModal(e){
+  if(e.target===document.getElementById('destModalOverlay'))closeDestModalBtn();
+}
+function closeDestModalBtn(){
+  document.getElementById('destModalOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDestModalBtn();});
+
+// ===== NAV =====
+document.addEventListener('DOMContentLoaded',()=>{
+  const nav=document.getElementById('nav');
+  window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60);},{passive:true});
+
+  // Fade-up
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.08});
+  document.querySelectorAll('.fade-up').forEach((el,i)=>{
+    el.style.transitionDelay=(i%4)*90+'ms'; io.observe(el);
+  });
+
+  // Dropdown — click-based
+  const dropdown=document.querySelector('.nav-dropdown');
+  const trigger=dropdown?.querySelector('.nav-dropdown-trigger');
+  trigger?.addEventListener('click',e=>{
+    e.stopPropagation();
+    dropdown.classList.toggle('open');
+  });
+  document.addEventListener('click',e=>{
+    if(!dropdown?.contains(e.target)) dropdown?.classList.remove('open');
+  });
+  // Close dropdown when a link inside is clicked
+  dropdown?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>dropdown.classList.remove('open')));
+
+  // Burger — mobile menu
+  const burger=document.getElementById('burger');
+  const navLinks=document.querySelector('.nav-links');
+  let menuOpen=false;
+  function openMenu(){
+    Object.assign(navLinks.style,{display:'flex',flexDirection:'column',position:'fixed',top:'64px',left:'0',right:'0',background:'rgba(10,22,40,.97)',padding:'24px 28px',gap:'18px',zIndex:'199'});
+    menuOpen=true;
+  }
+  function closeMenu(){
+    navLinks.style.display='none';
+    menuOpen=false;
+  }
+  burger?.addEventListener('click',e=>{e.stopPropagation();menuOpen?closeMenu():openMenu();});
+  // Close menu on outside click
+  document.addEventListener('click',e=>{
+    if(menuOpen && !navLinks.contains(e.target) && e.target!==burger) closeMenu();
+  });
+  // Close menu on nav link click (except dropdown trigger)
+  navLinks?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>closeMenu()));
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const t=document.querySelector(a.getAttribute('href'));
+      if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+    });
+  });
+});
+</script>
+</body>
+</html>

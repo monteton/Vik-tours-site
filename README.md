@@ -1,1 +1,1 @@
-# Vik-tours-site
+# Viktours-academy
