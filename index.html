@@ -300,16 +300,29 @@ footer{background:var(--navy);padding:42px 0 28px;}
   .guides-grid{grid-template-columns:1fr;}
   .footer-inner{flex-direction:column;gap:22px;}
   .footer-tagline{max-width:100%;}
+  .hero-eyebrow { top: 120px; font-size: 0.65rem; }
+  .hero-name-giant { font-size: clamp(3.5rem, 12vw, 7rem); }
+  .hero-name-cursive { font-size: clamp(2rem, 8vw, 3.5rem); margin-top: 0; }
+  .hero-btns-poster { bottom: 120px; }
+  .hero-name-wrap { transform: translate(-50%, -60%); }
 }
 @media(max-width:480px){
   .dest-grid{grid-template-columns:1fr;}
   .dest-card.large{grid-column:span 1;}
-  .hero-btns,.contact-btns{flex-direction:column;}
+  .hero-btns-poster { flex-direction: column; width: 100%; padding: 0 40px; gap: 12px; bottom: 100px; }
+  .btn-hero-primary, .btn-hero-outline { width: 100%; justify-content: center; padding: 14px 20px; text-align: center; }
+  .contact-btns{flex-direction:column;}
   .maldives-cards{grid-template-columns:1fr;}
   .contact-float{display:none;}
   .footer-bottom{align-items:center;text-align:center;}
   .footer-copy{text-align:center;}
   .footer-inner{gap:20px;}
+  .hero-eyebrow { top: 130px; white-space: normal; text-align: center; line-height: 1.4; padding: 0 20px; }
+  .hero-eyebrow::before, .hero-eyebrow::after { display: none; }
+  .hero-name-giant { font-size: clamp(2.4rem, 13vw, 4rem); }
+  .hero-feat-inner { flex-wrap: wrap; }
+  .hero-feat-card { flex: 0 0 calc(50% - 6px); }
+  .hero-feat-strip { padding: 12px; }
 }
 </style>
 </head>
