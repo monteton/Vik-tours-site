@@ -1,0 +1,1786 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description"
+    content="Полный гайд по Черногории для россиян 2026. Въезд без визы, платежи, связь, транспорт и лучшие направления." />
+  <title>Черногория — Полный гайд для россиян</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --teal: #00c9e0;
+      --gold: #f5c842;
+      --coral: #e8523a;
+      --dark: #04101f;
+      --deep: #061525;
+      --navy: #071e38;
+      --card: rgba(255, 255, 255, 0.06);
+      --border: rgba(0, 201, 224, 0.18);
+      --text: #e8f4f8;
+      --muted: rgba(232, 244, 248, 0.55);
+      --r: 16px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--teal);
+      border-radius: 999px;
+    }
+
+    /* ── NAV ── */
+    #nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(4, 16, 31, 0);
+      transition: background 0.4s, backdrop-filter 0.4s;
+    }
+
+    #nav.scrolled {
+      background: rgba(4, 16, 31, 0.9);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+    }
+
+    .nav-logo {
+      font-weight: 900;
+      font-size: 16px;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-logo span {
+      color: var(--teal);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 4px;
+    }
+
+    .nav-link {
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 999px;
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .nav-link:hover {
+      color: #fff;
+      background: rgba(0, 201, 224, 0.15);
+    }
+
+    /* ── HERO SLIDESHOW BANNER ── */
+    #hero {
+      height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Slideshow stack */
+    .hero-slides {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: -18%;
+      background-size: cover;
+      background-position: center;
+      will-change: transform, opacity;
+      opacity: 0;
+      transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+      animation: kenBurnsRand 14s ease-in-out infinite alternate;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+    }
+
+    @keyframes kenBurnsRand {
+      0% {
+        transform: scale(1.0) translate(0px, 0px);
+      }
+
+      33% {
+        transform: scale(1.10) translate(-20px, -10px);
+      }
+
+      66% {
+        transform: scale(1.14) translate(14px, -16px);
+      }
+
+      100% {
+        transform: scale(1.08) translate(-8px, 12px);
+      }
+    }
+
+    /* Slide location label */
+    .slide-loc {
+      position: absolute;
+      bottom: 90px;
+      right: 24px;
+      z-index: 12;
+      text-align: right;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.8s ease 0.6s, transform 0.8s ease 0.6s;
+    }
+
+    .slide-loc.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide-loc-name {
+      font-size: clamp(13px, 3vw, 17px);
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+    }
+
+    .slide-loc-sub {
+      font-size: 11px;
+      color: var(--teal);
+      margin-top: 3px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Slide dots */
+    .slide-dots {
+      position: absolute;
+      bottom: 90px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 12;
+      display: flex;
+      gap: 8px;
+    }
+
+    .slide-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .slide-dot.active {
+      background: var(--teal);
+      transform: scale(1.5);
+      border-color: var(--teal);
+    }
+
+    /* Depth atmospheric layers */
+    .hero-atm {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 100%, rgba(4, 16, 31, 0.85) 0%, transparent 70%),
+        radial-gradient(ellipse 100% 40% at 50% 0%, rgba(4, 16, 31, 0.5) 0%, transparent 70%);
+    }
+
+    .hero-vignette {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+      background: radial-gradient(ellipse 120% 100% at 50% 50%, transparent 40%, rgba(4, 16, 31, 0.6) 100%);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(to bottom,
+          rgba(4, 16, 31, 0.2) 0%,
+          rgba(4, 16, 31, 0.0) 30%,
+          rgba(4, 16, 31, 0.6) 72%,
+          rgba(4, 16, 31, 1) 100%);
+    }
+
+    /* wave at bottom of hero */
+    .hero-wave {
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      z-index: 5;
+    }
+
+    .hero-wave svg {
+      display: block;
+      width: 100%;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      padding: 0 24px;
+      max-width: 720px;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 201, 224, 0.15);
+      border: 1px solid rgba(0, 201, 224, 0.4);
+      color: var(--teal);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 7px 18px;
+      border-radius: 999px;
+      margin-bottom: 22px;
+      animation: fadeDown 0.8s ease both;
+    }
+
+    .hero-title {
+      font-size: clamp(48px, 14vw, 96px);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -3px;
+      color: #fff;
+      animation: fadeDown 0.9s 0.1s ease both;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      color: var(--teal);
+    }
+
+    .hero-sub {
+      font-size: clamp(14px, 3.5vw, 18px);
+      color: rgba(255, 255, 255, 0.75);
+      margin-top: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+      animation: fadeDown 1s 0.2s ease both;
+    }
+
+    /* Drone badge */
+    .drone-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.45);
+      letter-spacing: 1px;
+      animation: fadeDown 1.1s 0.3s ease both;
+    }
+
+    .drone-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--coral);
+      box-shadow: 0 0 8px var(--coral);
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.5;
+        transform: scale(0.7);
+      }
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 13;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      animation: float 2s ease-in-out infinite;
+    }
+
+    .scroll-arrow {
+      width: 22px;
+      height: 22px;
+      border-right: 2px solid rgba(0, 201, 224, 0.5);
+      border-bottom: 2px solid rgba(0, 201, 224, 0.5);
+      transform: rotate(45deg);
+    }
+
+    /* ── DEEP PARALLAX PHOTO SECTIONS ── */
+    .photo-parallax {
+      height: 60vw;
+      min-height: 300px;
+      max-height: 500px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pimg {
+      position: absolute;
+      inset: -30%;
+      background-size: cover;
+      background-position: center;
+      will-change: transform;
+      transition: transform 0s linear;
+    }
+
+    /* Depth atmosphere on photo parallax */
+    .photo-parallax .poverlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background:
+        linear-gradient(to bottom, rgba(4, 16, 31, 0.55), rgba(4, 16, 31, 0.1) 40%, rgba(4, 16, 31, 0.75)),
+        radial-gradient(ellipse 120% 80% at 50% 100%, rgba(4, 16, 31, 0.4) 0%, transparent 70%);
+    }
+
+    .plabel {
+      position: absolute;
+      bottom: 28px;
+      left: 28px;
+      z-index: 3;
+    }
+
+    .plabel-city {
+      font-size: clamp(28px, 7vw, 52px);
+      font-weight: 900;
+      color: #fff;
+      text-shadow: 0 3px 20px rgba(0, 0, 0, 0.7);
+    }
+
+    .plabel-sub {
+      font-size: 13px;
+      color: var(--teal);
+      margin-top: 5px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    /* Side accent on photo sections */
+    .photo-parallax::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      z-index: 4;
+      background: linear-gradient(to bottom, var(--teal), var(--gold));
+    }
+
+    /* ── STRIPE ── */
+    .stripe {
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--gold), var(--teal));
+      background-size: 200% 100%;
+      animation: shimmer 3s linear infinite;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 80px 20px;
+    }
+
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 7vw, 48px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 32px;
+    }
+
+    .section-title .accent {
+      color: var(--gold);
+    }
+
+    .section-title .accent-teal {
+      color: var(--teal);
+    }
+
+    /* ── CARDS ── */
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 20px 22px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      transition: transform 0.3s ease, border-color 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(0, 201, 224, 0.35);
+    }
+
+    .card--teal {
+      border-color: rgba(0, 201, 224, 0.35);
+    }
+
+    .card--gold {
+      border-color: rgba(245, 200, 66, 0.35);
+    }
+
+    .card--coral {
+      border-color: rgba(232, 82, 58, 0.35);
+    }
+
+    .card-icon {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .card-text {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .card-text strong {
+      color: var(--text);
+    }
+
+    /* ── ALERT BOX ── */
+    .alert-box {
+      background: linear-gradient(135deg, rgba(232, 82, 58, 0.12), rgba(245, 200, 66, 0.06));
+      border: 1px solid rgba(232, 82, 58, 0.35);
+      border-radius: 18px;
+      padding: 22px 22px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .alert-box::before {
+      content: '⚠️';
+      position: absolute;
+      right: -8px;
+      top: -8px;
+      font-size: 70px;
+      opacity: 0.07;
+    }
+
+    .alert-box h3 {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--coral);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .alert-box p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .alert-box p strong {
+      color: var(--gold);
+    }
+
+    /* ── VISA BOX ── */
+    .visa-box {
+      background: linear-gradient(135deg, rgba(0, 201, 224, 0.1), rgba(245, 200, 66, 0.06));
+      border: 1px solid rgba(0, 201, 224, 0.3);
+      border-radius: 20px;
+      padding: 28px 24px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .visa-box::before {
+      content: '🇲🇪';
+      position: absolute;
+      right: -8px;
+      top: -8px;
+      font-size: 80px;
+      opacity: 0.08;
+    }
+
+    .visa-box h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .visa-box p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .visa-box p strong {
+      color: var(--teal);
+    }
+
+    .visa-days {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    .visa-num {
+      font-size: 56px;
+      font-weight: 900;
+      color: var(--teal);
+      line-height: 1;
+    }
+
+    .visa-unit {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    /* ── BADGES ── */
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .badge {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 1px solid;
+    }
+
+    .badge--teal {
+      color: #5de8f5;
+      border-color: rgba(0, 201, 224, 0.5);
+      background: rgba(0, 201, 224, 0.1);
+    }
+
+    .badge--gold {
+      color: #f5d060;
+      border-color: rgba(245, 200, 66, 0.5);
+      background: rgba(245, 200, 66, 0.1);
+    }
+
+    .badge--coral {
+      color: #ff8070;
+      border-color: rgba(232, 82, 58, 0.5);
+      background: rgba(232, 82, 58, 0.1);
+    }
+
+    .badge--green {
+      color: #7de8a0;
+      border-color: rgba(100, 230, 140, 0.5);
+      background: rgba(100, 230, 140, 0.1);
+    }
+
+    .badge--grey {
+      color: rgba(255, 255, 255, 0.5);
+      border-color: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    /* ── TIPS ── */
+    .tip {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 18px 20px;
+      border-left: 3px solid var(--teal);
+      background: rgba(0, 201, 224, 0.06);
+      border-radius: 0 12px 12px 0;
+      margin-bottom: 14px;
+    }
+
+    .tip--gold {
+      border-left-color: var(--gold);
+      background: rgba(245, 200, 66, 0.06);
+    }
+
+    .tip--coral {
+      border-left-color: var(--coral);
+      background: rgba(232, 82, 58, 0.06);
+    }
+
+    .tip-icon {
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .tip-text {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .tip-text strong {
+      color: var(--text);
+    }
+
+    /* ── PROGRESS ── */
+    .progress-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .progress-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .progress-bar-bg {
+      height: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--teal), var(--gold));
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: transform 1.2s ease;
+    }
+
+    .progress-bar-fill.animated {
+      transform: scaleX(1);
+    }
+
+    /* ── CHAPTER LINE ── */
+    .chapter-line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .chapter-line span {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--teal);
+      white-space: nowrap;
+    }
+
+    .chapter-line::before,
+    .chapter-line::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── PHOTO PARALLAX — now handled in hero section above ── */
+
+    /* ── DESTINATIONS ── */
+    .dest-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 0 20px 80px;
+    }
+
+    .dest-card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      min-height: 210px;
+      display: flex;
+      align-items: flex-end;
+      padding: 24px;
+      transition: transform 0.4s ease;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .dest-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.6s ease;
+      z-index: 0;
+    }
+
+    .dest-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.96) 0%, rgba(0, 0, 0, 0.75) 40%, rgba(0, 0, 0, 0.3) 70%, rgba(0, 0, 0, 0.05) 100%);
+      z-index: 1;
+    }
+
+    .dest-card:active {
+      transform: scale(0.98);
+    }
+
+    .dest-card--budva::before {
+      background-image: url('images/svstefan.png');
+      background-position: center 30%;
+    }
+
+    .dest-card--kotor::before {
+      background-image: url('images/plav.png');
+      background-position: center center;
+    }
+
+    .dest-card--sveti::before {
+      background-image: url('images/svstefan.png');
+    }
+
+    .dest-card--durmitor::before {
+      background-image: url('images/Prokletie.png');
+      background-position: center 40%;
+    }
+
+    .dest-card--herceg::before {
+      background-image: url('images/herceg1.png');
+      background-position: center 40%;
+    }
+
+    .dest-card--skadar::before {
+      background-image: url('images/Skadar .png');
+    }
+
+    .dest-card--bar::before {
+      background-image: url('images/Bar1.png');
+      background-position: center 40%;
+    }
+
+    .dest-body {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+
+    .dest-card:hover {
+      transform: translateY(-3px) scale(1.01);
+    }
+
+    .dest-card:hover::before {
+      transform: scale(1.06);
+    }
+
+    .dest-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 12px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--teal);
+      opacity: 0;
+      transform: translateX(-6px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .dest-card:hover .dest-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .dest-name {
+      font-size: clamp(20px, 5vw, 30px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.1;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+    }
+
+    .dest-desc {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.92);
+      margin-top: 6px;
+      line-height: 1.55;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
+    }
+
+    .dest-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .dest-tag {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #fff;
+      backdrop-filter: blur(8px);
+    }
+
+    /* ── REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: 0.3s;
+    }
+
+    /* ── BG VARIANTS ── */
+    .bg-dark {
+      background: var(--dark);
+    }
+
+    .bg-deep {
+      background: var(--deep);
+    }
+
+    .bg-navy {
+      background: var(--navy);
+    }
+
+    .bg-mixed {
+      background: linear-gradient(180deg, var(--dark), #071e38 50%, var(--dark));
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: rgba(0, 201, 224, 0.04);
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    footer .flag {
+      font-size: 32px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    /* ── KEYFRAMES ── */
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      50% {
+        transform: translateX(-50%) translateY(8px);
+      }
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: 0%;
+      }
+
+      100% {
+        background-position: 200%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Nav -->
+  <nav id="nav">
+    <div class="nav-logo">🇲🇪 <span>·</span> ЧЕРНОГОРИЯ</div>
+    <div class="nav-links">
+      <a href="#entry" class="nav-link">Въезд</a>
+      <a href="#payments" class="nav-link">Платежи</a>
+      <a href="#connect" class="nav-link">Связь</a>
+      <a href="#cities" class="nav-link">Города</a>
+      <a href="cities.html" class="nav-link" style="color:var(--teal)">Гайд 📍</a>
+    </div>
+  </nav>
+
+  <!-- Hero — Cinematic Photo Slideshow -->
+  <section id="hero">
+    <!-- Slideshow slides -->
+    <div class="hero-slides" id="heroSlides">
+      <div class="hero-slide" style="background-image:url('images/svstefan.png')" data-name="Свети-Стефан"
+        data-sub="Визитная карточка Черногории"></div>
+      <div class="hero-slide" style="background-image:url('images/svstefan.png')" data-name="Свети-Стефан"
+        data-sub="На закате · Адриатика"></div>
+      <div class="hero-slide" style="background-image:url('images/Prokletie.png')" data-name="Проклетие"
+        data-sub="Горный нацпарк · Дикая природа"></div>
+      <div class="hero-slide" style="background-image:url('images/Skadar .png')" data-name="Скадарское озеро"
+        data-sub="Крупнейшее озеро Балкан"></div>
+      <div class="hero-slide" style="background-image:url('images/plav.png')" data-name="Плав"
+        data-sub="Горное озеро · Альпийский пейзаж"></div>
+    </div>
+    <!-- Atmospheric depth layers -->
+    <div class="hero-overlay"></div>
+    <div class="hero-atm"></div>
+    <div class="hero-vignette"></div>
+    <!-- Main content -->
+    <div class="hero-content">
+      <div class="hero-tag">🌊 Актуально — Лето / Осень 2026</div>
+      <h1 class="hero-title">Черно-<br /><em>гория</em></h1>
+      <p class="hero-sub">Адриатическое побережье, горы и бухты — организуем тур под ключ: перелёт, жильё и трансфер в
+        одном пакете</p>
+      <div class="drone-badge">
+        <div class="drone-dot"></div>
+        <span id="slideBadgeText">СВЕТИ-СТЕФАН · ЧЕРНОГОРИЯ</span>
+      </div>
+    </div>
+    <!-- Slide location label (bottom right) -->
+    <div class="slide-loc" id="slideLoc">
+      <div class="slide-loc-name" id="slideLocName">Свети-Стефан</div>
+      <div class="slide-loc-sub" id="slideLocSub">Визитная карточка Черногории</div>
+    </div>
+    <!-- Slide dots -->
+    <div class="slide-dots" id="slideDots"></div>
+    <!-- Wave -->
+    <div class="hero-wave">
+      <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0 40 C360 70 720 10 1080 45 C1260 62 1380 38 1440 30 L1440 60 L0 60 Z" fill="#04101f" />
+      </svg>
+    </div>
+    <div class="hero-scroll">
+      <span>Скролл</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+
+
+  <!-- Destinations header -->
+  <section class="bg-dark">
+    <div class="section-inner" style="padding-bottom:20px">
+      <div class="section-label">Куда поехать</div>
+      <h2 class="section-title">Лучшие <span class="accent">Направления</span></h2>
+      <p style="font-size:14px;color:var(--muted);line-height:1.65">От курортной Будвы до горного Дурмитора — нажмите на
+        карточку, чтобы узнать больше. Организуем тур в любое из этих мест и не только.</p>
+    </div>
+  </section>
+
+  <!-- Destinations -->
+  <div id="cities" class="dest-grid">
+    <a href="cities.html#budva" class="dest-card dest-card--budva reveal">
+      <div class="dest-body">
+        <div class="dest-name">🏖️ Будва</div>
+        <div class="dest-desc">Курортная столица побережья. Старый город с крепостными стенами, рядом Свети-Стефан —
+          визитка всей страны. Инфраструктура давно заточена под русскоязычных.</div>
+        <div class="dest-tags">
+          <span class="dest-tag">Пляжи</span>
+          <span class="dest-tag">Ночная жизнь</span>
+          <span class="dest-tag">Русскоязычно</span>
+        </div>
+        <div class="dest-arrow">Подробный гайд →</div>
+      </div>
+    </a>
+
+    <a href="cities.html#kotor" class="dest-card dest-card--kotor reveal reveal-delay-1">
+      <div class="dest-body">
+        <div class="dest-name">🏰 Котор</div>
+        <div class="dest-desc">Бухта, которую сравнивают с фьордом. Стены крепости Св. Иоанна на 260 метров, ~1 500
+          ступеней наверх. Летом — круизные лайнеры прямо у Старого города.</div>
+        <div class="dest-tags">
+          <span class="dest-tag">UNESCO</span>
+          <span class="dest-tag">Бухта-фьорд</span>
+          <span class="dest-tag">Крепость</span>
+        </div>
+        <div class="dest-arrow">Подробный гайд →</div>
+      </div>
+    </a>
+
+    <a href="cities.html#herceg" class="dest-card dest-card--herceg reveal reveal-delay-2">
+      <div class="dest-body">
+        <div class="dest-name">🌿 Херцег-Нови</div>
+        <div class="dest-desc">Вход в Боко-Которскую бухту — тише и менее туристически, чем Будва. Субтропический
+          климат, город лестниц и садов. Зимой заметно теплее горной части.</div>
+        <div class="dest-tags">
+          <span class="dest-tag">Субтропики</span>
+          <span class="dest-tag">Тихий отдых</span>
+          <span class="dest-tag">Сады</span>
+        </div>
+        <div class="dest-arrow">Подробный гайд →</div>
+      </div>
+    </a>
+
+    <a href="cities.html#durmitor" class="dest-card dest-card--durmitor reveal">
+      <div class="dest-body">
+        <div class="dest-name">🏔️ Дурмитор &amp; Жабляк</div>
+        <div class="dest-desc">Горный нацпарк, Чёрное озеро, каньон Тары — 2-й по глубине в мире после Колорадо. Требует
+          отдельного маршрута и машины: автобус сюда почти не ходит.</div>
+        <div class="dest-tags">
+          <span class="dest-tag">UNESCO</span>
+          <span class="dest-tag">Нужна машина</span>
+          <span class="dest-tag">Каньон Тары</span>
+        </div>
+        <div class="dest-arrow">Подробный гайд →</div>
+      </div>
+    </a>
+
+    <a href="cities.html#sveti" class="dest-card dest-card--sveti reveal reveal-delay-1">
+      <div class="dest-body">
+        <div class="dest-name">🌟 Свети-Стефан</div>
+        <div class="dest-desc">Остров-отель на скальном полуострове — самая фотографируемая точка страны. Вход на остров
+          для гостей отеля, но вид с пляжа — бесплатный и незабываемый.</div>
+        <div class="dest-tags">
+          <span class="dest-tag">Икона Черногории</span>
+          <span class="dest-tag">Люкс</span>
+          <span class="dest-tag">Пляж</span>
+        </div>
+        <div class="dest-arrow">Подробный гайд →</div>
+      </div>
+    </a>
+
+    <a href="cities.html#skadar" class="dest-card dest-card--skadar reveal reveal-delay-2">
+      <div class="dest-body">
+        <div class="dest-name">🚣 Скадарское озеро</div>
+        <div class="dest-desc">Крупнейшее озеро Балканского полуострова — остаток древнего моря. Маршрут на лодке от
+          Рийеки-Црноевича — через узкие проливы к открытой воде.</div>
+        <div class="dest-tags">
+          <span class="dest-tag">Нацпарк</span>
+          <span class="dest-tag">Лодочный тур</span>
+          <span class="dest-tag">Пеликаны</span>
+        </div>
+        <div class="dest-arrow">Подробный гайд →</div>
+      </div>
+    </a>
+
+    <a href="cities.html#skadar" class="dest-card dest-card--bar reveal">
+      <div class="dest-body">
+        <div class="dest-name">🏛️ Старый Бар</div>
+        <div class="dest-desc">Средневековый город-крепость в руинах на склоне горы Румия. Старые оливы возрастом 2000
+          лет, башни и церкви внутри стен. Один из самых атмосферных объектов страны.</div>
+        <div class="dest-tags">
+          <span class="dest-tag">Руины</span>
+          <span class="dest-tag">История</span>
+          <span class="dest-tag">~3-5€ вход</span>
+        </div>
+        <div class="dest-arrow">Подробный гайд →</div>
+      </div>
+    </a>
+  </div>
+
+  <section class="bg-dark" style="text-align:center;">
+    <div style="padding:32px 20px 52px;">
+      <p style="font-size:13px;color:var(--muted);margin-bottom:6px;">Хотите посетить несколько мест сразу?</p>
+      <p style="font-size:12px;color:var(--muted);margin-bottom:18px;">Составим маршрут и подберём отель в каждой точке
+      </p>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
+        <a href="#contact" id="cta2" style="
+        display:inline-flex;align-items:center;gap:10px;
+        background:linear-gradient(135deg,var(--teal),#0090a8);
+        color:#fff;font-size:15px;font-weight:800;
+        padding:15px 32px;border-radius:999px;
+        text-decoration:none;
+        box-shadow:0 8px 32px rgba(0,201,224,0.35);
+        transition:transform 0.2s;
+        letter-spacing:0.3px;
+      " onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform=''">
+          📞 Подобрать тур
+        </a>
+        <a href="cities.html" style="font-size:13px;color:var(--teal);text-decoration:none;opacity:0.8">
+
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="stripe"></div>
+
+  <!-- Entry & Visa -->
+  <section id="entry" class="bg-dark">
+    <div class="section-inner">
+      <div class="section-label">Глава 01</div>
+      <h2 class="section-title">Въезд &amp; <span class="accent">Виза</span></h2>
+
+      <div class="visa-box reveal">
+        <h3>🎉 30 дней без визы для граждан РФ</h3>
+        <p>Хватает загранпаспорта — только следите, чтобы срок действия перекрывал дату вылета <strong>минимум на 90
+            дней</strong>. Без визы можно находиться 30 суток за один заезд.</p>
+        <div class="visa-days">
+          <div class="visa-num">30</div>
+          <div class="visa-unit">дней<br />без визы</div>
+          <div style="width:20px"></div>
+          <div class="visa-num" style="font-size:38px;color:var(--muted)">90</div>
+          <div class="visa-unit">дней запаса<br />паспорта</div>
+        </div>
+      </div>
+
+      <div class="alert-box reveal">
+        <h3>⚠️ Возможное введение виз — с 1 октября 2026</h3>
+        <p>По последним данным, Черногория рассматривает введение визового режима для граждан РФ <strong>с 1 октября
+            2026 года</strong>. Официального подтверждения пока нет — следите за новостями перед поездкой.</p>
+      </div>
+
+      <div class="cards">
+        <div class="card card--teal reveal">
+          <div class="card-icon">🏨</div>
+          <div class="card-title">Регистрация в течение 24 часов</div>
+          <div class="card-text">Обязательна в первые сутки. Живёшь в отеле или у арендодателя с патентом — <strong>его
+              забота</strong>. Снимаешь квартиру напрямую — регистрируйся <strong>сам в полиции или турбюро</strong>.
+          </div>
+        </div>
+        <div class="card reveal reveal-delay-1">
+          <div class="card-icon">💶</div>
+          <div class="card-title">Туристический сбор: нюанс</div>
+          <div class="card-text">При самостоятельном бронировании жилья туристический сбор (~1–2€/день)
+            <strong>оплачивается отдельно</strong> и обычно не включён в цену. При бронировании через нас — <strong>уже
+              включён в стоимость пакета</strong>, никаких сюрпризов на месте.</div>
+        </div>
+        <div class="card reveal reveal-delay-2">
+          <div class="card-icon">📄</div>
+          <div class="card-title">Что нужно с собой</div>
+          <div class="card-text"><strong>Загранпаспорт</strong> с запасом от 90 дней после возвращения · Без приглашений
+            и дополнительных документов</div>
+        </div>
+      </div>
+
+      <div class="card reveal" style="border-color:rgba(245,200,66,0.3);">
+        <div class="card-icon">✈️</div>
+        <div class="card-title">Перелёт из России — с одной пересадкой</div>
+        <div class="card-text">Прямых рейсов из России сейчас нет. Летят через <strong>Стамбул</strong> (Turkish
+          Airlines, ~5–6 ч), <strong>Белград</strong> (Air Serbia, ~4 ч) или <strong>Дубай</strong>. Аэропорты прилёта:
+          <strong>Тиват</strong> — ближе к побережью, <strong>Подгорица</strong> — удобнее для путешествия по стране.
+        </div>
+        <div class="badges" style="margin-top:12px">
+          <span class="badge badge--teal">Стамбул ✓</span>
+          <span class="badge badge--teal">Белград ✓</span>
+          <span class="badge badge--grey">Дубай / Доха</span>
+        </div>
+      </div>
+
+      <!-- Agency benefits block -->
+      <div class="card reveal" style="border-color:rgba(245,200,66,0.4);background:rgba(245,200,66,0.04)">
+        <div class="card-icon">🤝</div>
+        <div class="card-title">Через нас — меньше хлопот</div>
+        <div class="card-text">
+          <strong>Перелёт</strong> — подберём лучшие стыковки из вашего города<br />
+          <strong>Жильё</strong> — апартаменты и отели с регистрацией и сбором включены<br />
+          <strong>Трансфер</strong> — встретим в аэропорту, без поиска такси<br />
+
+          <strong>Поддержка</strong> — на связи 24/7 во время поездки
+        </div>
+      </div>
+
+      <!-- CTA 1 -->
+      <div style="margin-top:28px;text-align:center" class="reveal">
+        <p style="font-size:13px;color:var(--muted);margin-bottom:14px">Подберём тур под даты, бюджет и маршрут</p>
+        <a href="#contact" id="cta1" style="
+        display:inline-flex;align-items:center;gap:10px;
+        background:linear-gradient(135deg,var(--teal),#0090a8);
+        color:#fff;font-size:15px;font-weight:800;
+        padding:15px 32px;border-radius:999px;
+        text-decoration:none;
+        box-shadow:0 8px 32px rgba(0,201,224,0.35);
+        transition:transform 0.2s,box-shadow 0.2s;
+        letter-spacing:0.3px;
+      " onmouseover="this.style.transform='scale(1.04)';this.style.boxShadow='0 12px 40px rgba(0,201,224,0.5)'"
+          onmouseout="this.style.transform='';this.style.boxShadow='0 8px 32px rgba(0,201,224,0.35)'">
+          📞 Подобрать тур
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo: Prokletie Mountains -->
+  <div class="photo-parallax" id="pp1">
+    <div class="pimg" id="pimg1" style="background-image:url('images/Prokletie.png')"></div>
+    <div class="poverlay"></div>
+    <div class="plabel">
+      <div class="plabel-city">Проклетие</div>
+      <div class="plabel-sub">Горный нацпарк · Нетронутая природа</div>
+    </div>
+  </div>
+
+  <!-- Payments -->
+  <section id="payments" class="bg-deep">
+    <div class="section-inner">
+      <div class="section-label">Глава 02</div>
+      <h2 class="section-title">Платежи &amp; <span class="accent">Деньги</span></h2>
+
+      <div class="cards">
+        <div class="card card--coral reveal">
+          <div class="card-icon">🚫</div>
+          <div class="card-title">Карты «Мир», Visa и Mastercard — не работают</div>
+          <div class="card-text">«Мир» в Черногории <strong>не принимали никогда</strong> — это устойчивый миф.
+            Российские Visa и Mastercard тоже мимо — банкоматы их не видят. UnionPay иногда срабатывает, но
+            закладываться на это не стоит.</div>
+          <div class="badges">
+            <span class="badge badge--coral">«Мир» ✗</span>
+            <span class="badge badge--coral">Visa RU ✗</span>
+            <span class="badge badge--coral">Mastercard RU ✗</span>
+            <span class="badge badge--grey">UnionPay — нестабильно</span>
+          </div>
+        </div>
+        <div class="card card--teal reveal reveal-delay-1">
+          <div class="card-icon">💳</div>
+          <div class="card-title">Рабочая схема</div>
+          <div class="card-text">Карта иностранного банка (грузинского, армянского, казахского или любого европейского)
+            плюс <strong>наличные евро</strong> в кармане. В маленьких кафе, ларьках карту вообще могут не спросить —
+            только кэш.</div>
+          <div class="badges">
+            <span class="badge badge--teal">Карта иностр. банка ✓</span>
+            <span class="badge badge--gold">Евро наличные ✓</span>
+          </div>
+        </div>
+        <div class="card reveal reveal-delay-2">
+          <div class="card-icon">💶</div>
+          <div class="card-title">Евро — единственная валюта</div>
+          <div class="card-text">Черногория использует евро несмотря на то, что пока не входит в ЕС. Обменять рубли
+            можно только через посредников, лучше <strong>везти евро наличными из России</strong>.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:32px">
+        <div class="chapter-line reveal"><span>Удобство оплаты</span></div>
+        <div class="progress-list" id="progressList">
+          <div class="progress-item reveal">
+            <div class="progress-label"><span>Карта иностранного банка</span><span>★★★★★</span></div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" data-width="1"></div>
+            </div>
+          </div>
+          <div class="progress-item reveal reveal-delay-1">
+            <div class="progress-label"><span>Евро наличными</span><span>★★★★★</span></div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" data-width="1"></div>
+            </div>
+          </div>
+          <div class="progress-item reveal reveal-delay-2">
+            <div class="progress-label"><span>UnionPay</span><span>★★☆☆☆</span></div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" data-width="0.35"></div>
+            </div>
+          </div>
+          <div class="progress-item reveal reveal-delay-3">
+            <div class="progress-label"><span>Visa/Mastercard РФ</span><span>✗ Не работает</span></div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" data-width="0.05"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Connect -->
+  <section id="connect" class="bg-dark">
+    <div class="section-inner">
+      <div class="section-label">Глава 03</div>
+      <h2 class="section-title">Связь &amp; <span class="accent-teal">Навигация</span></h2>
+
+      <div class="cards">
+        <div class="card card--teal reveal">
+          <div class="card-icon">📡</div>
+          <div class="card-title">Туристический тариф на месте</div>
+          <div class="card-text"><strong>One Montenegro (бывший Telenor)</strong> — самый крупный оператор, 40%+ рынка.
+            Покупай туристический тариф прямо в аэропорту или в магазине оператора. Покрытие держит даже в горах вокруг
+            Жабляка. VPN не нужен вообще — никакого файрвола.</div>
+          <div class="badges">
+            <span class="badge badge--teal">One Montenegro</span>
+            <span class="badge badge--green">m:tel</span>
+            <span class="badge badge--teal">T-Mobile ME</span>
+          </div>
+        </div>
+        <div class="card reveal reveal-delay-1">
+          <div class="card-icon">🗺️</div>
+          <div class="card-title">Google Maps работает нормально</div>
+          <div class="card-text">Никаких блокировок — это не Китай. Проблема другая: в горах и мелких прибрежных
+            посёлках карта <strong>путает названия улиц</strong>, потому что кириллица и латиница используются
+            параллельно. Apple Maps и Google Maps взаимозаменяемы.</div>
+        </div>
+        <div class="card reveal reveal-delay-2">
+          <div class="card-icon">🚖</div>
+          <div class="card-title">Такси — договаривайся заранее</div>
+          <div class="card-text">Яндекс Go в Черногории <strong>не работает</strong>. Такси вызывают по телефону или
+            через местные приложения. Счётчик почти никто из таксистов не включает — цену лучше уточнять до поездки.
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:28px">
+        <div class="tip reveal">
+          <div class="tip-icon">⚡</div>
+          <div class="tip-text"><strong>Туристический тариф — лучший вариант</strong>. Покупай симку One Montenegro
+            прямо в аэропорту Тиват или Подгорицы — дёшево, быстро, работает сразу.</div>
+        </div>
+        <div class="tip tip--gold reveal reveal-delay-1">
+          <div class="tip-icon">💡</div>
+          <div class="tip-text"><strong>Три оператора</strong>: One Montenegro, m:tel, T-Mobile ME. Туристические пакеты
+            у всех — интернет + звонки. One Montenegro лучше всего покрывает горные районы.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo: Skadar Lake -->
+  <div class="photo-parallax" id="pp2">
+    <div class="pimg" id="pimg2" style="background-image:url('images/Skadar .png')"></div>
+    <div class="poverlay"></div>
+    <div class="plabel">
+      <div class="plabel-city">Скадарское озеро</div>
+      <div class="plabel-sub">Крупнейшее озеро Балканского полуострова</div>
+    </div>
+  </div>
+
+  <!-- Transport -->
+  <section id="transport" class="bg-deep">
+    <div class="section-inner">
+      <div class="section-label">Глава 04</div>
+      <h2 class="section-title">Транспорт &amp; <span class="accent">Логистика</span></h2>
+      <p style="font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:4px">
+
+      <div class="cards">
+        <div class="card card--teal reveal">
+          <div class="card-icon">🚌</div>
+          <div class="card-title">Автобусы — главный транспорт между городами</div>
+          <div class="card-text">Расписание — на <strong>busticket4.me</strong>. Будва → Котор: 30–40 мин. Будва →
+            Подгорица: ~1 час. Между городами курсируют и маршрутки, но интервалы разные в зависимости от сезона.</div>
+          <div class="badges">
+            <span class="badge badge--teal">busticket4.me</span>
+            <span class="badge badge--gold">Будва → Котор ~35 мин</span>
+          </div>
+        </div>
+        <div class="card reveal reveal-delay-1">
+          <div class="card-icon">⛴️</div>
+          <div class="card-title">Паром Каменари — Лепетане</div>
+          <div class="card-text">Экономит <strong>~1 час пути</strong> вокруг Боко-Которской бухты. Если едешь из
+            Херцег-Нови в сторону Котора, Тивата, Будвы — для местных жителей это не опция, а необходимость. Паром ходит
+            круглосуточно.</div>
+        </div>
+        <div class="card reveal reveal-delay-2">
+          <div class="card-icon">🚗</div>
+          <div class="card-title">Аренда авто — для гор обязательна</div>
+          <div class="card-text">До Дурмитора и Жабляка общественный транспорт почти не ходит. <strong>Машина —
+              единственный вариант</strong> для горного маршрута. Дороги серпантинные, но качество асфальта нормальное.
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:28px">
+        <div class="tip tip--coral reveal">
+          <div class="tip-icon">⚠️</div>
+          <div class="tip-text"><strong>Серпантины Черногории</strong> — расстояния на карте обманчивы. То, что выглядит
+            как 30 км, может занять час из-за горных дорог. Особенно маршрут Котор → Жабляк.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Culture -->
+  <section id="culture" class="bg-mixed">
+    <div class="section-inner">
+      <div class="section-label">Глава 05</div>
+      <h2 class="section-title">Культура &amp; <span class="accent">Быт</span></h2>
+
+      <div class="cards">
+        <div class="card reveal">
+          <div class="card-icon">🚬</div>
+          <div class="card-title">Курение в кафе — норма</div>
+          <div class="card-text">Курят в кафе, ресторанах, на террасах — это местная культура. Форточка не спасёт. В
+            межсезонье многие магазины в маленьких городах закрываются на несколько часов днём.</div>
+        </div>
+        <div class="card card--teal reveal reveal-delay-1">
+          <div class="card-icon">🗣️</div>
+          <div class="card-title">Русский понимают везде</div>
+          <div class="card-text">К русским туристам отношение <strong>спокойное, почти домашнее</strong>. Многие
+            черногорцы понимают русский без перевода — особенно в Будве и Херцег-Нови. Языковых проблем практически нет.
+          </div>
+        </div>
+        <div class="card reveal reveal-delay-2">
+          <div class="card-icon">⛰️</div>
+          <div class="card-title">Горные регионы — другой темп</div>
+          <div class="card-text">В районе Дурмитора темп жизни совсем другой. <strong>Расстояния маленькие на
+              карте</strong> оборачиваются часом по серпантину. Закладывай время с запасом.</div>
+        </div>
+        <div class="card card--gold reveal reveal-delay-3">
+          <div class="card-icon">🌡️</div>
+          <div class="card-title">Климат: побережье vs горы</div>
+          <div class="card-text">Херцег-Нови — субтропический климат, зимой заметно теплее чем в горной части. Жабляк
+            зимой — снег и мороз, летом — прохладно и дождливо. <strong>Побережье — апрель по октябрь</strong>, горы —
+            июнь–сентябрь.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo: Plav Lake -->
+  <div class="photo-parallax" id="pp3">
+    <div class="pimg" id="pimg3" style="background-image:url('images/plav.png')"></div>
+    <div class="poverlay"></div>
+    <div class="plabel">
+      <div class="plabel-city">Плав</div>
+      <div class="plabel-sub">Горное озеро · Проклетие</div>
+    </div>
+  </div>
+
+  <!-- Checklist -->
+  <section class="bg-dark">
+    <div class="section-inner">
+      <div class="section-label">Финальный чеклист</div>
+      <h2 class="section-title">Перед <span class="accent-teal">вылетом</span></h2>
+
+      <div class="tip reveal">
+        <div class="tip-icon">✅</div>
+        <div class="tip-text"><strong>Загранпаспорт</strong> с запасом от 90 дней после даты возвращения — обязательно
+          проверь.</div>
+      </div>
+      <div class="tip reveal reveal-delay-1">
+        <div class="tip-icon">💶</div>
+        <div class="tip-text"><strong>Евро наличными</strong> — бери достаточно. Карты в маленьких кафе и у
+          арендодателей могут вообще не спросить.</div>
+      </div>
+      <div class="tip reveal reveal-delay-2">
+        <div class="tip-icon">💳</div>
+        <div class="tip-text"><strong>Карта иностранного банка</strong> — грузинского, армянского,казахского,
+          европейского. Это основной безналичный инструмент.</div>
+      </div>
+      <div class="tip reveal reveal-delay-3">
+        <div class="tip-icon">📡</div>
+        <div class="tip-text"><strong>Симка на месте</strong> — туристический тариф One Montenegro в аэропорту.
+          Покрывает даже горные районы.</div>
+      </div>
+      <div class="tip reveal">
+        <div class="tip-icon">🏨</div>
+        <div class="tip-text"><strong>Регистрация</strong> — если бронируешь жильё самостоятельно, регистрируйся в
+          полиции в первые 24 часа. При бронировании через нас — решаем автоматически.</div>
+      </div>
+      <div class="tip tip--coral reveal reveal-delay-1">
+        <div class="tip-icon">⚠️</div>
+        <div class="tip-text"><strong>Следи за новостями о визах</strong> — обсуждается введение визового режима с 1
+          октября 2026. Проверяй актуальный статус перед поездкой.</div>
+      </div>
+      <div class="tip" style="border-left-color:var(--teal);background:rgba(0,201,224,0.07)">
+        <div class="tip-icon">🤝</div>
+        <div class="tip-text"><strong>Едете через нас?</strong> — регистрацию, туристический сбор и встречу в аэропорту
+          берём на себя. Вам остаётся только упаковать чемодан.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stripe"></div>
+
+  <!-- Contact / CTA section -->
+  <section id="contact" class="bg-dark">
+    <div class="section-inner" style="text-align:center;padding-bottom:60px">
+      <div class="section-label">Готовы ехать?</div>
+      <h2 class="section-title">Подберём <span class="accent">тур</span> под вас</h2>
+      <p style="font-size:14px;color:var(--muted);line-height:1.7;max-width:480px;margin:0 auto 32px">
+        Расскажите — из какого города, на сколько дней и какой бюджет.
+        Подберём маршрут, перелёт, жильё и порекомендуем экскурсии.
+        Регистрацию и туристический сбор берём на себя.
+      </p>
+      <a href="tel:+7" id="cta3" style="
+      display:inline-flex;align-items:center;gap:12px;
+      background:linear-gradient(135deg,var(--teal),#0090a8);
+      color:#fff;font-size:16px;font-weight:800;
+      padding:17px 36px;border-radius:999px;
+      text-decoration:none;
+      box-shadow:0 10px 40px rgba(0,201,224,0.4);
+      transition:transform 0.2s,box-shadow 0.2s;
+      letter-spacing:0.4px;margin-bottom:16px;
+    " onmouseover="this.style.transform='scale(1.04)';this.style.boxShadow='0 14px 50px rgba(0,201,224,0.55)'"
+        onmouseout="this.style.transform='';this.style.boxShadow='0 10px 40px rgba(0,201,224,0.4)'">
+        📞 Позвонить или написать
+      </a>
+      <br />
+      <a href="https://t.me/" style="font-size:13px;color:var(--teal);text-decoration:none;opacity:0.85">
+        ✈️ Написать в Telegram
+      </a>
+    </div>
+  </section>
+
+  <div class="stripe"></div>
+
+  <footer>
+    <span class="flag">🇲🇪</span>
+    <strong>Montenegro Guide — Туры в Черногорию для россиян</strong><br />
+    <div style="margin-top:16px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px;font-size:13px">
+      <a href="#entry" style="color:var(--teal);text-decoration:none">Въезд и виза</a>
+      <a href="#payments" style="color:var(--teal);text-decoration:none">Деньги</a>
+      <a href="#transport" style="color:var(--teal);text-decoration:none">Транспорт</a>
+      <a href="cities.html" style="color:var(--teal);text-decoration:none">Гайд по городам</a>
+      <a href="#contact" style="color:var(--gold);text-decoration:none;font-weight:700">📞 Подобрать тур</a>
+    </div>
+    <p style="margin-top:20px;font-size:11px;color:rgba(232,244,248,0.3)">Актуально 2026 · Информация о визах
+      обновляется</p>
+  </footer>
+
+  <script>
+    // ── NAV SCROLL ──
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // ── REVEAL ON SCROLL ──
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => io.observe(el));
+
+    // ── PROGRESS BARS ──
+    const bars = document.querySelectorAll('.progress-bar-fill');
+    const barIO = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.transform = `scaleX(${e.target.dataset.width})`;
+          barIO.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    bars.forEach(b => barIO.observe(b));
+
+    // ── HERO SLIDESHOW ──
+    (function () {
+      const slides = Array.from(document.querySelectorAll('.hero-slide'));
+      const dotsContainer = document.getElementById('slideDots');
+      const locEl = document.getElementById('slideLoc');
+      const locName = document.getElementById('slideLocName');
+      const locSub = document.getElementById('slideLocSub');
+      const badgeText = document.getElementById('slideBadgeText');
+
+      // Shuffle order for variety
+      function shuffle(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+      }
+      const order = shuffle(slides.map((_, i) => i));
+      let cur = 0;
+
+      // Build dots
+      const dots = slides.map((_, i) => {
+        const d = document.createElement('div');
+        d.className = 'slide-dot';
+        d.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(d);
+        return d;
+      });
+
+      function goTo(idx) {
+        slides[order[cur]].classList.remove('active');
+        dots[order[cur]].classList.remove('active');
+        cur = idx;
+        const slide = slides[order[cur]];
+        slide.classList.add('active');
+        dots[order[cur]].classList.add('active');
+        // Update location label
+        locEl.classList.remove('show');
+        setTimeout(() => {
+          locName.textContent = slide.dataset.name || '';
+          locSub.textContent = slide.dataset.sub || '';
+          badgeText.textContent = (slide.dataset.name || '').toUpperCase() + ' · ЧЕРНОГОРИЯ';
+          locEl.classList.add('show');
+        }, 300);
+      }
+
+      // Init first slide
+      goTo(0);
+
+      // Auto-advance every 5s
+      let timer = setInterval(() => {
+        goTo((cur + 1) % slides.length);
+      }, 5000);
+
+      // Pause on hover
+      const heroEl = document.getElementById('hero');
+      heroEl.addEventListener('mouseenter', () => clearInterval(timer));
+      heroEl.addEventListener('mouseleave', () => {
+        timer = setInterval(() => goTo((cur + 1) % slides.length), 5000);
+      });
+    })();
+
+    // ── DEEP PARALLAX ──
+    const parallaxSections = [
+      { wrap: document.getElementById('pp1'), img: document.getElementById('pimg1') },
+      { wrap: document.getElementById('pp2'), img: document.getElementById('pimg2') },
+      { wrap: document.getElementById('pp3'), img: document.getElementById('pimg3') },
+    ];
+    // Hero slides parallax
+    const heroSlides = document.getElementById('heroSlides');
+
+    function onScroll() {
+      const sy = window.scrollY, wh = window.innerHeight;
+
+      // Hero parallax — slides move slowly upward as user scrolls down
+      if (heroSlides) {
+        heroSlides.style.transform = `translateY(${sy * 0.4}px)`;
+      }
+
+      // Section photo parallax — deep movement for immersion
+      parallaxSections.forEach(({ wrap, img }) => {
+        if (!wrap || !img) return;
+        const rect = wrap.getBoundingClientRect();
+        if (rect.bottom < -wh || rect.top > wh * 2) return;
+        const progress = (wh - rect.top) / (wh + rect.height);
+        // Range: -60px to +60px (120px total travel)
+        const shift = (progress - 0.5) * 120;
+        img.style.transform = `translateY(${shift}px)`;
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // ── 3D TILT ON DESTINATION CARDS ──
+    const isTouch = 'ontouchstart' in window;
+    if (!isTouch) {
+      document.querySelectorAll('.dest-card').forEach(card => {
+        card.addEventListener('mousemove', e => {
+          const rect = card.getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width - 0.5) * 10;
+          const y = ((e.clientY - rect.top) / rect.height - 0.5) * -10;
+          card.style.transform = `perspective(700px) rotateX(${y}deg) rotateY(${x}deg) translateY(-3px) scale(1.01)`;
+          card.style.transition = 'transform 0.1s ease';
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+          card.style.transition = 'transform 0.5s ease';
+        });
+      });
+    }
+  </script>
+</body>
+
+</html>
