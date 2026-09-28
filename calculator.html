@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Сколько ты можешь зарабатывать турагентом</title>
+<meta name="description" content="Тест-калькулятор: сколько ты можешь зарабатывать турагентом">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* ===== Палитра VIK TOURS (как на monteton.github.io/Viktours-academy) ===== */
+  :root {
+    --dark-blue: #07385F;
+    --red: #F94A83;
+    --orange: #FF9F43;
+    --green: #8CC63F;
+    --sky: #43D4FF;
+    --white: #ffffff;
+    --text: #ffffff;
+    --muted: rgba(255,255,255,.75);
+    --glass: rgba(255,255,255,.10);
+    --glass-strong: rgba(255,255,255,.16);
+    --glass-line: rgba(255,255,255,.18);
+    --rainbow: linear-gradient(90deg, #F94A83, #FF9F43, #8CC63F, #43D4FF, #F94A83);
+    --hero-bg: url("images/hero_bg.png");
+    --radius: 20px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  [hidden]:not(.back) { display: none !important; }
+  html, body { min-height: 100%; }
+  body {
+    font-family: "Outfit", system-ui, -apple-system, sans-serif;
+    background: #07385F var(--hero-bg) center / cover no-repeat fixed;
+    color: var(--text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  .overlay {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background: linear-gradient(170deg, rgba(7,20,50,.78) 0%, rgba(7,56,95,.72) 40%, rgba(0,80,60,.62) 70%, rgba(7,20,50,.8) 100%);
+  }
+  .particles { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .particles span {
+    position: absolute; bottom: -10px; width: 4px; height: 4px; border-radius: 50%;
+    background: rgba(255,255,255,.55); animation: float linear infinite;
+  }
+  @keyframes float { to { transform: translateY(-110vh); opacity: 0; } }
+
+  .wrap {
+    position: relative; z-index: 1;
+    min-height: 100vh; min-height: 100dvh;
+    display: flex; align-items: center; justify-content: center;
+    padding: 24px 16px;
+  }
+  .card {
+    width: 100%; max-width: 620px;
+    background: var(--glass);
+    -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+    border: 1px solid var(--glass-line);
+    border-radius: var(--radius);
+    padding: 40px 36px;
+    box-shadow: 0 8px 32px rgba(0,0,0,.18);
+  }
+  @media (max-width: 520px) { .card { padding: 28px 20px; } }
+
+  .screen { display: none; animation: in .4s ease both; }
+  .screen.active { display: block; }
+  @keyframes in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .screen, .particles span { animation: none; } }
+
+  .badge {
+    display: inline-block; padding: 6px 14px; border-radius: 50px;
+    background: linear-gradient(135deg, rgba(249,74,131,.85), rgba(255,159,67,.85));
+    box-shadow: 0 4px 20px rgba(249,74,131,.4);
+    font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #fff;
+  }
+  .rainbow {
+    background: var(--rainbow); background-size: 200% auto;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: shine 6s linear infinite;
+  }
+  @keyframes shine { to { background-position: 200% center; } }
+  h1 { font-size: clamp(28px, 5.5vw, 40px); line-height: 1.12; font-weight: 900; margin: 18px 0 20px; letter-spacing: -.01em; }
+  h2 { font-size: clamp(20px, 4vw, 25px); line-height: 1.25; font-weight: 800; margin-bottom: 24px; }
+  p.lead { color: var(--muted); font-size: 17px; }
+
+  .meta {
+    display: grid; grid-template-columns: repeat(3, 1fr); margin: 8px 0 32px;
+    background: var(--glass); border: 1px solid var(--glass-line); border-radius: 20px;
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  }
+  .meta div { text-align: center; padding: 14px 6px; }
+  .meta div + div { border-left: 1px solid var(--glass-line); }
+  .meta b { display: block; font-size: 24px; font-weight: 900; }
+  .meta small { display: block; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    width: 100%; padding: 17px 28px; border: 0; border-radius: 50px;
+    background: var(--red); color: #fff;
+    font: inherit; font-size: 16px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+    cursor: pointer; text-decoration: none;
+    box-shadow: 0 4px 28px rgba(249,74,131,.7), 0 0 0 5px rgba(249,74,131,.1);
+    transition: transform .15s ease, box-shadow .2s ease, opacity .2s ease;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 34px rgba(249,74,131,.8), 0 0 0 7px rgba(249,74,131,.14); }
+  .btn:active { transform: scale(.98); }
+  .btn:disabled { opacity: .45; cursor: not-allowed; transform: none; box-shadow: none; }
+  .btn.ghost { background: var(--glass-strong); border: 1px solid var(--glass-line); box-shadow: none; }
+  .btn.ghost:hover { background: rgba(255,255,255,.24); }
+  .btn.green { background: var(--green); box-shadow: 0 4px 24px rgba(140,198,63,.5); }
+
+  /* progress */
+  .top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; font-size: 14px; color: var(--muted); font-weight: 600; }
+  .back { background: none; border: 0; font: inherit; color: var(--muted); cursor: pointer; padding: 4px 0; }
+  .back:hover { color: #fff; }
+  .back[hidden] { visibility: hidden; display: block; }
+  .bar { height: 6px; background: rgba(255,255,255,.15); border-radius: 999px; overflow: hidden; margin-bottom: 28px; }
+  .bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--red), var(--orange), var(--green)); border-radius: inherit; transition: width .4s ease; }
+
+  .options { display: grid; gap: 10px; }
+  .opt {
+    display: block; width: 100%; text-align: left;
+    padding: 16px 20px; border: 1px solid var(--glass-line); border-radius: 16px;
+    background: var(--glass); color: #fff;
+    font: inherit; font-size: 16px; font-weight: 500; cursor: pointer;
+    transition: border-color .15s ease, background .15s ease, transform .15s ease;
+  }
+  .opt:hover { background: var(--glass-strong); border-color: rgba(255,255,255,.4); }
+  .opt:active { transform: scale(.99); }
+  .opt.selected { border-color: var(--red); background: rgba(249,74,131,.28); font-weight: 700; }
+
+  /* result */
+  .result-title { font-size: clamp(22px, 4.5vw, 30px); line-height: 1.2; font-weight: 900; margin: 16px 0 20px; }
+  .quote {
+    font-size: 18px; font-weight: 500; padding: 18px 20px;
+    border-left: 4px solid var(--red); background: var(--glass-strong); border-radius: 0 16px 16px 0;
+    margin-bottom: 20px;
+  }
+  .income {
+    text-align: center; padding: 22px 18px; margin-bottom: 16px; border-radius: 20px;
+    background: var(--glass); border: 1px solid var(--glass-line);
+  }
+  .income small { display: block; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .income b {
+    display: block; margin: 6px 0 8px; font-size: clamp(26px, 6vw, 36px); line-height: 1.1; font-weight: 900;
+    background: var(--rainbow); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: shine 6s linear infinite;
+  }
+  .income p { font-size: 15px; color: var(--muted); }
+  .how { margin-bottom: 20px; font-size: 15px; }
+  .how > b { display: block; margin-bottom: 10px; font-size: 16px; }
+  .how ul { list-style: none; display: grid; gap: 8px; }
+  .how li { position: relative; padding-left: 20px; color: rgba(255,255,255,.88); }
+  .how li::before { content: ""; position: absolute; left: 2px; top: .6em; width: 8px; height: 8px; border-radius: 50%; background: var(--orange); }
+  .note a { color: inherit; }
+  .course { color: var(--muted); margin-bottom: 22px; }
+  .example { font-size: 15px; background: var(--glass); border: 1px solid var(--glass-line); padding: 16px 18px; border-radius: 16px; margin-bottom: 20px; }
+  .example b { display: block; margin-bottom: 4px; color: var(--orange); }
+  .note { font-size: 12px; color: rgba(255,255,255,.55); margin-top: 18px; text-align: center; }
+  .stack { display: grid; gap: 12px; }
+
+  .divider { height: 3px; width: 64px; margin: 34px auto; border-radius: 3px; background: linear-gradient(90deg, var(--red), var(--orange), var(--green)); }
+
+  /* form */
+  .offer { font-size: 19px; font-weight: 700; margin-bottom: 20px; line-height: 1.35; }
+  .field { display: block; margin-bottom: 14px; }
+  .field span { display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px; color: var(--muted); }
+  .field input {
+    width: 100%; padding: 15px 18px; border: 1px solid var(--glass-line); border-radius: 14px;
+    font: inherit; font-size: 16px; background: rgba(255,255,255,.12); color: #fff;
+  }
+  .field input::placeholder { color: rgba(255,255,255,.45); }
+  .field input:focus { outline: none; border-color: var(--red); background: rgba(255,255,255,.18); }
+  .consent { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: var(--muted); margin: 6px 0 20px; cursor: pointer; }
+  .consent input { margin-top: 3px; accent-color: var(--red); flex-shrink: 0; }
+  .consent a { color: #fff; }
+
+  .done { text-align: center; }
+  .done .icon { font-size: 48px; margin-bottom: 10px; }
+</style>
+</head>
+<body>
+<div class="overlay"></div>
+<div class="particles" id="particles"></div>
+<div class="wrap">
+  <main class="card">
+
+    <!-- Старт -->
+    <section class="screen active" id="s-start">
+      <span class="badge">🎓 Тест-калькулятор</span>
+      <h1>Тест-калькулятор: сколько ты можешь зарабатывать <span class="rainbow">турагентом</span></h1>
+      <div class="meta">
+        <div><b>7</b><small>вопросов</small></div>
+        <div><b>2</b><small>минуты</small></div>
+        <div><b>1</b><small>результат</small></div>
+      </div>
+      <button class="btn" id="startBtn">Пройти тест ✈️</button>
+    </section>
+
+    <!-- Вопросы -->
+    <section class="screen" id="s-quiz">
+      <div class="top">
+        <button class="back" id="backBtn">← Назад</button>
+        <span id="counter"></span>
+      </div>
+      <div class="bar"><i id="bar"></i></div>
+      <h2 id="qText"></h2>
+      <div class="options" id="qOptions"></div>
+    </section>
+
+    <!-- Результат + форма -->
+    <section class="screen" id="s-result">
+      <span class="badge">Ваш результат</span>
+      <div class="result-title" id="rTitle"></div>
+      <div class="quote" id="rText"></div>
+      <div class="income">
+        <small>Ориентир по рынку на 2026 год</small>
+        <b id="rIncome"></b>
+        <p id="rIncomeNote"></p>
+      </div>
+      <div class="how">
+        <b>Из чего складывается доход</b>
+        <ul id="rHow"></ul>
+      </div>
+      <div class="example" id="rExample" hidden></div>
+      <p class="course" id="rCourse"></p>
+      <div class="stack">
+        <a class="btn ghost" id="rLink" target="_blank" rel="noopener">Подробнее о курсе</a>
+        <a class="btn green" id="rPersonal" target="_blank" rel="noopener" hidden>Хочу в индивидуальное обучение</a>
+      </div>
+      <p class="note">Результат показывает потенциал и не является гарантией дохода. Цифры — открытые данные рынка: <span id="rSources"></span></p>
+
+      <div class="divider"></div>
+
+      <form id="leadForm" novalidate>
+        <p class="offer">Хотите получить более подробный разбор вашего результата + бесплатный мини-план на первый месяц? Оставьте контакт</p>
+        <label class="field"><span>Имя</span><input name="name" autocomplete="given-name" required></label>
+        <label class="field"><span>Телефон / мессенджер</span><input name="contact" autocomplete="tel" placeholder="+7… или @ник в Telegram" required></label>
+        <label class="consent"><input type="checkbox" name="consent" required><span>Я согласен (<a href="consent-processing.html" target="_blank">текст согласия</a>) с обработкой моих персональных данных в соответствии с политикой (<a href="privacy-policy.html" target="_blank">текст политики</a>) обработки персональных данных</span></label>
+        <button class="btn" type="submit" id="sendBtn" disabled>Получить разбор</button>
+      </form>
+    </section>
+
+    <!-- Спасибо -->
+    <section class="screen done" id="s-done">
+      <div class="icon">✈️</div>
+      <h2>Спасибо! Заявка отправлена</h2>
+      <p class="lead">Скоро свяжемся с вами и пришлём разбор и мини-план на первый месяц.</p>
+    </section>
+
+  </main>
+</div>
+
+<script>
+/* ===================== НАСТРОЙКИ ===================== */
+const CONFIG = {
+  courseUrl:   "course.html",   // ссылка «за более подробной информацией переходите туда-то»
+  personalUrl: "#",   // ссылка для индивидуального обучения (только высокий результат)
+  // Куда отправлять заявку (Google Apps Script / Telegram-бот / CRM). Пусто — просто лог в консоль.
+  leadEndpoint: ""
+};
+
+/* ===================== ВОПРОСЫ =====================
+   Тексты — дословно из ТЗ. points — баллы за вариант. */
+const QUESTIONS = [
+  { id: "time", text: "Сколько времени готовы уделять работе турагентом в неделю?",
+    options: [["до 5 часов",0],["5-15 часов",1],["15-30 часов",2],["полный день",3]] },
+  { id: "audience", text: "Есть ли у вас уже своя аудитория/знакомые, которым можно предложить помощь с турами?",
+    options: [["нет никого",0],["несколько друзей и знакомых",1],["есть соцсети с подписчиками",2],["уже работаю с клиентами",3]] },
+  { id: "sales", text: "Какой у вас опыт в продажах или общении с клиентами?",
+    options: [["никогда не продавал(а)",0],["было немного",1],["работал(а) в продажах",2],["регулярно продаю что-то",3]] },
+  { id: "motivation", text: "Что вас больше мотивирует?",
+    options: [["дополнительный доход",1],["полная смена профессии",2],["свой бизнес и масштаб",3],["люблю путешествия, хочу быть в теме",1]] },
+  { id: "travel", text: "Как часто вы путешествуете?",
+    options: [["Вообще не путешествую, редко",0],["менее 1 раза в год",1],["1-2 раза в год",2],["3 и более раз в год",3]] },
+  { id: "learning", text: "Готовы ли системно обучаться и практиковаться 1-2 месяца, прежде чем выйти на стабильный доход?",
+    options: [["да, готов(а) вкладываться",3],["хочу побыстрее результат",1],["не уверен(а)",0]] },
+  { id: "circle", text: "Сколько примерно человек из вашего окружения путешествуют минимум раз в год?",
+    options: [["почти никто",0],["несколько",1],["много, у меня активное окружение",3]] }
+];
+// Максимум = 21. Пороги:
+const THRESHOLDS = { mid: 8, high: 15 }; // 0–7 старт, 8–14 стабильный, 15–21 высокий
+
+/* ===================== РЕЗУЛЬТАТЫ =====================
+   title и text — дословно из ТЗ.
+   course — «далее о том, что всё дадите на курсе» (заменить своим текстом).
+   example — пример ученика с похожими вводными (пусто — блок не показывается). */
+const RESULTS = {
+  low: {
+    title: "Твой потенциал: доход для старта и подработки",
+    text: "Начать легко, но важно сфокусироваться на первых клиентах через знакомых — это реалистичный путь к первым 20–40 тысячам в первые месяцы",
+    course: "Всё, что нужно для первых клиентов, мы даём на курсе. За более подробной информацией — по ссылке ниже.",
+    income: "20–40 тыс. ₽ / мес",
+    incomeNote: "Так зарабатывают новички в первые месяцы — пока совмещают работу с обучением и нарабатывают первых клиентов.",
+    example: ""
+  },
+  mid: {
+    title: "Твой потенциал: стабильный доход",
+    text: "У вас хорошие стартовые условия — при системном подходе можно выйти на стабильный  доход за 2-3 месяца",
+    course: "Системный подход и пошаговый план мы даём на курсе. За более подробной информацией — по ссылке ниже.",
+    income: "50–80 тыс. ₽ / мес",
+    incomeNote: "Уровень, на который выходят, когда появляются постоянные клиенты.",
+    example: ""
+  },
+  high: {
+    title: "Твой потенциал: доход выше среднего, вплоть до масштабирования в своё агентство",
+    text: "Ваши вводные позволяют не просто зарабатывать, а построить своё агентство, как это сделала я",
+    course: "Как выстроить работу и вырасти до своего агентства — разбираем на курсе. За более подробной информацией — по ссылке ниже. С вашими вводными можно пойти в индивидуальное обучение.",
+    income: "100–200 тыс. ₽ / мес и выше",
+    incomeNote: "Уровень профессионалов, особенно при самостоятельной работе. У топовых агентов доход может достигать нескольких сотен тысяч рублей в месяц.",
+    example: "",
+    personal: true
+  }
+};
+
+/* Как складывается доход — общий блок для всех результатов.
+   Источники: Sletat.Academy (03.02.2026), Академия АТОР, atour.academy */
+const HOW_INCOME = [
+  "Турагент получает комиссию от туроператора — обычно 5–10% от стоимости тура. Тур за 100 000 ₽ — это 5–10 тыс. ₽ агенту.",
+  "При работе через онлайн-платформу агенту остаётся 55–85% этой комиссии, менеджеру в классическом агентстве — 20–40%.",
+  "Пример: 5 туров в месяц по 200 000 ₽ через платформу — около 49 000 ₽.",
+  "Дополнительный доход — страховки, трансферы, визовая поддержка."
+];
+const SOURCES = [
+  ["Sletat.Academy, 2026", "https://sletat.academy/tpost/nkmykolib1-professiya-turagenta-v-2025-godu-zarabot"],
+  ["Академия АТОР", "https://ator.academy/page/onlayn-platformy-dlya-turagentov-frilanserov-kto-vyigryvaet-ot-smeny-modeli"],
+  ["atour.academy", "https://atour.academy/news/skolko-zarabatyvaet-turagent"]
+];
+
+/* ===================== ЛОГИКА ===================== */
+const $ = id => document.getElementById(id);
+const answers = new Array(QUESTIONS.length).fill(null);
+let step = 0, segment = null;
+
+function show(id) {
+  document.querySelectorAll(".screen").forEach(s => s.classList.toggle("active", s.id === id));
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function renderQuestion() {
+  const q = QUESTIONS[step];
+  $("counter").textContent = `Вопрос ${step + 1} из ${QUESTIONS.length}`;
+  $("bar").style.width = `${(step / QUESTIONS.length) * 100}%`;
+  $("backBtn").hidden = step === 0;
+  $("qText").textContent = q.text;
+  const box = $("qOptions");
+  box.innerHTML = "";
+  q.options.forEach(([label], i) => {
+    const b = document.createElement("button");
+    b.className = "opt" + (answers[step] === i ? " selected" : "");
+    b.textContent = label;
+    b.onclick = () => choose(i, b);
+    box.appendChild(b);
+  });
+  // перезапуск анимации
+  const s = $("s-quiz"); s.style.animation = "none"; s.offsetHeight; s.style.animation = "";
+}
+
+let busy = false;
+function choose(i, el) {
+  if (busy) return;            // защита от двойного нажатия
+  busy = true;
+  answers[step] = i;
+  el.parentNode.querySelectorAll(".opt").forEach(o => o.classList.remove("selected"));
+  el.classList.add("selected");
+  setTimeout(() => {
+    if (step < QUESTIONS.length - 1) { step++; renderQuestion(); }
+    else showResult();
+    busy = false;
+  }, 220);
+}
+
+function score() {
+  return answers.reduce((sum, a, i) => sum + QUESTIONS[i].options[a][1], 0);
+}
+
+function showResult() {
+  $("bar").style.width = "100%";
+  const total = score();
+  segment = total >= THRESHOLDS.high ? "high" : total >= THRESHOLDS.mid ? "mid" : "low";
+  const r = RESULTS[segment];
+  $("rTitle").textContent = `«${r.title}»`;
+  $("rText").textContent = r.text;
+  $("rCourse").textContent = r.course;
+  $("rIncome").textContent = r.income;
+  $("rIncomeNote").textContent = r.incomeNote;
+  $("rHow").innerHTML = HOW_INCOME.map(t => `<li>${t}</li>`).join("");
+  $("rSources").innerHTML = SOURCES.map(([n, u]) => `<a href="${u}" target="_blank" rel="noopener">${n}</a>`).join(", ");
+  $("rLink").href = CONFIG.courseUrl;
+  $("rPersonal").hidden = !r.personal;
+  $("rPersonal").href = CONFIG.personalUrl;
+  $("rExample").hidden = !r.example;
+  if (r.example) $("rExample").innerHTML = `<b>Пример ученика с похожими вводными</b>${r.example}`;
+  show("s-result");
+}
+
+/* форма */
+const form = $("leadForm");
+form.addEventListener("input", () => {
+  const f = form.elements;
+  $("sendBtn").disabled = !(f.name.value.trim() && f.contact.value.trim() && f.consent.checked);
+});
+form.addEventListener("submit", async e => {
+  e.preventDefault();
+  const f = form.elements;
+  const lead = {
+    name: f.name.value.trim(),
+    contact: f.contact.value.trim(),
+    segment,                                   // low / mid / high
+    score: score(),
+    motivation: QUESTIONS[3].options[answers[3]][0], // сегментация по мотивации
+    answers: Object.fromEntries(QUESTIONS.map((q, i) => [q.id, q.options[answers[i]][0]])),
+    page: location.href,
+    date: new Date().toISOString()
+  };
+  $("sendBtn").disabled = true;
+  try {
+    if (CONFIG.leadEndpoint) {
+      await fetch(CONFIG.leadEndpoint, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain" }, body: JSON.stringify(lead) });
+    } else {
+      console.log("LEAD", lead);
+    }
+  } catch (err) { console.error(err); }
+  show("s-done");
+});
+
+/* частицы как на сайте */
+for (let i = 0; i < 18; i++) {
+  const p = document.createElement("span");
+  p.style.left = Math.random() * 100 + "%";
+  p.style.animationDuration = 10 + Math.random() * 14 + "s";
+  p.style.animationDelay = -Math.random() * 20 + "s";
+  const size = 2 + Math.random() * 3; p.style.width = p.style.height = size + "px";
+  $("particles").appendChild(p);
+}
+
+$("startBtn").onclick = () => { step = 0; renderQuestion(); show("s-quiz"); };
+$("backBtn").onclick = () => { if (step > 0) { step--; renderQuestion(); } };
+</script>
+</body>
+</html>
