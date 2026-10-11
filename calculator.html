@@ -408,7 +408,7 @@ form.addEventListener("submit", async e => {
   e.preventDefault();
   const f = form.elements;
   $("sendBtn").disabled = true;
-  await sendData({ name: f.name.value.trim(), contact: f.contact.value.trim() });
+  sendData({ name: f.name.value.trim(), contact: f.contact.value.trim() }); // уходит в фоне
   show("s-done");
 });
 
@@ -433,7 +433,7 @@ async function sendData(extra = {}) {
   };
   if (!CONFIG.leadEndpoint) { console.log("DATA", data); return; }
   try {
-    await fetch(CONFIG.leadEndpoint, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain" }, body: JSON.stringify(data) });
+    await fetch(CONFIG.leadEndpoint, { method: "POST", mode: "no-cors", keepalive: true, headers: { "Content-Type": "text/plain" }, body: JSON.stringify(data) });
   } catch (err) { console.error(err); }
 }
 
