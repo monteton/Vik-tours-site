@@ -689,10 +689,10 @@ footer p{margin:6px 0}footer .fl a{margin:0 6px;color:#e6d6b0}footer b{font:400 
       <label>Имя<input required name="name" placeholder="Как к вам обращаться"></label>
       <label>Телефон или мессенджер<input required name="contact" placeholder="+7 …"></label>
       <label>Комментарий<textarea name="msg" rows="3" placeholder="Количество человек, желаемые даты"></textarea></label>
-      <small class="consent">Нажимая «Отправить запрос», вы соглашаетесь с <a href="privacy-policy.html" target="_blank">политикой обработки персональных данных</a>. Запрос откроется в WhatsApp.</small>
+      <small class="consent">Нажимая «Отправить запрос», вы соглашаетесь с <a href="privacy-policy.html" target="_blank">политикой обработки персональных данных</a>. Текст запроса скопируется, и откроется чат в Telegram — просто вставьте его.</small>
       <button class="btn" type="submit"><span>Отправить запрос</span></button>
-      <div class="alt">Или напишите сразу: <a href="https://t.me/Vika_Igorevna" target="_blank" rel="noopener">Telegram</a> · <a href="tel:+79046095875">+7 904 609-58-75</a></div>
-      <div class="ok"><b>谢谢</b>Запрос открыт в WhatsApp — осталось нажать «Отправить». Если окно не открылось, напишите в <a href="https://t.me/Vika_Igorevna" target="_blank" rel="noopener" style="color:var(--red)">Telegram</a>.</div>
+      <div class="alt">Или напишите сразу: <a href="https://t.me/Vika_Igorevna" target="_blank" rel="noopener">Telegram</a></div>
+      <div class="ok"><b>谢谢</b>Текст запроса скопирован — откроется чат в Telegram, вставьте его и отправьте. Если чат не открылся, напишите <a href="https://t.me/Vika_Igorevna" target="_blank" rel="noopener" style="color:var(--red)">@Vika_Igorevna</a>.</div>
     </form>
   </div>
 </section>
@@ -860,12 +860,13 @@ footer p{margin:6px 0}footer .fl a{margin:0 6px;color:#e6d6b0}footer b{font:400 
   btn.addEventListener('mouseleave',function(){gsap.to(btn,{x:0,y:0,duration:.6,ease:'elastic.out(1,.4)'})});
   btn.addEventListener('mouseenter',function(){btn.style.color='var(--paper)'});
 
-  /* form -> WhatsApp */
+  /* form -> Telegram (текст копируется в буфер, открывается чат) */
   $('#form').addEventListener('submit',function(e){
     e.preventDefault();
     var f=this,d=new FormData(f);
     var t='Здравствуйте! Интересует групповой тур «Поднебесная за 8 дней» (Китай).\nИмя: '+d.get('name')+'\nКонтакт: '+d.get('contact')+(d.get('msg')?'\nКомментарий: '+d.get('msg'):'');
-    window.open('https://wa.me/79046095875?text='+encodeURIComponent(t),'_blank');
+    try{navigator.clipboard.writeText(t)}catch(_){}
+    window.open('https://t.me/Vika_Igorevna','_blank');
     $$('label,.btn,.consent,.alt',f).forEach(function(x){x.style.display='none'});
     var ok=$('.ok',f);ok.style.display='block';gsap.fromTo(ok,{opacity:0,scale:.8},{opacity:1,scale:1,duration:.8,ease:'back.out(2)'});
   });
