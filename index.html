@@ -195,6 +195,25 @@ section{position:relative;z-index:1;}
 .svc-title{font-family:'DM Serif Display',serif;font-size:1.25rem;color:var(--text);margin-bottom:8px;}
 .svc-text{font-size:.93rem;color:var(--muted);line-height:1.7;}
 
+
+/* ===== TOUR FEATURE (China) ===== */
+.tour-feature{display:grid;grid-template-columns:1.05fr 1fr;margin-top:28px;border-radius:28px;overflow:hidden;background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;box-shadow:0 18px 50px rgba(10,22,40,.18);transition:transform .4s var(--ease),box-shadow .4s var(--ease);}
+.tour-feature:hover{transform:translateY(-4px);box-shadow:0 26px 60px rgba(10,22,40,.26);}
+.tf-img{position:relative;min-height:340px;}
+.tf-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease);}
+.tour-feature:hover .tf-img img{transform:scale(1.05);}
+.tf-img::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 55%,var(--navy) 100%);}
+.tf-zh{position:absolute;left:22px;bottom:14px;z-index:2;font-family:'DM Serif Display',serif;font-size:3.4rem;line-height:1;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.5);letter-spacing:.08em;}
+.tf-badge{position:absolute;left:20px;top:20px;z-index:2;background:#c8102e;color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:7px 14px;border-radius:50px;}
+.tf-body{padding:44px 46px;display:flex;flex-direction:column;justify-content:center;}
+.tf-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--sky);margin-bottom:12px;}
+.tf-title{font-family:'DM Serif Display',serif;font-size:clamp(1.7rem,2.8vw,2.4rem);line-height:1.2;margin-bottom:14px;}
+.tf-desc{font-size:.96rem;color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:18px;}
+.tf-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px;}
+.tf-tags span{border:1px solid rgba(255,255,255,.22);border-radius:50px;padding:4px 13px;font-size:.78rem;color:rgba(255,255,255,.8);}
+.tf-btn{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:50px;font-weight:700;font-size:.95rem;background:linear-gradient(135deg,var(--sky),var(--blue));color:#fff;box-shadow:0 6px 24px rgba(74,172,219,.3);}
+@media(max-width:900px){.tour-feature{grid-template-columns:1fr;}.tf-img{min-height:240px;}.tf-img::after{background:linear-gradient(180deg,transparent 55%,var(--navy) 100%);}.tf-body{padding:28px 24px 32px;}}
+
 /* ===== MALDIVES BANNER ===== */
 .maldives-ban{margin:0 0 0;padding:100px 0;background:var(--cream);}
 .maldives-inner{background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:28px;padding:60px 56px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;position:relative;overflow:hidden;}
@@ -335,6 +354,7 @@ footer{background:var(--navy);padding:42px 0 28px;}
       <a href="#about">Обо мне</a>
       <a href="#dest">Направления</a>
       <a href="#services">Услуги</a>
+      <a href="china.html">Тур в Китай</a>
       <!-- Dropdown: Гайды -->
       <div class="nav-dropdown">
         <div class="nav-dropdown-trigger">
@@ -538,6 +558,21 @@ footer{background:var(--navy);padding:42px 0 28px;}
         </div>
       </div>
     </div>
+    <!-- Групповой тур: Китай -->
+    <a href="china.html" class="tour-feature fade-up">
+      <div class="tf-img">
+        <img src="img/china/01.jpg" alt="Западное озеро и пагода Лэйфэн, Ханчжоу" loading="lazy">
+        <span class="tf-badge">Групповой тур</span>
+        <span class="tf-zh">中国</span>
+      </div>
+      <div class="tf-body">
+        <div class="tf-eyebrow">8 дней / 7 ночей · перелёт из Москвы</div>
+        <div class="tf-title">Поднебесная за 8 дней: Ханчжоу, Хучжоу, Учжэнь, Шанхай</div>
+        <p class="tf-desc">Западное озеро, «лес матча», шоу роботов, отель с жирафами, водный город Учжэнь и вечерний Шанхай. Русскоязычный гид, отели 5★, питание и билеты по программе.</p>
+        <div class="tf-tags"><span>Отели 5★</span><span>Гид на русском</span><span>Перелёт</span><span>Страховка</span></div>
+        <span class="tf-btn">Смотреть программу →</span>
+      </div>
+    </a>
   </div>
 </section>
 
@@ -768,6 +803,7 @@ footer{background:var(--navy);padding:42px 0 28px;}
           <a href="maldives.html">Гид по Мальдивам 💍</a>
           <a href="transit_guide.html">Гайд по стыковкам ✈️</a>
           <a href="pets.html">Перелёт с питомцем 🐾</a>
+          <a href="china.html">Тур в Китай 🇨🇳</a>
           <a href="course.html">Курс для турагентов</a>
         </div>
       </div>

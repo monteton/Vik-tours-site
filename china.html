@@ -1,0 +1,877 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Поднебесная за 8 дней · Ханчжоу · Хучжоу · Учжэнь · Шанхай</title>
+<meta name="description" content="Групповой тур в Китай на 8 дней: Ханчжоу, Хучжоу, Учжэнь и Шанхай. Русскоязычный гид, перелёт, отели 5★, питание по программе. Турагентство Виктории Новиковой.">
+<link rel="canonical" href="https://viktours.store/china.html">
+<meta property="og:title" content="Поднебесная за 8 дней — групповой тур в Китай">
+<meta property="og:description" content="Ханчжоу · Хучжоу · Учжэнь · Шанхай. Перелёт, отели 5★, русскоязычный гид.">
+<meta property="og:image" content="https://viktours.store/img/china/01.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@600;900&family=Playfair+Display:ital,wght@0,500;0,800;1,500&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16100d; --ink2:#2a1d17; --paper:#f4ead7; --paper2:#eadcc0;
+  --red:#c8102e; --red2:#8e0b20; --gold:#d6a24a; --jade:#2f7d6d;
+  --serif:'Playfair Display',Georgia,serif; --brush:'Ma Shan Zheng','Noto Serif SC',serif; --sans:'Manrope',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:auto}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body.lock{overflow:hidden}
+a{color:inherit}
+svg{display:block}
+::selection{background:var(--red);color:var(--paper)}
+
+/* paper grain */
+.grain{position:fixed;inset:0;z-index:90;pointer-events:none;opacity:.22;mix-blend-mode:multiply}
+
+/* ---------- preloader ---------- */
+.loader{position:fixed;inset:0;z-index:100;background:var(--red);display:grid;place-items:center;color:var(--paper)}
+.loader .seal{width:120px;height:120px;border:4px solid var(--paper);display:grid;place-items:center;font:400 72px/1 var(--brush);transform:rotate(-6deg);border-radius:10px}
+.loader p{position:absolute;bottom:12vh;letter-spacing:.5em;font-size:12px;text-transform:uppercase}
+
+/* ---------- cursor ---------- */
+.cur{position:fixed;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;border:1.5px solid var(--red);border-radius:50%;z-index:95;pointer-events:none;mix-blend-mode:multiply;transition:width .25s,height .25s,margin .25s,background .25s}
+.cur.big{width:78px;height:78px;margin:-39px 0 0 -39px;background:rgba(200,16,46,.15)}
+@media (pointer:coarse){.cur{display:none}}
+
+/* ---------- nav ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px clamp(18px,4vw,48px);mix-blend-mode:difference;color:#fff}
+nav .logo{font:400 30px/1 var(--brush);text-decoration:none}
+nav .nl{display:flex;align-items:center;gap:22px}
+nav .back{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+nav ul{display:flex;gap:28px;list-style:none;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+nav a{text-decoration:none}
+@media(max-width:760px){nav ul{display:none}}
+.progress{position:fixed;left:0;top:0;height:3px;width:100%;background:var(--red);transform-origin:0 50%;transform:scaleX(0);z-index:60}
+
+/* ---------- hero ---------- */
+.hero{position:relative;height:100svh;min-height:640px;overflow:hidden;background:linear-gradient(#f6dcae 0%,#f4ead7 55%,#ecd8b4 100%);color:var(--ink)}
+.sun{position:absolute;left:50%;top:22%;width:min(46vw,520px);aspect-ratio:1;margin-left:calc(min(46vw,520px)/-2);border-radius:50%;background:radial-gradient(circle at 40% 35%,#e0243f,var(--red) 55%,var(--red2));box-shadow:0 0 120px 30px rgba(200,16,46,.28)}
+.layer{position:absolute;left:-5%;width:110%;bottom:0;will-change:transform}
+.layer svg{width:100%;height:auto}
+.cloud{position:absolute;opacity:.9;will-change:transform}
+.lantern{position:absolute;top:-10px;transform-origin:50% 0;animation:sway 4.5s ease-in-out infinite alternate;z-index:6}
+.lantern i{display:block;width:2px;height:clamp(40px,9vh,110px);background:var(--ink);margin:0 auto}
+.lantern b{display:grid;place-items:center;width:clamp(54px,6vw,84px);height:clamp(64px,7.4vw,100px);background:radial-gradient(circle at 50% 40%,#ee3b52,var(--red) 60%,var(--red2));border-radius:46%;color:var(--gold);font:400 clamp(26px,3vw,40px)/1 var(--brush);box-shadow:0 0 40px rgba(200,16,46,.55);position:relative}
+.lantern b::before,.lantern b::after{content:"";position:absolute;left:50%;width:46%;height:8px;background:var(--gold);transform:translateX(-50%);border-radius:2px}
+.lantern b::before{top:-5px}.lantern b::after{bottom:-5px}
+@keyframes sway{from{transform:rotate(-6deg)}to{transform:rotate(6deg)}}
+.hero-text{position:absolute;z-index:8;left:clamp(18px,5vw,72px);right:clamp(18px,5vw,72px);bottom:11vh}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:56%;background:linear-gradient(to top,#16100d 28%,rgba(22,16,13,.85) 55%,transparent);z-index:5;pointer-events:none}
+.kicker{display:flex;gap:14px;align-items:center;font-size:13px;letter-spacing:.3em;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:12px}
+.kicker::before{content:"";width:48px;height:2px;background:var(--gold)}
+h1{font:800 clamp(44px,8.6vw,140px)/.92 var(--serif);letter-spacing:-.02em;color:var(--paper)}
+h1 em{font-style:italic;font-weight:500;color:var(--gold)}
+.line{display:block;overflow:hidden;padding-bottom:.06em}
+.line>span{display:inline-block;will-change:transform}
+.vert{position:absolute;z-index:7;right:clamp(14px,4vw,64px);top:16vh;writing-mode:vertical-rl;font:400 clamp(48px,7.5vw,120px)/1.05 var(--brush);color:var(--ink);letter-spacing:.06em}
+.vert span{display:block}
+.seal{display:inline-grid;place-items:center;width:1.1em;height:1.1em;background:var(--red);color:var(--paper);font:400 .6em/1 var(--brush);border-radius:6px;transform:rotate(6deg);margin-top:.35em}
+.hero-meta{position:absolute;z-index:8;left:clamp(18px,5vw,72px);bottom:3.2vh;display:flex;gap:32px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--paper)}
+.scroll-hint{position:absolute;right:clamp(18px,4vw,64px);bottom:3vh;z-index:8;font-size:12px;letter-spacing:.2em;text-transform:uppercase;display:flex;align-items:center;gap:10px;color:var(--paper)}
+.scroll-hint::after{content:"";width:1.5px;height:44px;background:var(--paper);transform-origin:top;animation:drip 2s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(0)}60%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+@media(max-width:760px){.vert{top:12vh;font-size:44px}.hero-meta{flex-wrap:wrap;gap:6px 18px;bottom:7vh}.hero-text{bottom:16vh}.scroll-hint{display:none}}
+
+/* ---------- marquee ---------- */
+.marquee{background:var(--ink);color:var(--paper);padding:20px 0;overflow:hidden;white-space:nowrap;border-block:4px solid var(--gold);position:relative;z-index:3}
+.marquee div{display:inline-block;will-change:transform;font:500 clamp(24px,3.4vw,44px)/1 var(--serif)}
+.marquee span{margin:0 26px}
+.marquee .c{font-family:var(--brush);color:var(--gold);font-size:1.2em}
+.marquee .dot{color:var(--red)}
+
+/* ---------- common ---------- */
+section{position:relative}
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(18px,4vw,48px)}
+.eyebrow{font-size:13px;letter-spacing:.3em;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:14px;display:flex;gap:12px;align-items:center}
+.eyebrow b{font:400 28px/1 var(--brush);letter-spacing:0}
+h2{font:800 clamp(36px,6vw,88px)/.98 var(--serif);letter-spacing:-.015em}
+h2 em{font-style:italic;font-weight:500;color:var(--red)}
+.lattice{background-color:var(--ink);background-image:
+  linear-gradient(45deg,rgba(214,162,74,.16) 25%,transparent 25%,transparent 75%,rgba(214,162,74,.16) 75%),
+  linear-gradient(45deg,rgba(214,162,74,.16) 25%,transparent 25%,transparent 75%,rgba(214,162,74,.16) 75%);
+  background-size:44px 44px;background-position:0 0,22px 22px}
+.rv{opacity:0;transform:translateY(46px)}
+
+/* ---------- intro / stats ---------- */
+.intro{padding:clamp(80px,12vw,170px) 0 clamp(60px,8vw,120px)}
+.intro .grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(30px,6vw,100px);align-items:end}
+.intro p.lead{font-size:clamp(19px,1.7vw,24px);line-height:1.55;max-width:560px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:clamp(50px,7vw,100px);border-top:2px solid var(--ink)}
+.stat{padding:26px 18px 10px 0;border-right:1px solid rgba(22,16,13,.25)}
+.stat:last-child{border:0}
+.stat strong{display:block;font:800 clamp(46px,6.4vw,96px)/1 var(--serif);color:var(--red)}
+.stat span{font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+@media(max-width:860px){.intro .grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.stat:nth-child(2){border:0}}
+
+/* ---------- route ---------- */
+.route{background:var(--ink);color:var(--paper);padding:clamp(70px,9vw,130px) 0;overflow:hidden}
+.route h2 em{color:var(--gold)}
+.route .eyebrow{color:var(--gold)}
+.route svg{width:100%;height:auto;margin-top:30px;overflow:visible}
+.route text{fill:var(--paper);font:500 22px var(--serif)}
+.route .zh{font:400 40px var(--brush);fill:var(--gold)}
+.route .pt{fill:var(--red);stroke:var(--paper);stroke-width:3}
+.route-note{display:flex;gap:30px;flex-wrap:wrap;font-size:14px;color:#cdbf9f;margin-top:10px}
+.route-note b{color:var(--gold)}
+
+/* ---------- days (horizontal) ---------- */
+.days{background:var(--paper2);overflow:hidden}
+.days-head{padding:clamp(70px,9vw,120px) 0 30px}
+.pin{height:100svh;display:flex;align-items:center;position:relative}
+.track{display:flex;gap:clamp(24px,3vw,48px);padding:0 clamp(18px,6vw,90px);will-change:transform}
+.panel{flex:0 0 min(86vw,1080px);height:min(78svh,640px);display:grid;grid-template-columns:.78fr 1.22fr;background:var(--paper);border:2px solid var(--ink);border-radius:6px;position:relative;overflow:hidden;box-shadow:12px 12px 0 var(--ink)}
+.panel .num{position:absolute;right:18px;top:-.12em;font:400 clamp(130px,19vw,280px)/1 var(--brush);color:rgba(200,16,46,.11);pointer-events:none}
+.frame{position:relative;margin:clamp(14px,2vw,26px);border-radius:999px 999px 8px 8px;overflow:hidden;border:3px solid var(--gold);outline:2px solid var(--ink);outline-offset:3px;background:var(--ink)}
+.frame svg{position:absolute;inset:0;width:100%;height:100%}
+.frame .tag{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);background:var(--red);color:var(--paper);font:400 26px/1 var(--brush);padding:8px 16px 6px;border-radius:4px;white-space:nowrap;z-index:2}
+.pbody{padding:clamp(22px,3vw,44px) clamp(20px,3vw,46px) clamp(18px,2vw,32px) 8px;display:flex;flex-direction:column;position:relative;z-index:2;min-height:0}
+.pbody .d{font-size:12px;letter-spacing:.3em;text-transform:uppercase;font-weight:700;color:var(--red)}
+.pbody h3{font:800 clamp(28px,3.5vw,52px)/1 var(--serif);margin:8px 0 14px}
+.pbody h3 small{display:block;font:400 .72em/1.1 var(--brush);color:var(--red);margin-top:6px}
+.pbody p{font-size:clamp(14.5px,1.2vw,17px);line-height:1.55;margin-bottom:10px}
+.pbody p.warn{background:rgba(214,162,74,.25);border-left:4px solid var(--gold);padding:8px 12px;font-size:clamp(13px,1vw,14.5px)}
+.pbody .scroll{overflow:auto;min-height:0;padding-right:6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:14px}
+.chip{border:1.5px solid var(--ink);padding:4px 12px;border-radius:99px;font-size:12px;font-weight:700;letter-spacing:.06em}
+.chip.r{background:var(--red);border-color:var(--red);color:var(--paper)}
+.chip.g{background:var(--gold);border-color:var(--gold)}
+.dayprog{position:absolute;left:clamp(18px,6vw,90px);right:clamp(18px,6vw,90px);bottom:4.5vh;display:flex;align-items:center;gap:16px;font:400 28px/1 var(--brush);color:var(--red)}
+.dayprog i{flex:1;height:3px;background:rgba(22,16,13,.18);position:relative}
+.dayprog i b{position:absolute;inset:0;background:var(--red);transform-origin:0 50%;transform:scaleX(0)}
+.dayprog span:last-child{color:var(--ink)}
+@media(max-width:900px){
+  .pin{height:auto;display:block}
+  .track{flex-direction:column;padding:0 18px 70px;gap:34px}
+  .panel{flex:none;width:100%;height:auto;grid-template-columns:1fr;box-shadow:8px 8px 0 var(--ink)}
+  .frame{aspect-ratio:4/4.2;margin:16px 16px 0}
+  .pbody{padding:22px 20px 26px}
+  .dayprog{display:none}
+}
+
+
+/* ---------- gallery ---------- */
+.gallery{background:var(--ink);color:var(--paper);padding:clamp(80px,10vw,150px) 0;position:relative;overflow:hidden}
+.gallery .eyebrow{color:var(--gold)}
+.gallery h2 em{color:var(--gold)}
+.gallery .bg{position:absolute;right:-4vw;top:2vw;font:400 clamp(200px,32vw,520px)/1 var(--brush);color:rgba(214,162,74,.07);pointer-events:none}
+.gal{columns:3;column-gap:22px;margin-top:56px}
+.gi{break-inside:avoid;margin:0 0 22px;position:relative;cursor:none;display:block;border:2px solid var(--gold);padding:8px;background:#241812;border-radius:3px;transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s}
+.gi:hover{transform:translateY(-8px) rotate(-.7deg);box-shadow:10px 10px 0 var(--red)}
+.gi:nth-child(even):hover{transform:translateY(-8px) rotate(.7deg)}
+.gi .ph{overflow:hidden;position:relative;background:#241812}
+.gi img{width:100%;display:block;height:auto;transition:transform 1.1s cubic-bezier(.2,.8,.2,1);will-change:transform}
+.gi.tall .ph{aspect-ratio:3/4}.gi.tall img{height:100%;object-fit:cover}
+.gi:hover img{transform:scale(1.08)}
+.gi figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:12px 4px 4px;font:500 15px/1.2 var(--serif)}
+.gi figcaption b{font:400 24px/1 var(--brush);color:var(--gold)}
+.gi .n{position:absolute;left:-10px;top:-12px;z-index:2;background:var(--red);color:var(--paper);font:400 22px/1 var(--brush);padding:6px 10px 3px;border-radius:3px;transform:rotate(-6deg)}
+.credit{margin-top:14px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#a89878}
+.credit a{color:var(--gold)}
+@media(max-width:980px){.gal{columns:2;column-gap:16px}.gi{margin-bottom:16px}}
+@media(max-width:520px){.gal{columns:1}}
+.lb{position:fixed;inset:0;z-index:98;background:rgba(14,9,7,.94);display:none;place-items:center;padding:4vw}
+.lb.on{display:grid}
+.lb figure{max-width:min(92vw,1200px);max-height:88vh;display:grid;gap:12px;justify-items:center;border:2px solid var(--gold);padding:10px;background:#241812}
+.lb img{max-width:100%;max-height:76vh;display:block;object-fit:contain}
+.lb figcaption{color:var(--paper);font:500 18px var(--serif)}.lb figcaption b{font:400 28px var(--brush);color:var(--gold);margin-left:10px}
+.lb button{position:absolute;background:var(--red);color:var(--paper);border:2px solid var(--gold);width:52px;height:52px;border-radius:50%;font:400 26px/1 var(--sans);cursor:pointer}
+.lb .x{right:3vw;top:3vw}.lb .pv{left:2vw;top:50%}.lb .nx{right:2vw;top:50%}
+
+/* ---------- included ---------- */
+.inc{padding:clamp(80px,10vw,150px) 0}
+.inc-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(24px,4vw,64px);margin-top:50px}
+.card{border:2px solid var(--ink);border-radius:6px;padding:clamp(22px,3vw,40px);background:var(--paper);position:relative}
+.card h3{font:800 28px/1.1 var(--serif);display:flex;gap:12px;align-items:center;margin-bottom:22px}
+.card h3 i{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--jade);color:#fff;font:700 24px/1 var(--sans);font-style:normal}
+.card.no h3 i{background:var(--red)}
+.card ul{list-style:none;display:grid;gap:14px}
+.card li{padding-left:30px;position:relative;line-height:1.5}
+.card li::before{content:"";position:absolute;left:0;top:.5em;width:12px;height:12px;background:var(--jade);transform:rotate(45deg)}
+.card.no li::before{background:var(--red)}
+.card.big{background:var(--ink);color:var(--paper);box-shadow:12px 12px 0 var(--red)}
+.card.big li::before{background:var(--gold)}
+.card.big h3 i{background:var(--gold);color:var(--ink)}
+@media(max-width:860px){.inc-grid{grid-template-columns:1fr}}
+
+/* ---------- hotels ---------- */
+.hotels{padding:0 0 clamp(80px,10vw,150px)}
+.hgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+.hotel{background:var(--ink);color:var(--paper);padding:28px 22px 24px;border-radius:6px;position:relative;overflow:hidden;min-height:260px;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.hotel:hover{transform:translateY(-10px) rotate(-.6deg)}
+.hotel .z{position:absolute;right:-10px;top:-24px;font:400 150px/1 var(--brush);color:rgba(214,162,74,.22)}
+.hotel .st{color:var(--gold);letter-spacing:.2em;font-size:14px}
+.hotel h4{font:800 22px/1.15 var(--serif);margin:6px 0}
+.hotel p{font-size:13px;color:#cdbf9f}
+@media(max-width:980px){.hgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.hgrid{grid-template-columns:1fr}}
+
+/* ---------- flights ---------- */
+.flights{padding-bottom:clamp(80px,10vw,150px)}
+.tickets{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px}
+.ticket{display:grid;grid-template-columns:1fr auto;background:var(--paper);border:2px solid var(--ink);border-radius:8px;position:relative;overflow:hidden}
+.ticket::before,.ticket::after{content:"";position:absolute;right:122px;width:26px;height:26px;border-radius:50%;background:var(--paper2);border:2px solid var(--ink)}
+.ticket::before{top:-14px}.ticket::after{bottom:-14px}
+.ticket .l{padding:24px 28px}
+.ticket .r{width:150px;border-left:2px dashed var(--ink);padding:24px 18px;background:var(--red);color:var(--paper);display:flex;flex-direction:column;justify-content:center;text-align:center}
+.ticket .r b{font:800 34px/1 var(--serif)}
+.ticket .r span{font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+.rt{display:flex;align-items:center;gap:16px;font:800 clamp(26px,3vw,40px)/1 var(--serif);margin:10px 0}
+.rt svg{flex:1;height:18px}
+.ticket small{font-size:13px;letter-spacing:.06em;font-weight:700}
+@media(max-width:860px){.tickets{grid-template-columns:1fr}}
+
+/* ---------- CTA ---------- */
+.cta{background:var(--red);color:var(--paper);padding:clamp(80px,11vw,160px) 0;overflow:hidden;position:relative}
+.cta .big{position:absolute;left:-2vw;bottom:-6vw;font:400 clamp(260px,42vw,640px)/1 var(--brush);color:rgba(0,0,0,.14);pointer-events:none;white-space:nowrap}
+.cta .wrap{position:relative;display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(30px,6vw,90px);align-items:center}
+.cta h2 em{color:var(--gold)}
+.cta p{margin-top:20px;max-width:480px;font-size:18px}
+form{background:var(--paper);color:var(--ink);padding:clamp(24px,3vw,40px);border:2px solid var(--ink);border-radius:6px;box-shadow:12px 12px 0 var(--ink);display:grid;gap:16px}
+label{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;display:grid;gap:6px}
+input,textarea{font:500 17px var(--sans);padding:12px 14px;border:2px solid var(--ink);border-radius:4px;background:#fff9ec;color:var(--ink);outline:none;transition:box-shadow .2s}
+input:focus,textarea:focus{box-shadow:0 0 0 4px rgba(200,16,46,.3)}
+.btn{position:relative;font:800 20px var(--serif);letter-spacing:.14em;text-transform:uppercase;background:var(--red);color:var(--paper);border:2px solid var(--ink);padding:18px 24px;border-radius:4px;cursor:pointer;overflow:hidden;transition:transform .2s}
+.btn::before{content:"";position:absolute;inset:0;background:var(--ink);transform:translateY(101%);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.btn:hover::before{transform:none}
+.btn span{position:relative}
+.consent{font-size:12px;line-height:1.45;color:#5b4a3e}.consent a{color:var(--red)}
+.alt{font-size:14px;text-align:center}.alt a{color:var(--red);font-weight:700}
+.ok{display:none;text-align:center;font:800 26px/1.3 var(--serif)}
+.ok b{display:block;font:400 80px/1 var(--brush);color:var(--red)}
+@media(max-width:860px){.cta .wrap{grid-template-columns:1fr}}
+
+footer{background:var(--ink);color:#cdbf9f;padding:34px 0;font-size:13px;text-align:center;letter-spacing:.08em}
+footer p{margin:6px 0}footer .fl a{margin:0 6px;color:#e6d6b0}footer b{font:400 28px/1 var(--brush);color:var(--gold);margin-right:10px;vertical-align:-3px}
+
+@media (prefers-reduced-motion:reduce){.lantern,.scroll-hint::after{animation:none}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="noise"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 .35  0 0 0 0 .25  0 0 0 0 .15  0 0 0 .55 0"/></filter>
+    <!-- cloud (xiangyun) -->
+    <symbol id="xy" viewBox="0 0 220 90"><path fill="currentColor" d="M20 70c-14 0-20-12-14-22 5-9 17-10 24-3 2-14 16-24 30-20 8-12 28-14 38-2 12-6 28 0 30 14 12-4 26 4 26 18 0 10-8 15-18 15z"/><path fill="none" stroke="#16100d" stroke-width="2" opacity=".5" d="M60 62c-8-9 2-20 12-14M118 62c-6-12 8-22 18-12M168 64c-5-8 2-15 9-11"/></symbol>
+  </defs>
+</svg>
+<svg class="grain" width="100%" height="100%"><rect width="100%" height="100%" filter="url(#noise)"/></svg>
+<div class="progress"></div>
+<div class="cur"></div>
+
+<div class="loader"><div class="seal">游</div><p>Поднебесная ждёт</p></div>
+
+<nav>
+  <div class="nl"><a class="logo" href="#top">中国</a><a class="back" href="index.html">← На главную</a></div>
+  <ul><li><a href="#route">Маршрут</a></li><li><a href="#days">Дни</a></li><li><a href="#gallery">Галерея</a></li><li><a href="#inc">Что входит</a></li><li><a href="#hotels">Отели</a></li><li><a href="#cta">Запрос</a></li></ul>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero" id="top">
+  <div class="sun" data-d="14"></div>
+
+  <svg class="cloud" data-d="30" style="left:6%;top:16%;width:240px;color:#fff6e4" viewBox="0 0 220 90"><use href="#xy"/></svg>
+  <svg class="cloud" data-d="50" style="left:62%;top:9%;width:300px;color:#fff6e4" viewBox="0 0 220 90"><use href="#xy"/></svg>
+  <svg class="cloud" data-d="20" style="left:30%;top:36%;width:180px;color:#fbe9c8" viewBox="0 0 220 90"><use href="#xy"/></svg>
+
+  <div class="layer" data-d="22" style="bottom:22vh"><svg viewBox="0 0 1600 300" preserveAspectRatio="none"><path fill="#d9b99a" opacity=".7" d="M0 300V190c80-70 140-70 220-10 70-90 130-130 210-40 60-50 120-70 200 0 80-110 150-120 240-20 80-80 150-60 220 10 80-90 150-110 240-10 70-40 130-30 170 20V300z"/></svg></div>
+  <div class="layer" data-d="40" style="bottom:12vh"><svg viewBox="0 0 1600 300" preserveAspectRatio="none"><path fill="#7a5a4a" opacity=".85" d="M0 300V160c90-60 150-40 230 20 80-100 160-110 250-10 90-70 160-50 230 10 80-120 170-130 260-20 90-60 160-40 240 20 70-60 110-60 160-10 60-30 0 0 0 0V300z"/></svg></div>
+  <div class="layer" data-d="64" style="bottom:0"><svg viewBox="0 0 1600 300" preserveAspectRatio="none"><path fill="#16100d" d="M0 300V120c60-30 120-20 170 30 60-70 130-90 200-30 70-50 130-60 190-10 50-30 120-30 170 20 70-70 150-80 220-20 60-40 120-40 180 10 70-60 130-50 190 10 70-40 140-30 200 20 40 0 80-10 80-10V300z"/>
+  <!-- pagoda silhouette -->
+  <g fill="#16100d" transform="translate(1180 -60)"><rect x="40" y="40" width="4" height="70"/><path d="M42 30l-34 20h68zM42 66l-44 22h88zM42 100l-54 24h108z"/><rect x="-14" y="124" width="112" height="190"/></g>
+  </svg></div>
+
+  <div class="lantern" style="left:7%"><i></i><b>福</b></div>
+  <div class="lantern" style="left:15%;animation-delay:-1.8s;transform:scale(.7)"><i style="height:clamp(20px,4vh,50px)"></i><b>喜</b></div>
+  <div class="lantern" style="right:19%;animation-delay:-3s"><i></i><b>吉</b></div>
+
+  <div class="vert"><span>杭州</span><span>乌镇</span><span>上海</span><div class="seal">游</div></div>
+
+  <div class="hero-text">
+    <div class="kicker">Групповой тур · 8 дней / 7 ночей</div>
+    <h1>
+      <span class="line"><span>Поднебесная</span></span>
+      <span class="line"><span>за <em>восемь</em> дней</span></span>
+    </h1>
+  </div>
+  <div class="hero-meta"><span>Ханчжоу</span><span>Хучжоу</span><span>Учжэнь</span><span>Шанхай</span></div>
+  <div class="scroll-hint">Листайте</div>
+</header>
+
+<div class="marquee"><div id="mq">
+  <span>Западное озеро</span><span class="c dot">西湖</span><span>Лес матча</span><span class="c dot">抹茶</span><span>Роботы и жирафы</span><span class="c dot">长颈鹿</span><span>Водный город Учжэнь</span><span class="c dot">乌镇</span><span>Огни Шанхая</span><span class="c dot">上海</span>
+  <span>Западное озеро</span><span class="c dot">西湖</span><span>Лес матча</span><span class="c dot">抹茶</span><span>Роботы и жирафы</span><span class="c dot">长颈鹿</span><span>Водный город Учжэнь</span><span class="c dot">乌镇</span><span>Огни Шанхая</span><span class="c dot">上海</span>
+</div></div>
+
+<!-- ===== INTRO ===== -->
+<section class="intro">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="eyebrow"><b>序</b>Вступление</div>
+        <h2 data-split>Древние сады, <em>поющие</em> роботы и жирафы за завтраком</h2>
+      </div>
+      <p class="lead rv">Один перелёт — и вы в Китае, который не умещается в открытку. Туман над Западным озером, лес из болотных кипарисов, который называют «лесом матча», городок на воде с времён династии Цин и ночной Шанхай с огнями набережной. Русскоязычный гид, автобус на всё время и всё включено по программе.</p>
+    </div>
+    <div class="stats">
+      <div class="stat rv"><strong data-n="8">0</strong><span>дней приключений</span></div>
+      <div class="stat rv"><strong data-n="4">0</strong><span>города и водный городок</span></div>
+      <div class="stat rv"><strong data-n="140" data-s="+">0</strong><span>роботов на одной сцене</span></div>
+      <div class="stat rv"><strong data-n="5" data-s="★">0</strong><span>отели высокого класса</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ROUTE ===== -->
+<section class="route" id="route">
+  <div class="wrap">
+    <div class="eyebrow"><b>路</b>Маршрут</div>
+    <h2 data-split>Путь <em>дракона</em> по востоку Китая</h2>
+    <svg viewBox="0 0 1000 380">
+      <path id="rtBack" d="M758 238C700 20 300 0 96 92" fill="none" stroke="#d6a24a" stroke-width="2.5" stroke-dasharray="3 9" stroke-linecap="round" opacity=".7"/>
+      <path id="rtMain" d="M96 92C230 210 330 270 440 262S560 178 612 206 704 262 758 238" fill="none" stroke="#c8102e" stroke-width="5" stroke-linecap="round"/>
+      <g class="pts">
+        <g class="pin1"><circle class="pt" cx="96" cy="92" r="11"/><text x="96" y="52" text-anchor="middle">Москва</text><text class="zh" x="96" y="140" text-anchor="middle">莫斯科</text></g>
+        <g class="pin2"><circle class="pt" cx="440" cy="262" r="11"/><text x="440" y="310" text-anchor="middle">Ханчжоу</text><text class="zh" x="440" y="356" text-anchor="middle">杭州</text></g>
+        <g class="pin3"><circle class="pt" cx="535" cy="198" r="11"/><text x="520" y="150" text-anchor="middle">Хучжоу</text><text class="zh" x="560" y="112" text-anchor="middle">湖州</text></g>
+        <g class="pin4"><circle class="pt" cx="640" cy="212" r="11"/><text x="650" y="172" text-anchor="middle" dx="30">Учжэнь</text><text class="zh" x="720" y="130" text-anchor="middle">乌镇</text></g>
+        <g class="pin5"><circle class="pt" cx="758" cy="238" r="11"/><text x="758" y="290" text-anchor="middle">Шанхай</text><text class="zh" x="758" y="336" text-anchor="middle">上海</text></g>
+      </g>
+    </svg>
+    <div class="route-note"><span><b>━</b> перелёт и переезды по программе</span><span><b>┅</b> обратный рейс JD607</span><span>Схема маршрута условная, не карта</span></div>
+  </div>
+</section>
+
+<!-- ===== DAYS ===== -->
+<section class="days" id="days">
+  <div class="wrap days-head">
+    <div class="eyebrow"><b>日</b>Программа</div>
+    <h2 data-split>Восемь дней — <em>восемь</em> картин</h2>
+  </div>
+
+  <div class="pin" id="pin">
+    <div class="track" id="track">
+
+      <!-- DAY 1 -->
+      <article class="panel">
+        <div class="num">一</div>
+        <div class="frame">
+          <svg viewBox="0 0 400 520" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#150d2b"/><stop offset=".6" stop-color="#5a1b3a"/><stop offset="1" stop-color="#c8102e"/></linearGradient></defs>
+            <rect width="400" height="520" fill="url(#g1)"/>
+            <g fill="#f4ead7"><circle cx="70" cy="80" r="2"/><circle cx="320" cy="60" r="2.4"/><circle cx="210" cy="120" r="1.6"/><circle cx="350" cy="170" r="1.8"/><circle cx="40" cy="190" r="1.6"/></g>
+            <circle cx="290" cy="130" r="44" fill="#f6dcae"/><circle cx="305" cy="122" r="40" fill="#5a1b3a" opacity=".55"/>
+            <use href="#xy" x="-20" y="360" width="260" height="105" style="color:#f4ead744"/><use href="#xy" x="190" y="300" width="230" height="95" style="color:#f4ead733"/>
+            <g class="fly" transform="translate(130 250) rotate(-14)"><path fill="#f4ead7" d="M0 20l150-6c14 0 14 8 0 10L110 30 70 62H50l22-34-50 4-16 14H0l6-14z"/><path fill="#f4ead7" d="M130 20l16-26h10l-8 28z"/></g>
+            <path d="M20 330C90 300 130 290 190 270" stroke="#f4ead7" stroke-width="2" stroke-dasharray="2 8" fill="none" stroke-linecap="round"/>
+          </svg><div class="tag">Москва · 莫斯科</div></div>
+        <div class="pbody">
+          <div class="d">День 1</div>
+          <h3>Москва <small>вылет</small></h3>
+          <div class="scroll">
+            <p>Вечерний вылет из Шереметьево (терминал C) в Ханчжоу. Ночь в небе — а утром вас уже ждёт Китай.</p>
+            <p><b>Рейс JD608</b><br>21:40 → 11:50 (+1 день)</p>
+          </div>
+          <div class="chips"><span class="chip r">✈ перелёт</span><span class="chip">ночь в пути</span></div>
+        </div>
+      </article>
+
+      <!-- DAY 2 -->
+      <article class="panel">
+        <div class="num">二</div>
+        <div class="frame">
+          <svg viewBox="0 0 400 520" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7b58b"/><stop offset=".55" stop-color="#f6dcae"/><stop offset="1" stop-color="#8bb3a6"/></linearGradient></defs>
+            <rect width="400" height="520" fill="url(#g2)"/>
+            <circle cx="120" cy="190" r="56" fill="#c8102e" opacity=".9"/>
+            <path d="M0 330c60-60 100-60 150-20 50-70 110-80 160-10 40-30 70-20 90 10v210H0z" fill="#7a9a8d"/>
+            <g fill="#16100d"><rect x="278" y="150" width="5" height="40"/><path d="M280 130l-20 14h40zM280 162l-28 14h56zM280 196l-36 16h72z"/><rect x="250" y="210" width="60" height="124"/></g>
+            <rect y="334" width="400" height="190" fill="#4f8a7d"/>
+            <g stroke="#f4ead7" stroke-width="2" opacity=".6" fill="none"><path d="M20 370h110M200 392h150M60 420h100M240 440h120M110 470h150"/></g>
+            <g fill="none" stroke="#2f6b3d" stroke-width="3" stroke-linecap="round"><path d="M10 0c12 80 16 190 4 300M40 0c8 80 6 170-8 250M370 0c-10 80-16 180-2 280"/><path d="M14 120c24 8 34 24 36 54M30 60c20 12 26 30 24 56M368 110c-22 10-30 28-30 52"/></g>
+            <g class="boat"><path d="M150 380h110l-18 22h-72z" fill="#16100d"/><rect x="170" y="354" width="62" height="26" fill="#c8102e"/><path d="M164 354l37-18 37 18z" fill="#16100d"/></g>
+          </svg><div class="tag">Западное озеро · 西湖</div></div>
+        <div class="pbody">
+          <div class="d">День 2</div>
+          <h3>Ханчжоу <small>杭州</small></h3>
+          <div class="scroll">
+            <p>Прибытие, заселение в Grand Metropark Hotel 5* (West Lake). Свободное время: прогулка вдоль Западного озера — закат лучше смотреть у павильона Цзисяньтин или на Длинном мосту с видом на пагоду Лэйфэн.</p>
+            <p>В 16:00 — приветственный ужин: рыба в уксусном соусе с озера Сиху и креветки с чаем Лунцзин. Вечером можно пройтись по улицам Хэфанцзе и Императорской улице.</p>
+            <p class="warn">За дополнительную плату — масштабное историческое шоу «Романтическая история Ханчжоу».</p>
+          </div>
+          <div class="chips"><span class="chip g">завтрак</span><span class="chip g">ужин</span><span class="chip">Grand Metropark 5★</span></div>
+        </div>
+      </article>
+
+      <!-- DAY 3 -->
+      <article class="panel">
+        <div class="num">三</div>
+        <div class="frame">
+          <svg viewBox="0 0 400 520" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9efd0"/><stop offset=".5" stop-color="#9fcf9a"/><stop offset="1" stop-color="#2f7d6d"/></linearGradient></defs>
+            <rect width="400" height="520" fill="url(#g3)"/>
+            <circle cx="200" cy="110" r="46" fill="#f4ead7" opacity=".8"/>
+            <rect y="260" width="400" height="260" fill="#4c9a64"/>
+            <g stroke="#2f7d6d" stroke-width="1.5" opacity=".6" fill="none"><path d="M0 300h400M0 350h400M0 410h400"/></g>
+            <g fill="#3a2a1c"><path d="M40 270l8-170 8 170zM110 270l6-120 6 120zM190 270l7-200 7 200zM270 270l6-150 6 150zM340 270l8-180 8 180z"/></g>
+            <g fill="#2f6b3d" opacity=".9"><path d="M20 120c20-30 56-30 76 0zM90 160c14-24 44-24 56 0zM170 100c24-36 64-36 82 0zM250 150c16-26 44-26 60 0zM322 110c20-30 56-30 72 0z"/></g>
+            <g fill="#3a2a1c" opacity=".35" transform="translate(0 540) scale(1 -1)"><path d="M40 270l8-170 8 170zM110 270l6-120 6 120zM190 270l7-200 7 200zM270 270l6-150 6 150zM340 270l8-180 8 180z"/></g>
+            <g fill="#b6e07a" opacity=".8"><circle cx="60" cy="400" r="5"/><circle cx="150" cy="450" r="7"/><circle cx="260" cy="420" r="5"/><circle cx="330" cy="480" r="8"/><circle cx="210" cy="380" r="4"/></g>
+            <g transform="translate(250 440)"><path d="M0 20c10-30 40-30 46-8 6-24 24-20 24 0 0 14-16 18-30 18H10z" fill="#fff" /><path d="M64 4c4-14 8-14 8-4" stroke="#fff" stroke-width="4" fill="none"/><circle cx="68" cy="2" r="1.6" fill="#16100d"/><path d="M71 3l8 3-8 1z" fill="#d6a24a"/></g>
+          </svg><div class="tag">Лес матча · 抹茶森林</div></div>
+        <div class="pbody">
+          <div class="d">День 3</div>
+          <h3>Озеро Циншань <small>青山湖</small></h3>
+          <div class="scroll">
+            <p>Утро — у озера Циншань: сотни акров болотных кипарисов в воде, покрытой зелёной ряской. Издалека оно напоминает перевёрнутую чашку матча — отсюда имя «Лес матча». В «Зелёной стране чудес» можно пообщаться с пятнистыми оленями и лебедями-шипунами.</p>
+            <p>После обеда: прогулка на корабле по Западному озеру, парк «Хуаган гуаньюй», дамба Суди, пагоды Лэйфэн и Баочу, деревня Лунцзин с дегустацией знаменитого чая.</p>
+            <p class="warn">С 10 января по 28 февраля из-за погоды «Лес матча» может быть заменён другой достопримечательностью.</p>
+          </div>
+          <div class="chips"><span class="chip g">завтрак</span><span class="chip">чайная дегустация</span><span class="chip">круиз по озеру</span></div>
+        </div>
+      </article>
+
+      <!-- DAY 4 -->
+      <article class="panel">
+        <div class="num">四</div>
+        <div class="frame">
+          <svg viewBox="0 0 400 520" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dcebf4"/><stop offset="1" stop-color="#f4ead7"/></linearGradient></defs>
+            <rect width="400" height="520" fill="url(#g4)"/>
+            <path d="M0 400c80-50 160-50 240-10s120 0 160-20v150H0z" fill="#9fcf9a"/><rect y="440" width="400" height="80" fill="#4c9a64"/>
+            <path d="M0 300h400M0 340h400" stroke="#c8102e" stroke-width="0"/>
+            <!-- robot -->
+            <g class="robot" transform="translate(40 250)"><rect x="30" y="0" width="60" height="50" rx="12" fill="#16100d"/><rect x="40" y="16" width="14" height="14" rx="3" fill="#d6a24a"/><rect x="66" y="16" width="14" height="14" rx="3" fill="#d6a24a"/><rect x="58" y="-18" width="4" height="18" fill="#16100d"/><circle cx="60" cy="-22" r="6" fill="#c8102e"/>
+              <rect x="22" y="58" width="76" height="80" rx="10" fill="#f4ead7" stroke="#16100d" stroke-width="3"/><rect x="48" y="78" width="24" height="24" rx="4" fill="#c8102e"/>
+              <rect x="-4" y="60" width="20" height="70" rx="8" fill="#16100d"/><rect x="104" y="60" width="20" height="70" rx="8" fill="#16100d"/>
+              <rect x="30" y="142" width="22" height="70" rx="7" fill="#16100d"/><rect x="68" y="142" width="22" height="70" rx="7" fill="#16100d"/></g>
+            <!-- robodog -->
+            <g transform="translate(150 410)"><rect x="0" y="0" width="64" height="26" rx="8" fill="#c8102e"/><rect x="52" y="-12" width="26" height="22" rx="6" fill="#16100d"/><rect x="6" y="24" width="8" height="30" fill="#16100d"/><rect x="48" y="24" width="8" height="30" fill="#16100d"/></g>
+            <!-- giraffe -->
+            <g transform="translate(262 60)"><rect x="58" y="0" width="38" height="30" rx="14" fill="#e8b34a"/><rect x="66" y="-14" width="5" height="16" fill="#8a5a2a"/><rect x="82" y="-14" width="5" height="16" fill="#8a5a2a"/><circle cx="72" cy="10" r="2.5" fill="#16100d"/>
+              <path d="M62 24h26l18 250H48z" fill="#e8b34a"/>
+              <g fill="#a8661f"><circle cx="70" cy="70" r="7"/><circle cx="82" cy="120" r="8"/><circle cx="68" cy="170" r="9"/><circle cx="84" cy="220" r="8"/></g>
+              <path d="M30 274h100v50H30z" fill="#e8b34a"/><rect x="36" y="320" width="12" height="120" fill="#e8b34a"/><rect x="112" y="320" width="12" height="120" fill="#e8b34a"/><g fill="#a8661f"><circle cx="60" cy="296" r="8"/><circle cx="100" cy="300" r="7"/></g></g>
+          </svg><div class="tag">Роботы и жирафы · 机器人</div></div>
+        <div class="pbody">
+          <div class="d">День 4</div>
+          <h3>Ханчжоу → Хучжоу <small>湖州</small></h3>
+          <div class="scroll">
+            <p>Город технологий будущего Binjiang Smart Manufacturing Valley и шоу «Китайское восстание роботов»: на одной площадке больше 140 роботов. Робособаки Unitree крутят сальто, гуманоиды варят кофе, играют в шахматы и танцуют в стиле уся.</p>
+            <p>Переезд в Хучжоу (около 1 часа), заселение в Huzhou Giraffe Manor 5*, отдых в тематическом парке с животными: покормить енотов, почесать капибар, искупать слоновых черепах и увидеть звезду отеля — жирафов. Для взрослых бесплатно: слайдер в бамбуковом лесу, стрельба из лука, верёвочный городок.</p>
+          </div>
+          <div class="chips"><span class="chip g">завтрак</span><span class="chip r">140+ роботов</span><span class="chip">Giraffe Manor 5★</span></div>
+        </div>
+      </article>
+
+      <!-- DAY 5 -->
+      <article class="panel">
+        <div class="num">五</div>
+        <div class="frame">
+          <svg viewBox="0 0 400 520" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7a5a8a"/><stop offset=".5" stop-color="#f2a37a"/><stop offset="1" stop-color="#f6dcae"/></linearGradient></defs>
+            <rect width="400" height="520" fill="url(#g5)"/>
+            <!-- dyed cloth -->
+            <g><rect x="24" y="40" width="36" height="230" fill="#2a4f9c"/><rect x="66" y="40" width="36" height="200" fill="#e8e0cc"/><rect x="108" y="40" width="36" height="250" fill="#2a4f9c" opacity=".85"/><rect x="14" y="30" width="140" height="6" fill="#3a2a1c"/></g>
+            <!-- houses -->
+            <g fill="#16100d"><path d="M170 250l40-34 40 34zM240 270l44-40 44 40zM316 255l38-30 40 30z"/></g>
+            <g fill="#f4ead7"><rect x="176" y="250" width="68" height="70"/><rect x="246" y="270" width="76" height="60"/><rect x="322" y="255" width="72" height="75"/></g>
+            <g fill="#c8102e"><rect x="196" y="272" width="12" height="20"/><rect x="270" y="288" width="12" height="20"/><rect x="346" y="275" width="12" height="20"/></g>
+            <circle cx="212" cy="262" r="5" fill="#c8102e" opacity="0"/>
+            <!-- water + bridge -->
+            <rect y="330" width="400" height="190" fill="#3b6b73"/>
+            <path d="M0 440c60-110 140-110 200 0c60-110 140-110 200 0v10H0z" fill="#16100d"/>
+            <path d="M20 440c40-70 100-70 140 0M240 440c40-70 100-70 140 0" fill="#3b6b73" stroke="none"/>
+            <g stroke="#f4ead7" stroke-width="2" opacity=".5" fill="none"><path d="M20 480h130M230 496h150M60 510h90"/></g>
+            <g fill="#c8102e"><circle cx="40" cy="330" r="7"/><circle cx="75" cy="338" r="6"/></g>
+          </svg><div class="tag">Водный город · 乌镇</div></div>
+        <div class="pbody">
+          <div class="d">День 5</div>
+          <h3>Хучжоу → Учжэнь <small>乌镇</small></h3>
+          <div class="scroll">
+            <p>Завтрак-шведский стол среди жирафов, заглядывающих в панорамные окна. <i>В январе и феврале при температуре ниже 15° жирафов переводят в крытый павильон — активность может быть ограничена.</i></p>
+            <p>Трансфер в древний город на воде Учжэнь (около 1,5 часа). Район Сичжа: старинная красильня «Цаому Бэньсэ», где ткани до сих пор красят растительными красками и сушат на высоких вешалах; академия Чжаомин — бывшая императорская библиотека; старая почта с открыткой на память; двойной мост Цяолицяо.</p>
+          </div>
+          <div class="chips"><span class="chip g">завтрак</span><span class="chip">Wuzhen Tong'an Inn / Waterside Resort 5★</span></div>
+        </div>
+      </article>
+
+      <!-- DAY 6 -->
+      <article class="panel">
+        <div class="num">六</div>
+        <div class="frame">
+          <svg viewBox="0 0 400 520" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g6" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a1240"/><stop offset=".55" stop-color="#7b2a63"/><stop offset="1" stop-color="#ee6a4b"/></linearGradient></defs>
+            <rect width="400" height="520" fill="url(#g6)"/>
+            <g fill="#f4ead7"><circle cx="60" cy="60" r="1.8"/><circle cx="340" cy="90" r="1.6"/><circle cx="120" cy="140" r="1.4"/></g>
+            <!-- skyline -->
+            <g fill="#150d26"><rect x="10" y="300" width="42" height="150"/><rect x="58" y="270" width="36" height="180"/><rect x="290" y="250" width="40" height="200"/><rect x="336" y="290" width="54" height="160"/><path d="M296 250l20-30 20 30z"/></g>
+            <!-- pearl tower -->
+            <g fill="#f4ead7"><rect x="198" y="30" width="4" height="120"/></g>
+            <g fill="#c8102e" stroke="#f4ead7" stroke-width="3"><circle cx="200" cy="170" r="30"/><circle cx="200" cy="260" r="46"/></g>
+            <g stroke="#f4ead7" stroke-width="6" fill="none"><path d="M200 300l-34 150M200 300l34 150M200 300v150"/></g>
+            <circle cx="200" cy="108" r="10" fill="#f6dcae"/>
+            <g fill="#f6dcae" opacity=".9"><rect x="20" y="320" width="6" height="8"/><rect x="34" y="340" width="6" height="8"/><rect x="66" y="300" width="6" height="8"/><rect x="76" y="330" width="6" height="8"/><rect x="300" y="280" width="6" height="8"/><rect x="316" y="310" width="6" height="8"/><rect x="350" y="320" width="6" height="8"/></g>
+            <rect y="450" width="400" height="70" fill="#0d0820"/>
+            <g stroke="#f6dcae" stroke-width="3" opacity=".6" fill="none" stroke-linecap="round"><path d="M40 470h60M150 484h110M290 470h70M80 500h90M230 508h100"/></g>
+          </svg><div class="tag">Восточная жемчужина · 东方明珠</div></div>
+        <div class="pbody">
+          <div class="d">День 6</div>
+          <h3>Учжэнь → Шанхай <small>上海</small></h3>
+          <div class="scroll">
+            <p>После завтрака — трансфер в Шанхай (1,5 часа). Первая половина дня: сад Юйюань («Сад радости») и храм Чэнхуанмяо с дегустацией шанхайских пельменей сяолунбао и обедом с уткой по-пекински.</p>
+            <p>Во второй половине дня — телебашня «Восточная жемчужина» с выходом на смотровую площадку с прозрачным стеклянным полом. Заселение в Metropark Hotel Shanghai 5*.</p>
+            <p>Вечером рекомендуем самостоятельно: панорама реки Хуанпу и прогулка на речном круизном лайнере (оплачивается отдельно) — световое шоу на набережной, включение иллюминации после 19:00.</p>
+          </div>
+          <div class="chips"><span class="chip g">завтрак</span><span class="chip g">обед</span><span class="chip">Metropark Shanghai 5★</span></div>
+        </div>
+      </article>
+
+      <!-- DAY 7 -->
+      <article class="panel">
+        <div class="num">七</div>
+        <div class="frame">
+          <svg viewBox="0 0 400 520" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g7" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a1d17"/><stop offset="1" stop-color="#8e0b20"/></linearGradient></defs>
+            <rect width="400" height="520" fill="url(#g7)"/>
+            <g stroke="#16100d" stroke-width="2"><path d="M0 40C100 80 300 80 400 40" fill="none"/></g>
+            <g class="lan"><g transform="translate(50 62)"><ellipse rx="20" ry="26" fill="#c8102e" stroke="#d6a24a" stroke-width="3"/></g><g transform="translate(130 80)"><ellipse rx="20" ry="26" fill="#ee3b52" stroke="#d6a24a" stroke-width="3"/></g><g transform="translate(210 88)"><ellipse rx="20" ry="26" fill="#c8102e" stroke="#d6a24a" stroke-width="3"/></g><g transform="translate(290 80)"><ellipse rx="20" ry="26" fill="#ee3b52" stroke="#d6a24a" stroke-width="3"/></g><g transform="translate(360 62)"><ellipse rx="20" ry="26" fill="#c8102e" stroke="#d6a24a" stroke-width="3"/></g></g>
+            <!-- neon sign -->
+            <rect x="60" y="170" width="280" height="90" rx="6" fill="#16100d" stroke="#d6a24a" stroke-width="4"/>
+            <text x="200" y="240" text-anchor="middle" font-family="Ma Shan Zheng, serif" font-size="70" fill="#f6dcae">南京路</text>
+            <!-- tram -->
+            <g class="tram" transform="translate(20 330)"><rect width="250" height="100" rx="12" fill="#f4ead7"/><rect y="62" width="250" height="38" rx="6" fill="#2f7d6d"/><g fill="#16100d"><rect x="14" y="16" width="44" height="34" rx="3"/><rect x="68" y="16" width="44" height="34" rx="3"/><rect x="122" y="16" width="44" height="34" rx="3"/><rect x="176" y="16" width="44" height="34" rx="3"/></g><g fill="#16100d"><circle cx="50" cy="104" r="12"/><circle cx="200" cy="104" r="12"/></g><path d="M120 0l30-50" stroke="#16100d" stroke-width="4"/></g>
+            <path d="M0 440h400M0 470h400" stroke="#d6a24a" stroke-width="3"/>
+            <g fill="#f6dcae" opacity=".8"><rect x="10" y="470" width="380" height="2"/></g>
+          </svg><div class="tag">Нанкин-роуд · 南京路</div></div>
+        <div class="pbody">
+          <div class="d">День 7</div>
+          <h3>Шанхай <small>свободный день</small></h3>
+          <div class="scroll">
+            <p>Завтрак в отеле и целый день для себя. Рекомендации для посещения за свой счёт:</p>
+            <p><b>Шанхайский Диснейленд.</b> Или пешеходная улица Нанкин-роуд — «главная коммерческая улица Китая» с ретро-трамвайчиком.</p>
+            <p><b>Уканлу — Аньфулу.</b> Французские платаны, старинные особняки, независимые кофейни и концепт-сторы: идеальное знакомство с шанхайской культурой «хайпай» — смешением европейского и китайского стилей.</p>
+            <p><b>Вечером</b> — знаменитое акробатическое шоу «Эра» (ERA — Time Travel), за свой счёт.</p>
+          </div>
+          <div class="chips"><span class="chip g">завтрак</span><span class="chip">свободный день</span></div>
+        </div>
+      </article>
+
+      <!-- DAY 8 -->
+      <article class="panel">
+        <div class="num">八</div>
+        <div class="frame">
+          <svg viewBox="0 0 400 520" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g8" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6dcae"/><stop offset=".6" stop-color="#ee8a54"/><stop offset="1" stop-color="#8e0b20"/></linearGradient></defs>
+            <rect width="400" height="520" fill="url(#g8)"/>
+            <circle cx="200" cy="360" r="110" fill="#c8102e"/>
+            <use href="#xy" x="-30" y="120" width="250" height="100" style="color:#fff6e4"/><use href="#xy" x="200" y="220" width="230" height="95" style="color:#fff6e4cc"/>
+            <g transform="translate(300 130) scale(-1 1) rotate(-8)"><path fill="#16100d" d="M0 20l150-6c14 0 14 8 0 10L110 30 70 62H50l22-34-50 4-16 14H0l6-14z"/><path fill="#16100d" d="M130 20l16-26h10l-8 28z"/></g>
+            <!-- Moscow domes -->
+            <g fill="#16100d"><rect x="0" y="450" width="400" height="70"/><rect x="50" y="410" width="60" height="45"/><path d="M80 350c-26 20-26 50 0 60 26-10 26-40 0-60z"/><rect x="79" y="336" width="2" height="16"/><rect x="130" y="420" width="40" height="40"/><path d="M150 380c-18 14-18 34 0 42 18-8 18-28 0-42z"/><rect x="300" y="400" width="50" height="60"/><path d="M325 350c-20 14-20 40 0 50 20-10 20-36 0-50z"/><rect x="190" y="430" width="90" height="30"/></g>
+            <g fill="#d6a24a"><path d="M80 356c-16 14-16 36 0 44 16-8 16-30 0-44z" opacity=".0"/></g>
+          </svg><div class="tag">Домой · 回家</div></div>
+        <div class="pbody">
+          <div class="d">День 8</div>
+          <h3>Шанхай → Москва <small>回家</small></h3>
+          <div class="scroll">
+            <p>Завтрак в отеле. В 09:00 — трансфер в аэропорт.</p>
+            <p><b>Рейс JD607</b> Ханчжоу — Москва, Шереметьево (C)<br>14:25 → 19:20</p>
+            <p>Домой — с чемоданом шёлка, чая и историй, которые хватит рассказывать до следующей поездки.</p>
+          </div>
+          <div class="chips"><span class="chip g">завтрак</span><span class="chip r">✈ перелёт</span></div>
+        </div>
+      </article>
+
+    </div>
+    <div class="dayprog"><span>一</span><i><b id="dpb"></b></i><span>八</span></div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section class="gallery" id="gallery">
+  <div class="bg">景</div>
+  <div class="wrap">
+    <div class="eyebrow"><b>影</b>Галерея</div>
+    <h2 data-split>Китай <em>в кадре</em></h2>
+    <div class="gal">
+      <figure class="gi" data-i="0"><span class="n">01</span><div class="ph"><img src="img/china/01.jpg" alt="Западное озеро и пагода Лэйфэн"></div><figcaption><span>Западное озеро и пагода Лэйфэн</span><b>西湖</b></figcaption></figure>
+      <figure class="gi" data-i="1"><span class="n">02</span><div class="ph"><img src="img/china/02.jpg" alt="Закат у павильона"></div><figcaption><span>Закат у павильона</span><b>夕阳</b></figcaption></figure>
+      <figure class="gi tall" data-i="2"><span class="n">03</span><div class="ph"><img src="img/china/03.jpg" alt="Павильон среди лотосов"></div><figcaption><span>Павильон среди лотосов</span><b>荷花</b></figcaption></figure>
+      <figure class="gi" data-i="3"><span class="n">04</span><div class="ph"><img src="img/china/04.jpg" alt="Чайные плантации Лунцзин"></div><figcaption><span>Чайные плантации Лунцзин</span><b>龙井</b></figcaption></figure>
+      <figure class="gi" data-i="4"><span class="n">05</span><div class="ph"><img src="img/china/05.jpg" alt="Болотные кипарисы"></div><figcaption><span>Болотные кипарисы</span><b>水杉</b></figcaption></figure>
+      <figure class="gi" data-i="5"><span class="n">06</span><div class="ph"><img src="img/china/07.jpg" alt="Эпоха роботов"></div><figcaption><span>Эпоха роботов</span><b>机器人</b></figcaption></figure>
+      <figure class="gi tall" data-i="6"><span class="n">07</span><div class="ph"><img src="img/china/06.jpg" alt="Жирафы"></div><figcaption><span>Жирафы</span><b>长颈鹿</b></figcaption></figure>
+      <figure class="gi" data-i="7"><span class="n">08</span><div class="ph"><img src="img/china/08.jpg" alt="Водный город Учжэнь"></div><figcaption><span>Водный город Учжэнь</span><b>乌镇</b></figcaption></figure>
+      <figure class="gi tall" data-i="8"><span class="n">09</span><div class="ph"><img src="img/china/09.jpg" alt="Каналы Учжэня"></div><figcaption><span>Каналы Учжэня</span><b>水乡</b></figcaption></figure>
+      <figure class="gi" data-i="9"><span class="n">10</span><div class="ph"><img src="img/china/11.jpg" alt="Шанхай вечером"></div><figcaption><span>Шанхай вечером</span><b>夜上海</b></figcaption></figure>
+      <figure class="gi" data-i="10"><span class="n">11</span><div class="ph"><img src="img/china/13.jpg" alt="Бунд"></div><figcaption><span>Бунд</span><b>外滩</b></figcaption></figure>
+      <figure class="gi tall" data-i="11"><span class="n">12</span><div class="ph"><img src="img/china/10.jpg" alt="Сад Юйюань"></div><figcaption><span>Сад Юйюань</span><b>豫园</b></figcaption></figure>
+      <figure class="gi tall" data-i="12"><span class="n">13</span><div class="ph"><img src="img/china/12.jpg" alt="Восточная жемчужина"></div><figcaption><span>Восточная жемчужина</span><b>东方明珠</b></figcaption></figure>
+      <figure class="gi tall" data-i="13"><span class="n">14</span><div class="ph"><img src="img/china/14.jpg" alt="Нанкин-роуд"></div><figcaption><span>Нанкин-роуд</span><b>南京路</b></figcaption></figure>
+      <figure class="gi tall" data-i="14"><span class="n">15</span><div class="ph"><img src="img/china/15.jpg" alt="Сяолунбао"></div><figcaption><span>Сяолунбао</span><b>小笼包</b></figcaption></figure>
+    </div>
+    <p class="credit">Фотографии: <a href="https://www.pexels.com" target="_blank" rel="noopener">Pexels</a> · иллюстративные кадры</p>
+  </div>
+</section>
+<div class="lb" id="lb"><button class="x" aria-label="Закрыть">×</button><button class="pv" aria-label="Назад">‹</button><button class="nx" aria-label="Вперёд">›</button><figure><img alt=""><figcaption></figcaption></figure></div>
+
+<!-- ===== INCLUDED ===== -->
+<section class="inc" id="inc">
+  <div class="wrap">
+    <div class="eyebrow"><b>含</b>Стоимость</div>
+    <h2 data-split>Всё <em>продумано</em> до мелочей</h2>
+    <div class="inc-grid">
+      <div class="card big rv">
+        <h3><i>+</i>В стоимость тура входит</h3>
+        <ul>
+          <li>Международный перелёт Москва — Ханчжоу и Шанхай — Москва</li>
+          <li>Проживание в указанных в программе отелях на протяжении всего тура (или в отелях-аналогах)</li>
+          <li>Туристический автобус на всё время поездки (время работы — 8 часов, за сверхурочные часы взимается доплата)</li>
+          <li>Профессиональный русскоязычный гид, сопровождение и экскурсии на протяжении всего тура (время работы — 8 часов, по поводу сверхурочных часов консультируйтесь с гидом)</li>
+          <li>Билеты на достопримечательности по программе</li>
+          <li>Питание по программе</li>
+          <li>Медицинская страховка</li>
+        </ul>
+      </div>
+      <div class="card no rv">
+        <h3><i>−</i>В стоимость тура НЕ входит</h3>
+        <ul>
+          <li>Чаевые для гида и водителя</li>
+          <li>Мероприятия, отмеченные в программе «за свой счёт» или «за дополнительную плату»: шоу «Романтическая история Ханчжоу», Диснейленд, круиз по Хуанпу, шоу «Эра»</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOTELS ===== -->
+<section class="hotels" id="hotels">
+  <div class="wrap">
+    <div class="eyebrow"><b>宿</b>Где вы будете жить</div>
+    <h2 data-split>Отели с <em>характером</em></h2>
+    <div class="hgrid">
+      <div class="hotel rv"><div class="z">湖</div><span class="st">★★★★★</span><h4>Grand Metropark Hotel</h4><p>Ханчжоу · West Lake — рядом с Западным озером</p></div>
+      <div class="hotel rv"><div class="z">长</div><span class="st">★★★★★</span><h4>Huzhou Giraffe Manor</h4><p>Хучжоу — отель, где жирафы заглядывают в окна за завтраком</p></div>
+      <div class="hotel rv"><div class="z">水</div><span class="st">★★★★★</span><h4>Wuzhen Tong'an Inn<br><small style="font-weight:500">или Waterside Resort Wuzhen</small></h4><p>Учжэнь — ночь в водном городе</p></div>
+      <div class="hotel rv"><div class="z">海</div><span class="st">★★★★★</span><h4>Metropark Hotel Shanghai</h4><p>Шанхай — две ночи в мегаполисе. Также по программе: Holiday Inn Express 4★</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FLIGHTS ===== -->
+<section class="flights">
+  <div class="wrap">
+    <div class="eyebrow"><b>航</b>Перелёт</div>
+    <h2 data-split>Прямые <em>рейсы</em></h2>
+    <div class="tickets">
+      <div class="ticket rv"><div class="l"><small>День 1 · Москва → Ханчжоу</small>
+        <div class="rt">SVO <svg viewBox="0 0 200 18"><path d="M0 9h186" stroke="#16100d" stroke-width="2" stroke-dasharray="2 7" stroke-linecap="round"/><path d="M186 9l-10-7v14z" fill="#c8102e"/></svg> HGH</div>
+        <small>21:40 → 11:50 (+1 день)</small></div><div class="r"><span>Рейс</span><b>JD608</b></div></div>
+      <div class="ticket rv"><div class="l"><small>День 8 · Ханчжоу → Москва</small>
+        <div class="rt">HGH <svg viewBox="0 0 200 18"><path d="M0 9h186" stroke="#16100d" stroke-width="2" stroke-dasharray="2 7" stroke-linecap="round"/><path d="M186 9l-10-7v14z" fill="#c8102e"/></svg> SVO</div>
+        <small>14:25 → 19:20 · трансфер в аэропорт в 09:00</small></div><div class="r"><span>Рейс</span><b>JD607</b></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta" id="cta">
+  <div class="big">福</div>
+  <div class="wrap">
+    <div>
+      <div class="eyebrow" style="color:var(--gold)"><b>请</b>Запрос</div>
+      <h2 data-split>Готовы <em>отправиться?</em></h2>
+      <p class="rv">Оставьте контакты — менеджер подберёт даты, расскажет о стоимости и ответит на все вопросы о туре.</p>
+    </div>
+    <form id="form">
+      <label>Имя<input required name="name" placeholder="Как к вам обращаться"></label>
+      <label>Телефон или мессенджер<input required name="contact" placeholder="+7 …"></label>
+      <label>Комментарий<textarea name="msg" rows="3" placeholder="Количество человек, желаемые даты"></textarea></label>
+      <small class="consent">Нажимая «Отправить запрос», вы соглашаетесь с <a href="privacy-policy.html" target="_blank">политикой обработки персональных данных</a>. Запрос откроется в WhatsApp.</small>
+      <button class="btn" type="submit"><span>Отправить запрос</span></button>
+      <div class="alt">Или напишите сразу: <a href="https://t.me/Vika_Igorevna" target="_blank" rel="noopener">Telegram</a> · <a href="tel:+79046095875">+7 904 609-58-75</a></div>
+      <div class="ok"><b>谢谢</b>Запрос открыт в WhatsApp — осталось нажать «Отправить». Если окно не открылось, напишите в <a href="https://t.me/Vika_Igorevna" target="_blank" rel="noopener" style="color:var(--red)">Telegram</a>.</div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p><b>中国</b> Групповой тур «Поднебесная за 8 дней» · Ханчжоу · Хучжоу · Учжэнь · Шанхай</p>
+  <p class="fl"><a href="index.html">Турагентство Виктории Новиковой</a> · <a href="tel:+79046095875">+7 904 609-58-75</a> · <a href="mailto:Nov.travel@gmail.com">Nov.travel@gmail.com</a> · <a href="privacy-policy.html">Политика обработки ПДн</a></p>
+  <p>© 2026 Турагентство Виктории Новиковой · Все права защищены</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function(s,c){return (c||document).querySelector(s)}, $$ = function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+  if(!window.gsap){ document.querySelector('.loader').remove(); $$('.rv').forEach(function(e){e.style.opacity=1;e.style.transform='none'}); return; }
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* smooth scroll */
+  var lenis = null;
+  if(window.Lenis && !reduce){
+    lenis = new Lenis({lerp:.09,smoothWheel:true});
+    lenis.on('scroll',ScrollTrigger.update);
+    gsap.ticker.add(function(t){lenis.raf(t*1000)});
+    gsap.ticker.lagSmoothing(0);
+    $$('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=$(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:0})}})});
+  }
+
+  /* page progress */
+  gsap.to('.progress',{scaleX:1,ease:'none',scrollTrigger:{start:0,end:'max',scrub:.3}});
+
+  /* split headings to lines/words */
+  $$('[data-split]').forEach(function(h){
+    var html = h.innerHTML.replace(/(<em>)([\s\S]*?)(<\/em>)/g,function(_,a,b,c){return b.split(' ').map(function(w){return a+w+c}).join(' ')});
+    var tmp=document.createElement('div');tmp.innerHTML=html;
+    var out='';
+    (function walk(n){n.childNodes.forEach(function(c){
+      if(c.nodeType===3){c.textContent.split(/(\s+)/).forEach(function(w){out+= /^\s+$/.test(w)||w===''?' ':'<span class="line"><span>'+w+'</span></span>'})}
+      else if(c.nodeName==='EM'){out+='<em>';walk(c);out+='</em>'}
+    })})(tmp);
+    h.innerHTML=out;
+    h.setAttribute('aria-label',h.textContent);
+  });
+  $$('[data-split] .line').forEach(function(l){l.style.display='inline-block'});
+  $$('[data-split]').forEach(function(h){
+    gsap.from($$('.line>span',h),{yPercent:115,rotate:3,duration:1.1,ease:'expo.out',stagger:.06,scrollTrigger:{trigger:h,start:'top 85%'}});
+  });
+
+  /* generic reveals */
+  ScrollTrigger.batch('.rv',{start:'top 90%',onEnter:function(els){gsap.to(els,{opacity:1,y:0,duration:1,ease:'power3.out',stagger:.12,overwrite:true})}});
+
+  /* counters */
+  $$('[data-n]').forEach(function(el){
+    var end=+el.dataset.n,suf=el.dataset.s||'',o={v:0};
+    ScrollTrigger.create({trigger:el,start:'top 88%',once:true,onEnter:function(){gsap.to(o,{v:end,duration:2,ease:'power2.out',onUpdate:function(){el.textContent=Math.round(o.v)+suf}})}});
+  });
+
+  /* marquee */
+  var mq=$('#mq'); var mqx=gsap.to(mq,{xPercent:-50,ease:'none',duration:38,repeat:-1});
+  ScrollTrigger.create({trigger:'.marquee',start:'top bottom',end:'bottom top',onUpdate:function(s){mqx.timeScale(1+Math.abs(s.getVelocity()/260)*(s.direction))}});
+
+  /* route draw */
+  var main=$('#rtMain'),back=$('#rtBack');
+  var L=main.getTotalLength();
+  gsap.set(main,{strokeDasharray:L,strokeDashoffset:L});
+  gsap.set('.pts g',{opacity:0,y:14});
+  var rt=gsap.timeline({scrollTrigger:{trigger:'.route svg',start:'top 75%',end:'bottom 50%',scrub:1}});
+  rt.to('.pin1',{opacity:1,y:0,duration:.1}).to(main,{strokeDashoffset:0,duration:1,ease:'none'},0)
+    .to('.pin2',{opacity:1,y:0,duration:.1},.35).to('.pin3',{opacity:1,y:0,duration:.1},.6).to('.pin4',{opacity:1,y:0,duration:.1},.78).to('.pin5',{opacity:1,y:0,duration:.1},.95)
+    .from(back,{opacity:0,duration:.2},1);
+
+  /* ---- loader + hero intro ---- */
+  document.body.classList.add('lock');
+  var intro=gsap.timeline({defaults:{ease:'expo.out'},onComplete:function(){document.body.classList.remove('lock');ScrollTrigger.refresh()}});
+  intro.from('.loader .seal',{scale:.2,rotate:-60,opacity:0,duration:.9})
+       .from('.loader p',{opacity:0,y:20,duration:.6},'-=.4')
+       .to('.loader',{clipPath:'circle(0% at 50% 50%)',duration:1.1,ease:'expo.inOut'},'+=.35')
+       .set('.loader',{display:'none'})
+       .from('.sun',{y:200,scale:.6,opacity:0,duration:1.8},'-=.6')
+       .from('.layer',{yPercent:30,opacity:0,stagger:.12,duration:1.4},'-=1.6')
+       .from('.hero .cloud',{x:-80,opacity:0,stagger:.15,duration:1.6},'-=1.2')
+       .from('.hero h1 .line>span',{yPercent:115,rotate:4,stagger:.12,duration:1.3},'-=1.1')
+       .from('.kicker,.hero-meta,.scroll-hint',{opacity:0,y:20,stagger:.1,duration:.9},'-=.9')
+       .from('.vert span,.vert .seal',{opacity:0,y:-30,stagger:.12,duration:1},'-=1.2')
+       .from('.lantern',{y:-200,stagger:.15,duration:1.4,ease:'elastic.out(1,.5)'},'-=1.4');
+  if(reduce){intro.progress(1)}
+
+  /* hero parallax: scroll + mouse */
+  $$('.hero [data-d]').forEach(function(el){
+    var d=+el.dataset.d;
+    gsap.to(el,{y:-d*3,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+  });
+  gsap.to('.hero-text',{y:-120,opacity:0,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'80% top',scrub:true}});
+  if(matchMedia('(pointer:fine)').matches){
+    $$('.hero [data-d]').forEach(function(el){
+      var d=+el.dataset.d/6, xt=gsap.quickTo(el,'x',{duration:1.2,ease:'power3'});
+      el._mx=function(nx){xt(-nx*d)};
+    });
+    $('.hero').addEventListener('mousemove',function(e){var nx=(e.clientX/innerWidth-.5)*2;$$('.hero [data-d]').forEach(function(el){el._mx&&el._mx(nx)})});
+  }
+  /* drifting clouds */
+  $$('.cloud').forEach(function(c,i){gsap.to(c,{xPercent:i%2?-30:30,duration:22+i*6,ease:'sine.inOut',yoyo:true,repeat:-1})});
+
+  /* custom cursor */
+  var cur=$('.cur');
+  if(matchMedia('(pointer:fine)').matches){
+    var cx=gsap.quickTo(cur,'x',{duration:.35,ease:'power3'}),cy=gsap.quickTo(cur,'y',{duration:.35,ease:'power3'});
+    addEventListener('mousemove',function(e){cx(e.clientX);cy(e.clientY)});
+    $$('a,button,.hotel,input,textarea,.panel').forEach(function(el){
+      el.addEventListener('mouseenter',function(){cur.classList.add('big')});
+      el.addEventListener('mouseleave',function(){cur.classList.remove('big')});
+    });
+  }
+
+  /* ---- horizontal days ---- */
+  var mm=gsap.matchMedia();
+  mm.add('(min-width:901px)',function(){
+    var track=$('#track'), panels=$$('.panel',track);
+    var dist=function(){return track.scrollWidth-innerWidth};
+    var tween=gsap.to(track,{x:function(){return -dist()},ease:'none',scrollTrigger:{trigger:'#pin',start:'top top',end:function(){return '+='+dist()},pin:true,scrub:.8,invalidateOnRefresh:true,anticipatePin:1,onUpdate:function(s){gsap.set('#dpb',{scaleX:s.progress})}}});
+    panels.forEach(function(p){
+      gsap.from($$('.frame',p),{yPercent:8,opacity:.2,scrollTrigger:{trigger:p,containerAnimation:tween,start:'left 95%',end:'left 55%',scrub:true}});
+      gsap.from($$('.pbody > *',p),{y:30,opacity:0,stagger:.08,scrollTrigger:{trigger:p,containerAnimation:tween,start:'left 80%',end:'left 40%',scrub:true}});
+      gsap.to($$('.num',p),{x:-90,scrollTrigger:{trigger:p,containerAnimation:tween,start:'left right',end:'right left',scrub:true}});
+    });
+  });
+  mm.add('(max-width:900px)',function(){
+    $$('.panel').forEach(function(p){gsap.from(p,{y:60,opacity:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:p,start:'top 88%'}})});
+  });
+
+  /* looping micro-animations in scenes */
+  gsap.to('.fly',{y:-14,x:10,duration:3,ease:'sine.inOut',yoyo:true,repeat:-1});
+  gsap.to('.boat',{x:18,duration:5,ease:'sine.inOut',yoyo:true,repeat:-1});
+  gsap.to('.robot',{y:-8,rotate:2,duration:1.2,ease:'sine.inOut',yoyo:true,repeat:-1,transformOrigin:'50% 100%'});
+  gsap.to('.tram',{x:60,duration:4,ease:'sine.inOut',yoyo:true,repeat:-1});
+  gsap.to('.lan',{y:6,duration:2,ease:'sine.inOut',yoyo:true,repeat:-1});
+
+  /* ---- gallery ---- */
+  var figs=$$('.gi');
+  figs.forEach(function(f,i){
+    var ph=$('.ph',f),im=$('img',f);
+    gsap.from(ph,{clipPath:'inset(100% 0% 0% 0%)',duration:1.4,ease:'expo.out',scrollTrigger:{trigger:f,start:'top 95%',once:true}});
+    gsap.from(im,{scale:1.35,duration:1.8,ease:'expo.out',scrollTrigger:{trigger:f,start:'top 95%',once:true}});
+    gsap.from($$('figcaption,.n',f),{opacity:0,y:16,duration:.8,delay:.3,scrollTrigger:{trigger:f,start:'top 95%',once:true}});
+    im.addEventListener('load',function(){ScrollTrigger.refresh()});
+    f.addEventListener('mouseenter',function(){cur.classList.add('big')});
+    f.addEventListener('mouseleave',function(){cur.classList.remove('big')});
+  });
+  var lb=$('#lb'),lbi=$('img',lb),lbc=$('figcaption',lb),cidx=0;
+  function show(n){cidx=(n+figs.length)%figs.length;var f=figs[cidx];lbi.src=$('img',f).src;lbc.innerHTML=$('figcaption span',f).textContent+'<b>'+$('figcaption b',f).textContent+'</b>'}
+  function openLb(n){show(n);lb.classList.add('on');lenis&&lenis.stop();gsap.fromTo($('figure',lb),{scale:.9,opacity:0},{scale:1,opacity:1,duration:.5,ease:'expo.out'})}
+  function closeLb(){lb.classList.remove('on');lenis&&lenis.start()}
+  figs.forEach(function(f,i){f.addEventListener('click',function(){openLb(i)})});
+  $('.x',lb).addEventListener('click',closeLb);
+  $('.pv',lb).addEventListener('click',function(){show(cidx-1)});
+  $('.nx',lb).addEventListener('click',function(){show(cidx+1)});
+  lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
+  addEventListener('keydown',function(e){if(!lb.classList.contains('on'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')show(cidx-1);if(e.key==='ArrowRight')show(cidx+1)});
+
+  /* magnetic button */
+  var btn=$('.btn');
+  btn.addEventListener('mousemove',function(e){var r=btn.getBoundingClientRect();gsap.to(btn,{x:(e.clientX-r.left-r.width/2)*.12,y:(e.clientY-r.top-r.height/2)*.3,duration:.4})});
+  btn.addEventListener('mouseleave',function(){gsap.to(btn,{x:0,y:0,duration:.6,ease:'elastic.out(1,.4)'})});
+  btn.addEventListener('mouseenter',function(){btn.style.color='var(--paper)'});
+
+  /* form -> WhatsApp */
+  $('#form').addEventListener('submit',function(e){
+    e.preventDefault();
+    var f=this,d=new FormData(f);
+    var t='Здравствуйте! Интересует групповой тур «Поднебесная за 8 дней» (Китай).\nИмя: '+d.get('name')+'\nКонтакт: '+d.get('contact')+(d.get('msg')?'\nКомментарий: '+d.get('msg'):'');
+    window.open('https://wa.me/79046095875?text='+encodeURIComponent(t),'_blank');
+    $$('label,.btn,.consent,.alt',f).forEach(function(x){x.style.display='none'});
+    var ok=$('.ok',f);ok.style.display='block';gsap.fromTo(ok,{opacity:0,scale:.8},{opacity:1,scale:1,duration:.8,ease:'back.out(2)'});
+  });
+
+  addEventListener('load',function(){ScrollTrigger.refresh()});
+})();
+</script>
+</body>
+</html>
