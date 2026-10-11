@@ -1,0 +1,752 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Интенсив для турагентов: быстрый старт в туризме и +200&nbsp;000&nbsp;₽ · 3 дня онлайн</title>
+<meta name="description" content="3-дневный онлайн-интенсив: как новичку быстро и денежно стартовать в туризме, а действующему турагенту — добавить свои 200&nbsp;000&nbsp;₽. База туризма, соцсети, поток заявок, туроператоры и практика бронирования. 7&nbsp;000&nbsp;₽.">
+<meta property="og:title" content="Интенсив: как стартовать в туризме и заработать +200&nbsp;000&nbsp;₽">
+<meta property="og:description" content="3 дня по 1,5–2 часа онлайн. База, маркетинг, туроператоры и практика бронирования. Есть запись.">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<style>
+:root{
+  --night:#05181d; --navy:#082b34; --indigo:#0c3540; --plum:#0a2f3a;
+  --coral:#ff6a4d; --sun:#ffb24a; --gold:#ffd27a; --sky:#6fd6ff; --mint:#5df0b6;
+  --cream:#fff5e6; --sand:#f6e9d3; --ink:#0a0f24; --mut:#8d93b8;
+  --serif:'Playfair Display',Georgia,serif; --sans:'Manrope',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:hidden;overflow-x:clip;scroll-behavior:auto}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{font:500 17px/1.6 var(--sans);color:var(--cream);background:var(--night);overflow-x:hidden;overflow-x:clip;-webkit-font-smoothing:antialiased}
+body.lock{overflow:hidden}
+a{color:inherit}img{display:block;max-width:100%}svg{display:block}
+::selection{background:var(--coral);color:#fff}
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(18px,4vw,48px)}
+section{position:relative}
+
+/* liquid glass (idea: Wanderful prompt) */
+.glass{position:relative;background:rgba(255,255,255,.055);background-blend-mode:luminosity;backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);box-shadow:inset 0 1px 1px rgba(255,255,255,.14),0 12px 40px rgba(0,0,0,.25)}
+.glass::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.3px;background:linear-gradient(180deg,rgba(255,255,255,.5),rgba(255,255,255,.12) 22%,rgba(255,255,255,0) 42%,rgba(255,255,255,0) 60%,rgba(255,255,255,.14) 80%,rgba(255,255,255,.45));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+
+/* loader */
+.loader{position:fixed;inset:0;z-index:100;background:var(--night);display:grid;place-items:center;color:var(--cream);text-align:center;overflow:hidden}
+.loader .lane{position:relative;width:min(420px,78vw);height:60px;margin:0 auto}
+.loader .lane i{position:absolute;left:0;right:0;top:50%;border-top:2px dashed rgba(255,255,255,.28)}
+.loader .lane svg{position:absolute;left:0;top:50%;width:46px;height:46px;margin-top:-23px;transform:rotate(90deg);fill:var(--gold)}
+.loader p{font:700 12px var(--sans);letter-spacing:.42em;text-transform:uppercase;opacity:.75;margin-top:14px}
+.progress{position:fixed;left:0;top:0;height:3px;width:100%;background:linear-gradient(90deg,var(--coral),var(--sun),var(--gold));transform-origin:0 50%;transform:scaleX(0);z-index:80}
+
+/* nav */
+nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);width:min(1120px,calc(100% - 24px));z-index:70;display:flex;align-items:center;justify-content:space-between;padding:9px 10px 9px 22px;border-radius:99px;transition:background .4s}
+nav.solid{background:rgba(4,23,29,.82)}
+.logo{font:800 17px/1 var(--serif);text-decoration:none;display:flex;align-items:center;gap:10px;letter-spacing:-.01em}
+.logo svg{width:20px;height:20px;fill:var(--gold);transform:rotate(45deg)}
+nav ul{display:flex;gap:6px;list-style:none}
+nav ul a{display:block;text-decoration:none;font:700 12px var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:9px 15px;border-radius:99px;opacity:.85;transition:.2s}
+nav ul a:hover{background:rgba(255,255,255,.1);opacity:1}
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;font:800 15px var(--sans);letter-spacing:.02em;text-decoration:none;color:#2a0f08;background:linear-gradient(135deg,var(--gold),var(--sun) 50%,var(--coral));padding:16px 30px;border-radius:99px;border:0;cursor:pointer;overflow:hidden;box-shadow:0 12px 34px rgba(255,106,77,.38);transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 18px 46px rgba(255,106,77,.55)}
+.btn::after{content:"";position:absolute;top:0;bottom:0;width:60px;left:-90px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-20deg);animation:shine 3.4s infinite}
+@keyframes shine{0%,55%{left:-90px}100%{left:130%}}
+.btn.lg{padding:21px 40px;font-size:17px}
+.btn.sm{padding:11px 22px;font-size:13px}
+.btn.line{background:none;color:var(--cream);box-shadow:inset 0 0 0 2px rgba(255,255,255,.3)}
+.btn.line::after{display:none}
+.btn.line:hover{background:#fff;color:var(--ink)}
+@media(max-width:860px){nav ul{display:none}nav{padding:8px 8px 8px 18px}}
+
+/* hero */
+.hero{min-height:100svh;position:relative;overflow:hidden;padding:120px 0 90px;display:flex;align-items:center;background:linear-gradient(180deg,#0c3540 0%,#0b2f39 50%,#062126 100%)}
+.stars{position:absolute;inset:0;pointer-events:none}
+.stars i{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;animation:tw 3s ease-in-out infinite}
+@keyframes tw{50%{opacity:.2;transform:scale(.6)}}
+.sun{position:absolute;left:50%;bottom:-24vh;width:min(120vw,1200px);aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,rgba(255,210,122,.22) 0%,rgba(255,178,74,.1) 30%,rgba(255,106,77,0) 66%);filter:blur(6px)}
+.cloud{position:absolute;color:rgba(255,255,255,.06);pointer-events:none;will-change:transform}
+.horizon{position:absolute;left:-4%;right:-4%;bottom:-2px;height:22vh;pointer-events:none}
+.horizon svg{width:100%;height:100%}
+.hero-grid{position:relative;z-index:5;display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(20px,4vw,60px);align-items:center;width:100%}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.chip{display:inline-flex;align-items:center;gap:9px;padding:9px 16px;border-radius:99px;font:700 12.5px var(--sans);letter-spacing:.04em}
+.chip i{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 0 rgba(93,240,182,.7);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 12px rgba(93,240,182,0)}100%{box-shadow:0 0 0 0 rgba(93,240,182,0)}}
+h1{font:800 clamp(38px,5.6vw,86px)/.98 var(--serif);letter-spacing:-.03em}
+h1 .l{display:block;overflow:hidden;padding:.04em 0 .1em}
+h1 .l>span{display:inline-block;will-change:transform}
+h1 .mut{color:rgba(255,245,230,.55);font-weight:700}
+h1 em{font-style:italic;font-weight:800;color:var(--gold)}
+.lead{font-size:clamp(17px,1.5vw,20px);max-width:560px;margin:26px 0 30px;color:#f1e3d0}
+.lead b{color:#fff}
+.cta-row{display:flex;gap:16px 22px;align-items:center;flex-wrap:wrap}
+.price-note{font-size:14px;color:#f3d9bf;max-width:300px;line-height:1.4}
+.price-note b{color:var(--gold);font-size:17px}
+.visual{position:relative;height:min(76svh,700px);min-height:470px}
+.globe{position:absolute;left:50%;top:50%;width:128%;aspect-ratio:1;transform:translate(-50%,-50%);opacity:.9}
+.arch{position:absolute;left:50%;bottom:0;width:70%;height:94%;transform:translateX(-50%);border-radius:28px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.45)}
+.arch img{width:100%;height:112%;object-fit:cover;object-position:62% 30%;will-change:transform}
+.pass{position:absolute;left:-4%;bottom:7%;z-index:4;padding:16px 18px;border-radius:20px;font-size:12px;width:min(270px,62%);will-change:transform}
+.pass.glass,.tag3.glass{background:rgba(4,23,29,.82);backdrop-filter:blur(18px) saturate(1.2);-webkit-backdrop-filter:blur(18px) saturate(1.2);color:#fff}
+.pass .r{color:#e8ebff}
+.pass b{display:block;font:800 22px/1.05 var(--serif);margin:3px 0 10px}
+.pass .r{display:flex;justify-content:space-between;gap:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:10.5px;line-height:1.7;white-space:nowrap}
+.pass .bar{height:26px;margin-top:10px;background:repeating-linear-gradient(90deg,#fff 0 2px,transparent 2px 4px,#fff 4px 5px,transparent 5px 9px);opacity:.8;border-radius:3px}
+.tag3{position:absolute;right:-2%;top:12%;z-index:4;padding:14px 18px;border-radius:20px;text-align:center;will-change:transform}
+.tag3 b{display:block;font:800 40px/1 var(--serif);color:var(--gold)}
+.tag3 span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+.planeflying{position:absolute;inset:0;pointer-events:none;z-index:4}
+.planeflying svg{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible}
+.planeflying .pl{fill:var(--cream);filter:drop-shadow(0 6px 10px rgba(0,0,0,.4))}
+.scroll-cue{position:absolute;z-index:6;left:50%;bottom:22px;transform:translateX(-50%);font:700 11px var(--sans);letter-spacing:.3em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.85}
+.scroll-cue::after{content:"";width:1.5px;height:34px;background:#fff;transform-origin:top;animation:drip 2s infinite}
+@keyframes drip{0%{transform:scaleY(0)}60%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+@media(max-width:900px){.hero{padding:104px 0 90px}.hero-grid{grid-template-columns:1fr}.visual{order:-1;height:56svh;min-height:380px;max-width:480px;margin:0 auto;width:100%}.scroll-cue{display:none}.tag3{right:0}}
+
+/* marquee */
+.mq{background:var(--coral);color:#2a0f08;overflow:hidden;white-space:nowrap;padding:16px 0;transform:rotate(-1.2deg);margin:-18px -2vw 0;position:relative;z-index:6;box-shadow:0 10px 40px rgba(0,0,0,.35)}
+.mq div{display:inline-block;font:800 clamp(18px,2.6vw,30px)/1 var(--serif);letter-spacing:-.01em;font-style:italic}
+.mq span{margin:0 20px}.mq i{font-style:normal;color:var(--cream)}
+
+/* common */
+.sec{padding:clamp(90px,11vw,160px) 0}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font:800 12px var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--sun);margin-bottom:20px}
+.eyebrow::before{content:"";width:36px;height:2px;background:var(--sun)}
+h2{font:800 clamp(32px,4.8vw,72px)/1.02 var(--serif);letter-spacing:-.03em}
+h2 em{font-style:italic;color:var(--gold)}
+h2 .mut{color:rgba(255,245,230,.5)}
+.sub{font-size:clamp(17px,1.5vw,20px);color:#bcd3d8;max-width:640px;margin-top:20px}
+.rv{opacity:0;transform:translateY(50px)}
+.wd{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.1em;white-space:nowrap}
+.wd>span{display:inline-block}
+
+/* checklist */
+.pains{background:linear-gradient(180deg,var(--night),var(--navy))}
+.checks{margin-top:54px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ck{display:flex;gap:18px;align-items:flex-start;padding:24px 26px;border-radius:24px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.13);font:700 clamp(16px,1.5vw,19px)/1.4 var(--sans);transition:transform .4s cubic-bezier(.2,.8,.2,1),background .3s}
+.ck:hover{transform:translateY(-5px);background:rgba(255,255,255,.08)}
+.ck i{flex:0 0 34px;height:34px;border-radius:50%;background:var(--mint);color:#04231c;display:grid;place-items:center;font:900 17px/1 var(--sans);font-style:normal}
+.board-after{margin-top:38px;display:flex;gap:20px 40px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.board-after p{font:700 clamp(20px,2.4vw,30px)/1.25 var(--serif);max-width:720px}
+.board-after p em{color:var(--gold)}
+@media(max-width:760px){.checks{grid-template-columns:1fr}.ck{padding:20px}}
+
+/* for whom */
+.who{background:var(--navy)}
+.who-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:54px}
+.pcard{position:relative;border-radius:34px;padding:clamp(28px,3.4vw,50px);background:linear-gradient(160deg,#0f4552,#0a2f3a);border:1px solid rgba(255,255,255,.14);overflow:hidden;min-height:380px;display:flex;flex-direction:column;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.pcard:hover{transform:translateY(-10px) rotate(-.5deg)}
+.pcard.b{background:linear-gradient(160deg,#e08a4e,#b4492f);color:#fff}
+.pcard .no{position:absolute;right:-6px;top:-30px;font:800 190px/1 var(--serif);font-style:italic;opacity:.09}
+.pcard .k{font:800 11px var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--sun)}
+.pcard.b .k{color:var(--gold)}
+.pcard h3{font:800 clamp(26px,3vw,42px)/1.05 var(--serif);letter-spacing:-.02em;margin:12px 0 18px}
+.pcard ul{list-style:none;display:grid;gap:12px;margin-top:auto}
+.pcard li{padding-left:32px;position:relative;font-size:16.5px}
+.pcard li::before{content:"✓";position:absolute;left:0;top:1px;width:22px;height:22px;border-radius:50%;background:var(--mint);color:#04231c;display:grid;place-items:center;font:900 12px/1 var(--sans)}
+.pcard.b li::before{background:#fff;color:#a8452f}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:70px}
+.pil{padding:30px 28px;border-radius:26px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04)}
+.pil b{display:block;font:800 54px/1 var(--serif);font-style:italic;color:var(--sun);margin-bottom:10px}
+.pil h4{font:800 22px/1.15 var(--serif);margin-bottom:10px}
+.pil p{color:#b6cdd2;font-size:15.5px}
+@media(max-width:900px){.who-grid,.pillars{grid-template-columns:1fr}.pcard{min-height:0}}
+
+/* route */
+.prog{background:linear-gradient(180deg,#082b34,#0b3340 50%,#0c3a46)}
+.route{position:relative;margin-top:60px}
+.route-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.route-svg .base{fill:none;stroke:rgba(255,255,255,.2);stroke-width:2.5;stroke-dasharray:3 12;stroke-linecap:round}
+.route-svg .done{fill:none;stroke:var(--sun);stroke-width:3.5;stroke-linecap:round}
+.route-svg .dot{fill:var(--sun)}.route-svg .dot-g{fill:rgba(255,178,74,.28)}
+.leg{position:relative;width:min(560px,46%);margin-bottom:clamp(70px,9vw,130px)}
+.leg:nth-child(even){margin-left:auto}
+.leg:last-child{margin-bottom:0}
+.card{position:relative;border-radius:30px;padding:clamp(26px,3vw,40px);background:rgba(4,23,29,.8);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(10px);box-shadow:0 30px 70px rgba(0,0,0,.4);overflow:hidden}
+.card::before{content:"";position:absolute;left:0;top:0;right:0;height:6px;background:linear-gradient(90deg,var(--coral),var(--sun),var(--gold))}
+.card .fl{padding-right:64px;display:flex;justify-content:space-between;align-items:center;font:800 11px var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--sun);margin-bottom:6px}
+.card .fl span:last-child{color:var(--mint)}
+.card h3{font:800 clamp(26px,2.8vw,38px)/1.05 var(--serif);letter-spacing:-.02em;margin:6px 0 18px}
+.card ul{list-style:none;display:grid;gap:12px}
+.card li{position:relative;padding-left:28px;font-size:16px;color:#e4f0f2}
+.card li::before{content:"";position:absolute;left:0;top:.5em;width:12px;height:12px;border-radius:50%;border:2.5px solid var(--sun)}
+.card .res{margin-top:22px;padding:14px 18px;border-radius:16px;background:rgba(255,178,74,.12);font-weight:700;font-size:14.5px;color:var(--gold)}
+.stamp{position:absolute;z-index:3;right:-22px;top:-38px;width:104px;height:104px;background:rgba(4,23,29,.75);border-radius:50%;border:3px double var(--coral);color:var(--coral);display:grid;place-items:center;text-align:center;font:800 11px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;transform:rotate(14deg);opacity:.85;pointer-events:none}
+.stamp b{display:block;font:800 30px/1 var(--serif)}
+.bonus{margin-top:clamp(70px,8vw,110px);display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.bn{padding:26px 30px;border-radius:26px;display:flex;gap:18px;align-items:center;font-weight:700;font-size:17px}
+.bn svg{flex:0 0 46px;width:46px;height:46px;stroke:var(--gold);fill:none;stroke-width:1.7}
+@media(max-width:900px){
+  .route{padding-left:36px}
+  .leg,.leg:nth-child(even){width:100%;margin-left:0}
+  .bonus{grid-template-columns:1fr}
+  .stamp{width:76px;height:76px;font-size:8.5px;right:8px;top:-30px}.stamp b{font-size:20px}
+  .card .fl{padding-right:0;flex-direction:column;align-items:flex-start;gap:2px;margin-top:22px}
+}
+
+/* speaker */
+.spk{background:radial-gradient(900px 600px at 85% 10%,rgba(255,178,74,.12),transparent 70%),radial-gradient(700px 500px at 0% 90%,rgba(93,240,182,.1),transparent 70%),#0a2f3a;overflow:hidden}
+.spk-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,80px);align-items:center}
+.photos{position:relative;height:clamp(520px,64vw,760px)}
+.ph{position:absolute;overflow:hidden;border-radius:30px;border:3px solid rgba(255,255,255,.9);box-shadow:0 30px 70px rgba(0,0,0,.5);will-change:transform}
+.ph img{width:100%;height:116%;object-fit:cover}
+.ph.a{left:0;top:0;width:56%;height:60%;transform:rotate(-3deg)}
+.ph.b{right:0;top:12%;width:50%;height:48%;transform:rotate(4deg)}
+.ph.c{left:18%;bottom:0;width:46%;height:38%;transform:rotate(-1deg);z-index:2}
+.ph .cap{position:absolute;left:12px;bottom:12px;right:12px;z-index:3;padding:9px 14px;border-radius:99px;font:800 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;text-align:center}
+.spk .pts{list-style:none;display:grid;gap:14px;margin:30px 0 34px}
+.spk .pts li{display:flex;gap:16px;align-items:flex-start;font-size:17.5px}
+.spk .pts b{flex:0 0 38px;height:38px;border-radius:50%;background:var(--sun);color:#2a0f08;display:grid;place-items:center;font:800 15px var(--sans)}
+@media(max-width:900px){.spk-grid{grid-template-columns:1fr}.photos{height:560px;max-width:520px;margin:0 auto;width:100%}}
+
+/* calc */
+.calc{background:linear-gradient(180deg,#0c3a46,#0a2f3a)}
+.calc-box{margin-top:50px;display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:stretch}
+.cb{border-radius:34px;padding:clamp(26px,3.4vw,50px)}
+.cb.l{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14)}
+.cb.r{background:linear-gradient(160deg,#ffb24a,#ff6a4d);color:#2a0f08;display:flex;flex-direction:column;justify-content:center;text-align:center;box-shadow:0 40px 90px rgba(255,106,77,.35)}
+.cb label{display:flex;justify-content:space-between;align-items:baseline;font:800 12px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.cb label output{font:800 30px var(--serif);color:#fff;letter-spacing:0;text-transform:none}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:8px;background:linear-gradient(90deg,var(--sun) var(--p,40%),rgba(255,255,255,.18) var(--p,40%));outline:none;margin-bottom:34px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;border-radius:50%;background:#fff;border:6px solid var(--coral);cursor:pointer;box-shadow:0 6px 16px rgba(0,0,0,.4)}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#fff;border:6px solid var(--coral);cursor:pointer}
+.cb.r .big{font:800 clamp(80px,12vw,150px)/.9 var(--serif);letter-spacing:-.05em}
+.cb.r .t{font:800 14px var(--sans);letter-spacing:.2em;text-transform:uppercase}
+.cb.r p{margin-top:16px;font-weight:700;font-size:16px}
+.fine{margin-top:20px;font-size:13px;color:#9fbcc2;max-width:640px}
+@media(max-width:900px){.calc-box{grid-template-columns:1fr}}
+
+/* offer */
+.offer{background:linear-gradient(180deg,#0a2f3a,#082b34 55%,#062126)}
+.ticket{position:relative;max-width:1000px;margin:56px auto 0;display:grid;grid-template-columns:1.35fr .65fr;border-radius:34px;background:var(--cream);color:var(--ink);box-shadow:0 50px 100px rgba(0,0,0,.45)}
+.tk-l{padding:clamp(28px,3.6vw,52px)}
+.tk-l .k{font:800 11px var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--coral)}
+.tk-l h3{font:800 clamp(28px,3.4vw,46px)/1.05 var(--serif);letter-spacing:-.02em;margin:10px 0 24px}
+.tk-l ul{list-style:none;display:grid;gap:12px}
+.tk-l li{padding-left:34px;position:relative;font-weight:700}
+.tk-l li::before{content:"✓";position:absolute;left:0;top:0;width:24px;height:24px;border-radius:50%;background:var(--coral);color:#fff;display:grid;place-items:center;font-size:13px}
+.tk-r{border-left:1px solid rgba(10,15,36,.15);padding:clamp(26px,3vw,44px) 24px;display:flex;flex-direction:column;justify-content:center;text-align:center;background:linear-gradient(160deg,#fff5e6,#ffe7c4);border-radius:0 34px 34px 0}
+.tk-r .was{font:800 12px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--coral)}
+.tk-r .pr{font:800 clamp(52px,6vw,78px)/1 var(--serif);letter-spacing:-.04em;margin:8px 0 6px}
+.tk-r small{font-size:13.5px;line-height:1.4;margin-bottom:20px;font-weight:700}
+.tk-r .btn{width:100%;padding:18px 12px;font-size:15px}
+.offer .fine{margin:26px auto 0;text-align:center;color:#a9c6cc}
+@media(max-width:860px){.ticket{grid-template-columns:1fr}.tk-r{border-left:0;border-top:1px solid rgba(10,15,36,.15);border-radius:0 0 34px 34px}}
+
+/* faq */
+.faq{background:linear-gradient(180deg,#062126,#082b34 50%,#0a2f3a)}
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,5vw,80px)}
+.qa{border-radius:24px;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25);margin-bottom:14px;overflow:hidden}
+.qa button{width:100%;text-align:left;background:none;border:0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:18px;padding:22px 26px;color:#fff;font:800 clamp(16px,1.5vw,19px)/1.3 var(--sans)}
+.qa button i{flex:0 0 38px;height:38px;border-radius:50%;background:rgba(255,255,255,.2);display:grid;place-items:center;font-style:normal;font-size:22px;transition:transform .4s,background .3s}
+.qa.on button i{transform:rotate(45deg);background:var(--gold);color:var(--ink)}
+.qa .a{height:0;overflow:hidden}
+.qa .a div{padding:0 26px 24px;color:#d4e8eb;font-size:16px}
+@media(max-width:900px){.faq-grid{grid-template-columns:1fr}}
+
+/* final */
+.final{background:linear-gradient(180deg,#0a2f3a,#0c3540 60%,#0b3a46);color:var(--cream);overflow:hidden;text-align:center;padding:clamp(100px,12vw,180px) 0}
+.final .sunr{position:absolute;left:50%;top:50%;width:min(110vw,1100px);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(255,210,122,.16),rgba(255,210,122,0) 65%)}
+.final .wrap{position:relative}
+.final h2{font-size:clamp(36px,6.4vw,100px);line-height:.98}
+.final h2 em{color:var(--gold)}
+.final p{font-size:clamp(17px,1.6vw,21px);max-width:620px;margin:24px auto 36px;font-weight:700}
+.final .mini{display:flex;gap:16px;justify-content:center;margin-top:40px;flex-wrap:wrap}
+.final .mini img{width:110px;height:140px;object-fit:cover;border-radius:18px;border:3px solid rgba(255,255,255,.9);box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.final .mini img:nth-child(2){transform:translateY(-14px)}
+footer{background:#041418;color:#9fb6bb;padding:36px 0 110px;font-size:13px;line-height:1.7;text-align:center}
+footer a{color:var(--gold)}
+footer .fine{max-width:760px;margin:10px auto 0;opacity:.7}
+
+/* sticky bar */
+.bar-s{position:fixed;left:50%;bottom:14px;transform:translate(-50%,160%);width:min(760px,calc(100% - 24px));z-index:75;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 10px 10px 24px;border-radius:99px;transition:transform .6s cubic-bezier(.2,.8,.2,1);background:rgba(4,23,29,.9)}
+.bar-s.on{transform:translate(-50%,0)}
+.bar-s span{font-weight:700;font-size:14px;line-height:1.25}
+.bar-s b{font:800 20px var(--serif);color:var(--gold);margin-right:8px}
+@media(max-width:600px){.bar-s{padding-left:16px}.bar-s span{font-size:12px}.bar-s b{display:block;margin:0}.btn.sm{padding:12px 16px;font-size:12.5px}}
+
+/* mobile */
+@media(max-width:760px){
+  body{font-size:16px}
+  .logo{font-size:15px}
+  h1{font-size:clamp(34px,10vw,46px)}
+  .btn{padding:15px 24px}.btn.lg{padding:18px 28px;font-size:16px}
+  .chips{gap:8px}.chip{font-size:11.5px;padding:8px 13px}
+  .pass{left:0;width:60%;padding:12px 14px}.pass b{font-size:18px}
+  .tag3 b{font-size:30px}
+  .mq{margin-top:-10px;padding:12px 0}
+  .pcard .no{font-size:130px}
+  .pil{padding:24px 22px}
+  .photos{height:520px}
+  .final .mini img{width:88px;height:112px}
+}
+@media (prefers-reduced-motion:reduce){.stars i,.chip i,.btn::after,.scroll-cue::after,.b-row .s.late{animation:none}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="plane" viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></symbol>
+    <symbol id="cloud" viewBox="0 0 220 90"><path fill="currentColor" d="M20 70c-14 0-20-12-14-22 5-9 17-10 24-3 2-14 16-24 30-20 8-12 28-14 38-2 12-6 28 0 30 14 12-4 26 4 26 18 0 10-8 15-18 15z"/></symbol>
+  </defs>
+</svg>
+
+<div class="loader" id="loader"><div>
+  <div class="lane"><i></i><svg><use href="#plane"/></svg></div>
+  <p>Загружаем страницу…</p>
+</div></div>
+<div class="progress"></div>
+
+<nav id="nav" class="glass">
+  <a class="logo" href="#top"><svg viewBox="0 0 24 24"><use href="#plane"/></svg>Старт в туризме</a>
+  <ul>
+    <li><a href="#pains">Задачи</a></li>
+    <li><a href="#prog">Программа</a></li>
+    <li><a href="#calc">Калькулятор</a></li>
+    <li><a href="#offer">Участие</a></li>
+    <li><a href="#faq">Вопросы</a></li>
+  </ul>
+  <a class="btn sm" href="#offer">Занять место</a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero" id="top">
+  <div class="stars" id="stars"></div>
+  <div class="sun" data-d="14"></div>
+  <svg class="cloud" data-d="30" style="left:-4%;top:9%;width:240px" viewBox="0 0 220 90"><use href="#cloud"/></svg>
+  <svg class="cloud" data-d="52" style="left:60%;top:12%;width:340px" viewBox="0 0 220 90"><use href="#cloud"/></svg>
+  <svg class="cloud" data-d="22" style="left:34%;top:58%;width:220px" viewBox="0 0 220 90"><use href="#cloud"/></svg>
+  <div class="planeflying"><svg id="heroPath" viewBox="0 0 1000 700" preserveAspectRatio="none"><path id="hp" d="M-40 560C220 420 380 520 560 330S860 120 1060 40" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="2" stroke-dasharray="3 11" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg><svg id="heroPlane" style="width:46px;height:46px;overflow:visible;left:0;top:0" viewBox="0 0 24 24"><use class="pl" href="#plane"/></svg></div>
+
+  <div class="wrap hero-grid">
+    <div class="copy">
+      <div class="chips">
+        <span class="chip glass"><i></i>Онлайн-интенсив · 3 дня</span>
+        <span class="chip glass">по 1,5–2 часа</span>
+        <span class="chip glass">Есть запись</span>
+      </div>
+      <h1>
+        <span class="l"><span>Быстро и денежно</span></span>
+        <span class="l"><span>стартуйте в туризме</span></span>
+        <span class="l mut"><span>а опытным — <em>+200&nbsp;000&nbsp;₽</em></span></span>
+      </h1>
+      <p class="lead">Новичку — понятный старт без страха и лишней воды. Действующему турагенту — свежие каналы заявок и способы <b>заработать дополнительно свои 200 тысяч рублей</b>. Стартуем уже на следующей неделе.</p>
+      <div class="cta-row">
+        <a class="btn lg" href="#offer">Занять место — 7&nbsp;000&nbsp;₽ →</a>
+        <div class="price-note"><b>7&nbsp;000&nbsp;₽</b> — только сегодня.<br>Дальше цена будет повышаться.</div>
+      </div>
+    </div>
+    <div class="visual" id="visual">
+      <svg class="globe" id="globe" viewBox="-200 -200 400 400" data-d="8">
+        <defs><radialGradient id="gg"><stop offset="0" stop-color="rgba(111,214,255,.22)"/><stop offset="1" stop-color="rgba(111,214,255,0)"/></radialGradient></defs>
+        <circle r="190" fill="url(#gg)"/>
+        <g fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1.2" id="meridians"></g>
+        <g fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1.2">
+          <ellipse rx="190" ry="26" cy="-120"/><ellipse rx="190" ry="40" cy="-55"/><ellipse rx="190" ry="46"/><ellipse rx="190" ry="40" cy="55"/><ellipse rx="190" ry="26" cy="120"/>
+        </g>
+        <circle r="190" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1.6"/>
+        <path d="M-150 60C-100 -40 20 -130 120 -60" fill="none" stroke="var(--gold)" stroke-width="2" stroke-dasharray="4 7"/>
+        <g fill="var(--coral)"><circle cx="-150" cy="60" r="6"/><circle cx="120" cy="-60" r="6"/></g>
+        <g fill="none" stroke="var(--coral)" stroke-width="1.5"><circle cx="-150" cy="60" r="12"><animate attributeName="r" values="6;22;6" dur="2.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0;1" dur="2.4s" repeatCount="indefinite"/></circle><circle cx="120" cy="-60" r="12"><animate attributeName="r" values="6;22;6" dur="2.4s" begin=".8s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0;1" dur="2.4s" begin=".8s" repeatCount="indefinite"/></circle></g>
+      </svg>
+      <div class="arch" data-d="6"><img src="assets/img/speaker-sofa.jpg" alt="Спикер интенсива"></div>
+      <div class="pass glass" data-d="26">
+        <div class="r"><span>Об интенсиве</span></div>
+        <b>Онлайн, 3 дня</b>
+        <div class="r"><span>Формат</span><span>1,5–2 часа в день</span></div>
+        <div class="r"><span>Старт</span><span>На следующей неделе</span></div>
+        <div class="r"><span>Запись</span><span>Есть</span></div>
+      </div>
+      <div class="tag3 glass" data-d="38"><b>3</b><span>дня<br>онлайн</span></div>
+    </div>
+  </div>
+  <div class="scroll-cue">Листайте</div>
+</header>
+
+<div class="mq"><div id="mq">
+  <span>Турция</span><i>●</i><span>Египет</span><i>●</i><span>ОАЭ</span><i>●</i><span>Таиланд</span><i>●</i><span>Мальдивы</span><i>●</i><span>Шри-Ланка</span><i>●</i><span>Вьетнам</span><i>●</i>
+  <span>Турция</span><i>●</i><span>Египет</span><i>●</i><span>ОАЭ</span><i>●</i><span>Таиланд</span><i>●</i><span>Мальдивы</span><i>●</i><span>Шри-Ланка</span><i>●</i><span>Вьетнам</span><i>●</i>
+</div></div>
+
+<!-- ===== PAINS: checklist ===== -->
+<section class="sec pains" id="pains">
+  <div class="wrap">
+    <span class="eyebrow">Задачи интенсива</span>
+    <h2 data-split>Что вы разберёте <em>за три дня</em></h2>
+    <p class="sub rv">Это шесть вопросов, из-за которых чаще всего откладывают старт в туризме. Разберём каждый из них.</p>
+    <div class="checks">
+      <div class="ck rv"><i>✓</i><span>Почему кажется, что не получится или не хватит времени</span></div>
+      <div class="ck rv"><i>✓</i><span>Синдром самозванца: почему другие могут, а я нет</span></div>
+      <div class="ck rv"><i>✓</i><span>На чём и как зарабатывают турагенты</span></div>
+      <div class="ck rv"><i>✓</i><span>Как выделиться среди других менеджеров в соцсетях</span></div>
+      <div class="ck rv"><i>✓</i><span>Как получать заявки в любой месяц, без «несезона»</span></div>
+      <div class="ck rv"><i>✓</i><span>С какими туроператорами работать, чтобы это было выгодно</span></div>
+    </div>
+    <div class="board-after rv">
+      <p>К концу интенсива вы будете понимать, <em>с чего начать</em> и как двигаться дальше.</p>
+      <a class="btn" href="#prog">Смотреть программу →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOR WHOM ===== -->
+<section class="sec who" id="who">
+  <div class="wrap">
+    <span class="eyebrow">Для кого интенсив</span>
+    <h2 data-split>Для новичков и <em>действующих</em> турагентов</h2>
+    <div class="who-grid">
+      <article class="pcard rv"><div class="no">1</div>
+        <span class="k">Вы присматриваетесь к туризму</span>
+        <h3>Старт без лишней теории</h3>
+        <ul>
+          <li>Поймёте базу: термины и то, что обязательно знать для работы</li>
+          <li>Узнаете, как и на чём реально зарабатывают турагенты</li>
+          <li>Уберёте внутренние «тормоза»: сомнения и ограничивающие убеждения</li>
+          <li>Увидите путь от заявки до брони — по шагам, на примере</li>
+        </ul>
+      </article>
+      <article class="pcard b rv"><div class="no">2</div>
+        <span class="k">Вы уже турагент</span>
+        <h3>Дополнительные +200&nbsp;000&nbsp;₽</h3>
+        <ul>
+          <li>Научитесь выделяться среди других менеджеров</li>
+          <li>Выстроите стабильный поток заявок и уберёте «несезонность»</li>
+          <li>Поймёте, с какими туроператорами выгоднее сотрудничать</li>
+          <li>Узнаете варианты работы и условия сотрудничества, чтобы выбрать своё направление</li>
+        </ul>
+      </article>
+    </div>
+    <div class="pillars">
+      <div class="pil rv"><b>01</b><h4>База туризма</h4><p>Основные термины и механика работы: чтобы не теряться в разговоре с туристом и туроператором.</p></div>
+      <div class="pil rv"><b>02</b><h4>Маркетинг</h4><p>Соцсети, привлечение туристов и стабильный поток заявок — в любой месяц, а не только в «высокий сезон».</p></div>
+      <div class="pil rv"><b>03</b><h4>Что вам мешает</h4><p>Страхи и убеждения, которые не дают дойти до цели. Об этом говорят редко, а оно часто решает всё.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROGRAM ===== -->
+<section class="sec prog" id="prog">
+  <div class="wrap">
+    <span class="eyebrow">Программа · 3 дня · онлайн</span>
+    <h2 data-split>Три дня: <em>от базы</em> до практики</h2>
+    <p class="sub rv">Каждый день — 1,5–2 часа в эфире. Не успеваете быть онлайн — будет запись.</p>
+
+    <div class="route" id="route">
+      <svg class="route-svg" id="rsvg"><path class="base" id="rbase"/><path class="done" id="rdone"/><g id="rplane" style="display:none"><circle class="dot-g" r="20"/><circle class="dot" r="9"/></g></svg>
+
+      <article class="leg"><div class="stamp"><div><b>01</b>день</div></div><div class="card rv">
+        <div class="fl"><span>День 1</span><span>Мышление и база</span></div>
+        <h3>Страхи, убеждения и база туризма</h3>
+        <ul>
+          <li>Страхи и сомнения: почему вам кажется, что не получится или не хватит времени</li>
+          <li>Синдром самозванца: почему другие могут, а я нет?</li>
+          <li>Сколько времени нужно уделять работе, как и на чём зарабатывают турагенты, как делать стабильный доход в этой нише</li>
+          <li>Техники: как убирать ограничивающие убеждения</li>
+          <li>База туризма: основные термины и всё, что обязательно знать для работы</li>
+        </ul>
+        <div class="res">Итог дня: вы понимаете, как устроена ниша и как в ней зарабатывают.</div>
+      </div></article>
+
+      <article class="leg"><div class="stamp"><div><b>02</b>день</div></div><div class="card rv">
+        <div class="fl"><span>День 2</span><span>Клиенты и заявки</span></div>
+        <h3>Соцсети, поток заявок и туроператоры</h3>
+        <ul>
+          <li>Как новичку и действующему турагенту вести соцсети и выделяться среди других менеджеров</li>
+          <li>Как привлекать туристов и создавать стабильный поток заявок</li>
+          <li>Убираем понятие «несезонности»: зарабатываем в любой месяц</li>
+          <li>С какими туроператорами лучше и выгоднее сотрудничать</li>
+        </ul>
+        <div class="res">Итог дня: понятно, где брать клиентов и с кем работать.</div>
+      </div></article>
+
+      <article class="leg"><div class="stamp"><div><b>03</b>день</div></div><div class="card rv">
+        <div class="fl"><span>День 3</span><span>Практика</span></div>
+        <h3>От заявки до брони — по шагам</h3>
+        <ul>
+          <li>На примере смотрим, как бронировать туристов</li>
+          <li>Весь процесс: от прихода заявки до бронирования тура у туроператора</li>
+          <li>Варианты работы и заработка турагента: в каком направлении двигаться именно вам</li>
+          <li>Какие форматы работы и условия сотрудничества вообще возможны</li>
+        </ul>
+        <div class="res">Итог дня: у вас есть личный план действий.</div>
+      </div></article>
+    </div>
+
+    <div class="bonus">
+      <div class="bn glass rv"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="19"/><path d="M17 22c0-4 3-7 7-7s7 3 7 7c0 5-7 5-7 10M24 37v.5"/></svg>Ответы на все ваши вопросы разберём на эфирах</div>
+      <div class="bn glass rv"><svg viewBox="0 0 48 48"><rect x="6" y="10" width="36" height="26" rx="5"/><path d="M20 17l11 6-11 6zM16 42h16"/></svg>Запись — для тех, кто не сможет присутствовать</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SPEAKER ===== -->
+<section class="sec spk" id="spk">
+  <div class="wrap spk-grid">
+    <div class="photos" id="photos">
+      <div class="ph a rv"><img src="assets/img/speaker-sofa.jpg" alt="Спикер интенсива" style="object-position:62% 30%"><span class="cap glass">Спикер интенсива</span></div>
+      <div class="ph b rv"><img src="assets/img/speaker-desk.jpg" alt="Спикер на эфире" style="object-position:40% 30%"><span class="cap glass">Эфиры и разборы</span></div>
+      <div class="ph c rv"><img src="assets/img/speaker-laptop.jpg" alt="Спикер за работой" style="object-position:30% 22%"><span class="cap glass">Практика на примере</span></div>
+    </div>
+    <div>
+      <span class="eyebrow">Спикер</span>
+      <h2 data-split>Спикер, который покажет туризм <em>изнутри</em></h2>
+      <!-- TODO: вставьте имя, опыт и регалии спикера -->
+      <p class="sub rv">Только практика: разберём реальный процесс, от страхов и сомнений до брони у туроператора.</p>
+      <ul class="pts">
+        <li class="rv"><b>1</b><span>Покажет варианты работы и заработка турагента и поможет выбрать <i>ваше</i> направление</span></li>
+        <li class="rv"><b>2</b><span>Разберёт то, что вас тормозит, — такую информацию мало кто даёт</span></li>
+        <li class="rv"><b>3</b><span>Ответит на ваши вопросы на живых эфирах</span></li>
+      </ul>
+      <a class="btn lg rv" href="#offer">Хочу на интенсив →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CALC ===== -->
+<section class="sec calc" id="calc">
+  <div class="wrap">
+    <span class="eyebrow">Калькулятор</span>
+    <h2 data-split>Сколько броней нужно <em>для +200&nbsp;000&nbsp;₽?</em></h2>
+    <p class="sub rv">Подставьте среднюю комиссию с одной брони в вашем направлении — калькулятор покажет, сколько броней это значит.</p>
+    <div class="calc-box">
+      <div class="cb l rv">
+        <label>Средняя комиссия с брони <output id="oC">10 000&nbsp;₽</output></label>
+        <input type="range" id="rC" min="3000" max="40000" step="500" value="10000">
+        <label>Желаемый доход в месяц <output id="oG">200&nbsp;000&nbsp;₽</output></label>
+        <input type="range" id="rG" min="50000" max="500000" step="10000" value="200000">
+        <p class="fine" style="margin:0">Это пример для расчёта, а не обещание дохода. Реальная комиссия зависит от направления, туроператора и условий сотрудничества — их мы и разбираем на интенсиве.</p>
+      </div>
+      <div class="cb r rv">
+        <div class="t">Нужно броней в месяц</div>
+        <div class="big" id="oN">20</div>
+        <p id="oW">≈ 5 броней в неделю</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OFFER ===== -->
+<section class="sec offer" id="offer">
+  <div class="wrap">
+    <span class="eyebrow" style="color:var(--gold)">Участие</span>
+    <h2 data-split>Запишитесь <em>на интенсив</em></h2>
+    <div class="ticket rv">
+      <div class="tk-l">
+        <span class="k">Онлайн-интенсив · старт на следующей неделе</span>
+        <h3>Как стартовать в туризме и заработать свои +200&nbsp;000&nbsp;₽</h3>
+        <ul>
+          <li>3 дня по 1,5–2 часа в эфире</li>
+          <li>Работа со страхами, сомнениями и убеждениями</li>
+          <li>База туризма, соцсети и поток заявок</li>
+          <li>Выбор туроператоров и формата работы</li>
+          <li>Практика: как бронировать туристов по шагам</li>
+          <li>Ответы на вопросы на эфирах + запись</li>
+        </ul>
+      </div>
+      <div class="tk-r">
+        <div class="was">Сегодня последний день по цене</div>
+        <div class="pr">7&nbsp;000&nbsp;₽</div>
+        <small>Дальше стоимость будет повышаться</small>
+        <a class="btn" href="https://tochkaplace.com/ia/048a7d1a-9e8b-41ab-84cd-babc0de480d4" target="_blank" rel="noopener">Оплатить участие</a>
+        <div class="bar"></div>
+      </div>
+    </div>
+    <p class="fine">Оплата проходит на платформе Tochkaplace. Сумма +200&nbsp;000&nbsp;₽ — ориентир для действующего турагента, а не гарантия дохода: результат зависит от ваших действий.</p>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="sec faq" id="faq">
+  <div class="wrap faq-grid">
+    <div>
+      <span class="eyebrow" style="color:var(--gold)">Вопросы и ответы</span>
+      <h2 data-split>Частые <em>вопросы</em></h2>
+    </div>
+    <div>
+      <div class="qa"><button type="button">Я новичок и никогда не работал(а) в туризме. Мне подойдёт?<i>+</i></button><div class="a"><div>Да. Интенсив рассчитан и на тех, кто только присматривается к сфере, и на действующих турагентов. Начнём с базы: терминов и того, как устроена работа.</div></div></div>
+      <div class="qa"><button type="button">Я уже работаю турагентом. Будет ли мне полезно?<i>+</i></button><div class="a"><div>Да: разберём, как выделяться среди других менеджеров, создавать стабильный поток заявок, убирать «несезонность», выбирать выгодных туроператоров и варианты заработка.</div></div></div>
+      <div class="qa"><button type="button">Сколько длится интенсив и когда старт?<i>+</i></button><div class="a"><div>Три дня по 1,5–2 часа онлайн. Стартуем уже на следующей неделе.</div></div></div>
+      <div class="qa"><button type="button">Что, если я не смогу присутствовать в эфире?<i>+</i></button><div class="a"><div>Будет запись для тех, кто не сможет присутствовать.</div></div></div>
+      <div class="qa"><button type="button">Можно ли задать вопросы?<i>+</i></button><div class="a"><div>Да, ответы на все ваши вопросы разберём на эфирах.</div></div></div>
+      <div class="qa"><button type="button">Сколько стоит участие?<i>+</i></button><div class="a"><div>7&nbsp;000&nbsp;₽. Сегодня последний день по этой цене, дальше стоимость будет повышаться.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL ===== -->
+<section class="final" id="final">
+  <div class="sunr"></div>
+  <div class="wrap">
+    <h2 data-split>Интенсив стартует <em>на следующей неделе</em></h2>
+    <p class="rv">Сегодня участие стоит 7&nbsp;000&nbsp;₽, дальше цена будет повышаться. Три дня онлайн, и вы понимаете, как двигаться в туризме дальше.</p>
+    <a class="btn lg rv" href="#offer">Занять место — 7&nbsp;000&nbsp;₽ →</a>
+    <div class="mini rv"><img src="assets/img/speaker-sofa.jpg" alt="" style="object-position:62% 30%"><img src="assets/img/speaker-desk.jpg" alt="" style="object-position:40% 30%"><img src="assets/img/speaker-laptop.jpg" alt="" style="object-position:30% 22%"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>Интенсив «Как стартовать в туризме и заработать свои +200&nbsp;000&nbsp;₽» · <a href="https://tochkaplace.com/ia/048a7d1a-9e8b-41ab-84cd-babc0de480d4" target="_blank" rel="noopener">оплата</a></div>
+    <p class="fine">Информация носит образовательный характер. Размер дохода зависит от ваших действий, направления и условий сотрудничества с туроператорами и не является гарантированным.</p>
+  </div>
+</footer>
+
+<div class="bar-s glass" id="bars"><span><b>7&nbsp;000&nbsp;₽</b>сегодня последний день по этой цене</span><a class="btn sm" href="#offer">Занять место</a></div>
+
+<script src="assets/js/gsap.min.js"></script>
+<script src="assets/js/ScrollTrigger.min.js"></script>
+<script src="assets/js/lenis.min.js"></script>
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine=matchMedia('(pointer:fine)').matches;
+  var $=function(s,c){return (c||document).querySelector(s)},$$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+  if(!window.gsap){var L=$('#loader');L&&L.remove();$$('.rv').forEach(function(e){e.style.opacity=1;e.style.transform='none'});return}
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* stars */
+  var st=$('#stars'),sf='';
+  for(var i=0;i<110;i++){var t=Math.random()*68;sf+='<i style="left:'+(Math.random()*100)+'%;top:'+t+'%;opacity:'+(.3+Math.random()*.7)+';animation-delay:'+(Math.random()*3)+'s;transform:scale('+(.6+Math.random()*1.4)+')"></i>'}
+  st.innerHTML=sf;
+
+  /* globe meridians */
+  var mer=$('#meridians'),ms=[];
+  for(var k=0;k<6;k++){var e=document.createElementNS('http://www.w3.org/2000/svg','ellipse');e.setAttribute('ry','190');e.setAttribute('rx','190');mer.appendChild(e);ms.push(e)}
+  var ang=0;
+  gsap.ticker.add(function(time,dt){ang+=dt*0.00035;for(var j=0;j<ms.length;j++){ms[j].setAttribute('rx',Math.abs(Math.cos(ang+j*Math.PI/6))*190)}});
+
+  /* smooth scroll */
+  var lenis=null;
+  if(window.Lenis&&!reduce){
+    lenis=new Lenis({lerp:.09});
+    lenis.on('scroll',ScrollTrigger.update);
+    gsap.ticker.add(function(t){lenis.raf(t*1000)});gsap.ticker.lagSmoothing(0);
+    $$('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var tg=$(a.getAttribute('href'));if(tg){e.preventDefault();lenis.scrollTo(tg,{offset:-10})}})});
+  }
+  gsap.to('.progress',{scaleX:1,ease:'none',scrollTrigger:{start:0,end:'max',scrub:.3}});
+  ScrollTrigger.create({start:60,onUpdate:function(s){$('#nav').classList.toggle('solid',s.scroll()>60)}});
+  ScrollTrigger.create({trigger:'#offer',start:'top 80%',end:'bottom 40%',onToggle:function(s){$('#bars').dataset.hide=s.isActive?'1':''}});
+  ScrollTrigger.create({start:700,onUpdate:function(s){$('#bars').classList.toggle('on',s.scroll()>700&&$('#bars').dataset.hide!=='1')}});
+  ScrollTrigger.addEventListener('scrollEnd',function(){});
+
+  /* split headings */
+  $$('[data-split]').forEach(function(h){
+    var out='';
+    (function walk(n,tag){n.childNodes.forEach(function(c){
+      if(c.nodeType===3){c.textContent.split(/([ \t\r\n]+)/).forEach(function(w){if(!w)return;out+=/^[ \t\r\n]+$/.test(w)?' ':(tag?'<'+tag+'>':'')+'<span class="wd"><span>'+w+'</span></span>'+(tag?'</'+tag+'>':'')})}
+      else if(c.nodeName==='EM'){walk(c,'em')}
+    })})(h);
+    h.innerHTML=out;
+  });
+  $$('[data-split]').forEach(function(h){gsap.from($$('.wd>span',h),{yPercent:115,rotate:4,duration:1.1,ease:'expo.out',stagger:.06,scrollTrigger:{trigger:h,start:'top 88%',once:true}})});
+  ScrollTrigger.batch('.rv',{start:'top 92%',once:true,onEnter:function(els){els.forEach(function(e){e._rd=1});gsap.to(els,{opacity:1,y:0,duration:1,ease:'power3.out',stagger:.1,overwrite:true})}});
+  /* страховка: всё, что уже в зоне видимости или выше (например, после перезагрузки в середине страницы), показываем */
+  function revealNow(){$$('.rv').forEach(function(e){if(e._rd)return;var r=e.getBoundingClientRect();if(r.top<innerHeight*.96){e._rd=1;gsap.to(e,{opacity:1,y:0,duration:.9,ease:'power3.out',overwrite:true})}})}
+  ScrollTrigger.create({start:0,end:'max',onUpdate:revealNow});
+  addEventListener('load',function(){setTimeout(revealNow,300)});
+
+  /* marquee */
+  var mqx=gsap.to('#mq',{xPercent:-50,ease:'none',duration:34,repeat:-1});
+  ScrollTrigger.create({trigger:'.mq',start:'top bottom',end:'bottom top',onUpdate:function(s){mqx.timeScale(1+Math.abs(s.getVelocity()/300))}});
+
+  /* path helper */
+  function along(path,p){var L=path.getTotalLength(),a=path.getPointAtLength(L*p),b=path.getPointAtLength(Math.min(L,L*p+2));return {x:a.x,y:a.y,r:Math.atan2(b.y-a.y,b.x-a.x)*180/Math.PI}}
+
+  /* ---- intro ---- */
+  document.body.classList.add('lock');
+  var lp=$('.loader .lane svg');
+  var tl=gsap.timeline({defaults:{ease:'expo.out'},onComplete:function(){document.body.classList.remove('lock');ScrollTrigger.refresh();revealNow()}});
+  tl.fromTo(lp,{x:0},{x:function(){return $('.loader .lane').offsetWidth-46},duration:1.2,ease:'power2.inOut'})
+    .to('.loader',{clipPath:'circle(0% at 50% 100%)',duration:1.1,ease:'expo.inOut'},'+=.05')
+    .set('.loader',{display:'none'})
+    .from('nav',{y:-80,opacity:0,duration:1},'-=.5')
+    .from('.chip',{y:20,opacity:0,stagger:.08,duration:.7},'-=.7')
+    .from('h1 .l>span',{yPercent:115,rotate:3,duration:1.2,stagger:.12},'-=.6')
+    .from('.lead,.cta-row',{y:30,opacity:0,stagger:.12,duration:.9},'-=.8')
+    .from('.sun',{y:220,opacity:0,duration:1.8},'-=1.4')
+    .from('.arch',{yPercent:20,opacity:0,duration:1.4},'-=1.4')
+    .from('.globe',{scale:.5,opacity:0,duration:1.6},'-=1.4')
+    .from('.pass,.tag3',{y:40,opacity:0,scale:.85,stagger:.15,duration:1,ease:'back.out(1.6)'},'-=.9');
+  if(reduce)tl.progress(1);
+
+  /* hero plane flight loop */
+  var hp=$('#hp'),hpl=$('#heroPlane'),svg=$('#heroPath');
+  function placeHero(p){
+    var pt=along(hp,p),r=svg.getBoundingClientRect(),pr=svg.parentNode.getBoundingClientRect();
+    var x=pt.x/1000*r.width,y=pt.y/700*r.height;
+    gsap.set(hpl,{x:x-23,y:y-23,rotation:pt.r+90,transformOrigin:'50% 50%'});
+  }
+  var hv={p:0};
+  gsap.fromTo(hv,{p:0},{p:1,duration:14,ease:'none',repeat:-1,onUpdate:function(){placeHero(hv.p)}});
+
+  /* hero parallax: scroll + mouse (lerp, idea from Wanderful) */
+  $$('.hero [data-d]').forEach(function(el){
+    var d=+el.dataset.d;
+    gsap.to(el,{y:-d*3.2,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+    if(fine){var qx=gsap.quickTo(el,'x',{duration:1.2,ease:'power3'});el._m=function(n){qx(-n*d*1.1)}}
+  });
+  if(fine)$('.hero').addEventListener('mousemove',function(e){var n=(e.clientX/innerWidth-.5)*2;$$('.hero [data-d]').forEach(function(el){el._m&&el._m(n)})});
+  gsap.to('.hero .copy',{y:-80,opacity:.15,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom 20%',scrub:true}});
+  gsap.to('.arch img',{yPercent:-6,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+
+  /* route */
+  var route=$('#route'),rb=$('#rbase'),rd=$('#rdone'),rp=$('#rplane'),rsvg=$('#rsvg'),rtl=null;
+  function buildRoute(){
+    var W=route.offsetWidth,H=route.offsetHeight,mobile=innerWidth<=900,legs=$$('.leg',route),pts=[];
+    var R=route.getBoundingClientRect();
+    rsvg.setAttribute('viewBox','0 0 '+W+' '+H);
+    var cx=mobile?22:W/2;
+    pts.push([cx,0]);
+    legs.forEach(function(l,i){var b=l.getBoundingClientRect();var y=b.top-R.top+b.height/2;var x=mobile?22:(i%2===0?b.right-R.left+40:b.left-R.left-40);pts.push([x,y])});
+    pts.push([cx,H]);
+    var d='M'+pts[0][0]+' '+pts[0][1];
+    for(var i=1;i<pts.length;i++){var a=pts[i-1],b2=pts[i],my=(a[1]+b2[1])/2;d+=' C'+a[0]+' '+my+' '+b2[0]+' '+my+' '+b2[0]+' '+b2[1]}
+    rb.setAttribute('d',d);rd.setAttribute('d',d);
+    var L=rd.getTotalLength();rd.style.strokeDasharray=L;rd.style.strokeDashoffset=L;
+    rp.style.display='block';
+    if(rtl)rtl.scrollTrigger.kill();
+    rtl=gsap.to({},{scrollTrigger:{trigger:route,start:'top 65%',end:'bottom 55%',scrub:.6,onUpdate:function(s){
+      var p=s.progress;rd.style.strokeDashoffset=L*(1-p);
+      var pt=along(rd,p);rp.setAttribute('transform','translate('+pt.x+','+pt.y+') rotate('+(pt.r+90)+')');
+    }}});
+  }
+  addEventListener('load',function(){buildRoute();ScrollTrigger.refresh()});
+  var rto;addEventListener('resize',function(){clearTimeout(rto);rto=setTimeout(function(){buildRoute();ScrollTrigger.refresh()},250)});
+
+  /* photo parallax */
+  $$('.ph img').forEach(function(im,i){gsap.fromTo(im,{yPercent:-6},{yPercent:6,ease:'none',scrollTrigger:{trigger:im.parentNode,start:'top bottom',end:'bottom top',scrub:true}})});
+
+  /* calculator */
+  var rC=$('#rC'),rG=$('#rG');
+  function fmt(n){return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,' ')}
+  function calc(){
+    [rC,rG].forEach(function(r){r.style.setProperty('--p',((r.value-r.min)/(r.max-r.min)*100)+'%')});
+    $('#oC').textContent=fmt(+rC.value)+' ₽';$('#oG').textContent=fmt(+rG.value)+' ₽';
+    var n=Math.ceil(rG.value/rC.value),w=Math.max(1,Math.round(n/4.3));
+    $('#oN').textContent=n;
+    $('#oW').textContent='≈ '+w+' '+(w%10===1&&w%100!==11?'бронь':(w%10>=2&&w%10<=4&&(w%100<10||w%100>=20)?'брони':'броней'))+' в неделю';
+  }
+  rC.addEventListener('input',calc);rG.addEventListener('input',calc);calc();
+
+  /* magnetic buttons */
+  if(fine)$$('.btn.lg').forEach(function(b){
+    b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();gsap.to(b,{x:(e.clientX-r.left-r.width/2)*.14,y:(e.clientY-r.top-r.height/2)*.3,duration:.4})});
+    b.addEventListener('mouseleave',function(){gsap.to(b,{x:0,y:0,duration:.6,ease:'elastic.out(1,.4)'})});
+  });
+
+  /* faq */
+  $$('.qa').forEach(function(q){
+    var a=$('.a',q),btn=$('button',q);
+    btn.addEventListener('click',function(){
+      var open=q.classList.contains('on');
+      $$('.qa.on').forEach(function(o){if(o!==q){o.classList.remove('on');gsap.to($('.a',o),{height:0,duration:.5,ease:'power3.inOut'})}});
+      q.classList.toggle('on',!open);
+      gsap.to(a,{height:open?0:'auto',duration:.6,ease:'power3.inOut',onComplete:function(){ScrollTrigger.refresh()}});
+    });
+  });
+
+  addEventListener('load',function(){ScrollTrigger.refresh()});
+})();
+</script>
+</body>
+</html>
