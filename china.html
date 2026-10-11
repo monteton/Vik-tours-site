@@ -20,10 +20,10 @@
   --serif:'Playfair Display',Georgia,serif; --brush:'Ma Shan Zheng','Noto Serif SC',serif; --sans:'Manrope',system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:auto}
+html{scroll-behavior:auto;overflow-x:hidden;overflow-x:clip;max-width:100%}
 html.lenis,html.lenis body{height:auto}
 .lenis.lenis-smooth{scroll-behavior:auto!important}
-body{background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--sans);overflow-x:hidden;overflow-x:clip;max-width:100%;-webkit-font-smoothing:antialiased}
 body.lock{overflow:hidden}
 a{color:inherit}
 svg{display:block}
@@ -132,7 +132,7 @@ h2 em{font-style:italic;font-weight:500;color:var(--red)}
 .panel .num{position:absolute;right:18px;top:-.12em;font:400 clamp(130px,19vw,280px)/1 var(--brush);color:rgba(200,16,46,.11);pointer-events:none}
 .frame{position:relative;margin:clamp(14px,2vw,26px);border-radius:999px 999px 8px 8px;overflow:hidden;border:3px solid var(--gold);outline:2px solid var(--ink);outline-offset:3px;background:var(--ink)}
 .frame svg{position:absolute;inset:0;width:100%;height:100%}
-.frame .tag{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);background:var(--red);color:var(--paper);font:400 26px/1 var(--brush);padding:8px 16px 6px;border-radius:4px;white-space:nowrap;z-index:2}
+.frame .tag{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);background:var(--red);color:var(--paper);font:400 26px/1.15 var(--brush);padding:8px 16px 6px;border-radius:4px;width:max-content;max-width:calc(100% - 24px);text-align:center;z-index:2}
 .pbody{padding:clamp(22px,3vw,44px) clamp(20px,3vw,46px) clamp(18px,2vw,32px) 8px;display:flex;flex-direction:column;position:relative;z-index:2;min-height:0}
 .pbody .d{font-size:12px;letter-spacing:.3em;text-transform:uppercase;font-weight:700;color:var(--red)}
 .pbody h3{font:800 clamp(28px,3.5vw,52px)/1 var(--serif);margin:8px 0 14px}
@@ -217,7 +217,7 @@ h2 em{font-style:italic;font-weight:500;color:var(--red)}
 /* ---------- flights ---------- */
 .flights{padding-bottom:clamp(80px,10vw,150px)}
 .tickets{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px}
-.ticket{display:grid;grid-template-columns:1fr auto;background:var(--paper);border:2px solid var(--ink);border-radius:8px;position:relative;overflow:hidden}
+.ticket{display:grid;grid-template-columns:minmax(0,1fr) auto;background:var(--paper);border:2px solid var(--ink);border-radius:8px;position:relative;overflow:hidden}
 .ticket::before,.ticket::after{content:"";position:absolute;right:122px;width:26px;height:26px;border-radius:50%;background:var(--paper2);border:2px solid var(--ink)}
 .ticket::before{top:-14px}.ticket::after{bottom:-14px}
 .ticket .l{padding:24px 28px}
@@ -251,6 +251,60 @@ input:focus,textarea:focus{box-shadow:0 0 0 4px rgba(200,16,46,.3)}
 
 footer{background:var(--ink);color:#cdbf9f;padding:34px 0;font-size:13px;text-align:center;letter-spacing:.08em}
 footer p{margin:6px 0}footer .fl a{margin:0 6px;color:#e6d6b0}footer b{font:400 28px/1 var(--brush);color:var(--gold);margin-right:10px;vertical-align:-3px}
+
+
+/* ---------- mobile ---------- */
+@media(max-width:760px){
+  body{font-size:16px}
+  nav{padding:14px 16px}
+  nav .nl{gap:14px}
+  nav .logo{font-size:26px}
+  .lantern:nth-of-type(3){display:none}
+  .lantern:nth-of-type(1){left:3%}
+  .vert{top:11vh;right:12px;font-size:clamp(40px,12vw,56px)}
+  .hero-text{left:16px;right:16px;bottom:15vh}
+  .kicker{font-size:11px;letter-spacing:.2em;gap:10px}
+  .kicker::before{width:28px}
+  .hero-meta{left:16px;right:16px;gap:6px 14px;font-size:11px}
+  .marquee{padding:14px 0}
+  .intro{padding:70px 0 50px}
+  .stat strong{font-size:clamp(40px,13vw,60px)}
+  .stat span{font-size:11px}
+  .route svg text{font-size:26px}.route .zh{font-size:44px}
+  .route-note{font-size:12px;gap:8px 18px}
+  .panel .num{font-size:130px;right:8px}
+  .pbody h3{font-size:30px}
+  .frame .tag{font-size:21px;padding:6px 12px 4px;bottom:12px}
+  .chips{gap:6px}
+  .chip{font-size:11px;padding:3px 10px}
+  .card{padding:22px 18px}
+  .card h3{font-size:22px}
+  .hgrid{gap:14px}
+  .hotel{min-height:200px}
+  .tickets{gap:18px}
+  .ticket::before,.ticket::after{display:none}
+  .ticket{grid-template-columns:minmax(0,1fr) 96px}
+  .ticket .l{padding:18px 16px}
+  .ticket .r{width:96px;padding:14px 8px}
+  .ticket .r b{font-size:22px}
+  .ticket .r span{font-size:10px;letter-spacing:.12em}
+  .rt{font-size:24px;gap:10px}
+  .ticket small{font-size:12px;line-height:1.4;display:block}
+  .gal{margin-top:36px}
+  .lb{padding:12px}
+  .lb button{width:42px;height:42px;font-size:22px}
+  .lb .pv{left:8px;top:auto;bottom:16px}.lb .nx{right:8px;top:auto;bottom:16px}
+  .lb .x{right:10px;top:10px}
+  .lb figure{padding:6px}
+  .cta{padding:70px 0}
+  .cta .big{font-size:300px;bottom:-10vw}
+  form{padding:20px 16px;box-shadow:6px 6px 0 var(--ink)}
+  input,textarea{font-size:16px}
+  .btn{font-size:17px;padding:16px 14px;letter-spacing:.08em}
+  footer{padding:28px 16px;line-height:1.7}
+  footer .fl a{display:inline-block;margin:0 4px}
+}
+@media(max-width:380px){h1{font-size:40px}.rt{font-size:21px}.ticket{grid-template-columns:minmax(0,1fr) 84px}.ticket .r{width:84px}}
 
 @media (prefers-reduced-motion:reduce){.lantern,.scroll-hint::after{animation:none}}
 </style>
