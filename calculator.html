@@ -132,6 +132,18 @@
   .opt:active { transform: scale(.99); }
   .opt.selected { border-color: var(--red); background: rgba(249,74,131,.28); font-weight: 700; }
 
+  .hint { margin: -14px 0 18px; font-size: 14px; color: var(--muted); }
+  .opt.multi { position: relative; padding-left: 52px; }
+  .opt.multi::before {
+    content: ""; position: absolute; left: 18px; top: 50%; width: 20px; height: 20px; margin-top: -10px;
+    border: 1.5px solid rgba(255,255,255,.6); border-radius: 6px;
+  }
+  .opt.multi.selected::before {
+    background: var(--red) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3.2 3L15 7' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 18px no-repeat;
+    border-color: var(--red);
+  }
+  .btn.next { margin-top: 18px; }
+
   /* result */
   .result-title { font-size: clamp(22px, 4.5vw, 30px); line-height: 1.2; font-weight: 900; margin: 16px 0 20px; }
   .quote {
@@ -208,7 +220,9 @@
       </div>
       <div class="bar"><i id="bar"></i></div>
       <h2 id="qText"></h2>
+      <p class="hint" id="qHint" hidden>Можно выбрать несколько вариантов</p>
       <div class="options" id="qOptions"></div>
+      <button class="btn next" id="nextBtn" hidden>Далее</button>
     </section>
 
     <!-- Результат + форма -->
@@ -272,7 +286,7 @@ const QUESTIONS = [
     options: [["нет никого",0],["несколько друзей и знакомых",1],["есть соцсети с подписчиками",2],["уже работаю с клиентами",3]] },
   { id: "sales", text: "Какой у вас опыт в продажах или общении с клиентами?",
     options: [["никогда не продавал(а)",0],["было немного",1],["работал(а) в продажах",2],["регулярно продаю что-то",3]] },
-  { id: "motivation", text: "Что вас больше мотивирует?",
+  { id: "motivation", text: "Что вас больше мотивирует?", multi: true,
     options: [["дополнительный доход",1],["полная смена профессии",2],["свой бизнес и масштаб",3],["люблю путешествия, хочу быть в теме",1]] },
   { id: "travel", text: "Как часто вы путешествуете?",
     options: [["Вообще не путешествую, редко",0],["менее 1 раза в год",1],["1-2 раза в год",2],["3 и более раз в год",3]] },
@@ -317,16 +331,14 @@ const RESULTS = {
 };
 
 /* Как складывается доход — общий блок для всех результатов.
-   Источники: Sletat.Academy (03.02.2026), Академия АТОР, atour.academy */
+   Источники: Sletat.Academy (03.02.2026), atour.academy */
 const HOW_INCOME = [
-  "Турагент получает комиссию от туроператора — обычно 5–10% от стоимости тура. Тур за 100 000 ₽ — это 5–10 тыс. ₽ агенту.",
-  "При работе через онлайн-платформу агенту остаётся 55–85% этой комиссии, менеджеру в классическом агентстве — 20–40%.",
-  "Пример: 5 туров в месяц по 200 000 ₽ через платформу — около 49 000 ₽.",
+  "С каждого проданного тура туроператор платит комиссию — обычно 5–10% от стоимости тура. С тура за 100 000 ₽ это 5–10 тыс. ₽.",
+  "Работая через турагентство, турагент получает свою долю этой комиссии с каждой продажи.",
   "Дополнительный доход — страховки, трансферы, визовая поддержка."
 ];
 const SOURCES = [
   ["Sletat.Academy, 2026", "https://sletat.academy/tpost/nkmykolib1-professiya-turagenta-v-2025-godu-zarabot"],
-  ["Академия АТОР", "https://ator.academy/page/onlayn-platformy-dlya-turagentov-frilanserov-kto-vyigryvaet-ot-smeny-modeli"],
   ["atour.academy", "https://atour.academy/news/skolko-zarabatyvaet-turagent"]
 ];
 
@@ -346,15 +358,19 @@ function renderQuestion() {
   $("bar").style.width = `${(step / QUESTIONS.length) * 100}%`;
   $("backBtn").hidden = step === 0;
   $("qText").textContent = q.text;
+  $("qHint").hidden = !q.multi;
   const box = $("qOptions");
   box.innerHTML = "";
+  const picked = q.multi ? (answers[step] || []) : [answers[step]];
   q.options.forEach(([label], i) => {
     const b = document.createElement("button");
-    b.className = "opt" + (answers[step] === i ? " selected" : "");
+    b.className = "opt" + (q.multi ? " multi" : "") + (picked.includes(i) ? " selected" : "");
     b.textContent = label;
-    b.onclick = () => choose(i, b);
+    b.onclick = () => q.multi ? toggle(i, b) : choose(i, b);
     box.appendChild(b);
   });
+  $("nextBtn").hidden = !q.multi;
+  $("nextBtn").disabled = !(q.multi && picked.length);
   // перезапуск анимации
   const s = $("s-quiz"); s.style.animation = "none"; s.offsetHeight; s.style.animation = "";
 }
@@ -373,8 +389,29 @@ function choose(i, el) {
   }, 220);
 }
 
+// Несколько вариантов: отмечаем/снимаем, дальше — по кнопке
+function toggle(i, el) {
+  const list = answers[step] || [];
+  answers[step] = list.includes(i) ? list.filter(x => x !== i) : [...list, i].sort();
+  el.classList.toggle("selected");
+  $("nextBtn").disabled = !answers[step].length;
+}
+function next() {
+  if (step < QUESTIONS.length - 1) { step++; renderQuestion(); }
+  else showResult();
+}
+
+// Баллы за вариант; при нескольких выбранных берётся самый высокий
+function points(i) {
+  const a = answers[i], opts = QUESTIONS[i].options;
+  return Array.isArray(a) ? Math.max(...a.map(x => opts[x][1])) : opts[a][1];
+}
+function label(i) {
+  const a = answers[i], opts = QUESTIONS[i].options;
+  return Array.isArray(a) ? a.map(x => opts[x][0]).join(", ") : opts[a][0];
+}
 function score() {
-  return answers.reduce((sum, a, i) => sum + QUESTIONS[i].options[a][1], 0);
+  return answers.reduce((sum, a, i) => sum + points(i), 0);
 }
 
 function showResult() {
@@ -426,7 +463,7 @@ async function sendData(extra = {}) {
     id: runId,
     segment,                                   // low / mid / high
     score: score(),
-    answers: Object.fromEntries(QUESTIONS.map((q, i) => [q.id, q.options[answers[i]][0]])),
+    answers: Object.fromEntries(QUESTIONS.map((q, i) => [q.id, label(i)])),
     ...UTM,
     page: location.origin + location.pathname,
     ...extra
@@ -448,6 +485,7 @@ for (let i = 0; i < 18; i++) {
 }
 
 $("startBtn").onclick = () => { runId = Date.now().toString(36) + Math.random().toString(36).slice(2, 7); step = 0; renderQuestion(); show("s-quiz"); };
+$("nextBtn").onclick = next;
 $("backBtn").onclick = () => { if (step > 0) { step--; renderQuestion(); } };
 </script>
 </body>
